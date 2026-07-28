@@ -90,10 +90,7 @@ export default function BookAppointmentPage() {
       try {
         await fetch(webhookUrl, {
           method: "POST",
-          mode: "cors",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
           body: JSON.stringify({
             name: formData.name,
             email: formData.email,
