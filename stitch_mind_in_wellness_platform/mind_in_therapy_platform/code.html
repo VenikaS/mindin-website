@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mind'in | Emotional Sanctuary & Therapy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100..900&family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#f8f9fa",
+                        "outline-variant": "#c2c7ca",
+                        "bg-pearl": "#FFFDF6",
+                        "background": "#f8f9fa",
+                        "surface-peach": "#F8D7D6",
+                        "secondary-fixed-dim": "#dfbfbe",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#b0cbd5",
+                        "secondary-container": "#f9d8d7",
+                        "on-background": "#191c1d",
+                        "on-tertiary-fixed": "#0f1b36",
+                        "primary-container": "#cfeaf5",
+                        "inverse-on-surface": "#f0f1f2",
+                        "text-navy": "#0C1833",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#535e7c",
+                        "surface-dim": "#d9dadb",
+                        "secondary-fixed": "#fcdbda",
+                        "surface-container-highest": "#e1e3e4",
+                        "tertiary-fixed": "#dae2ff",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container": "#edeeef",
+                        "on-primary-fixed": "#031f27",
+                        "surface-sky": "#CFEAF5",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#3b4663",
+                        "secondary": "#715858",
+                        "primary": "#49626b",
+                        "on-surface": "#191c1d",
+                        "on-surface-variant": "#42484a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f3f4f5",
+                        "sage-accent": "#6C7856",
+                        "on-secondary-container": "#755d5c",
+                        "surface-tint": "#49626b",
+                        "inverse-primary": "#b0cbd5",
+                        "on-primary-fixed-variant": "#314a53",
+                        "on-secondary-fixed-variant": "#584141",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#281717",
+                        "on-primary-container": "#516a74",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f8f9fa",
+                        "on-primary": "#ffffff",
+                        "outline": "#72787b",
+                        "inverse-surface": "#2e3132",
+                        "tertiary-container": "#dee5ff",
+                        "primary-fixed": "#cce7f2",
+                        "tertiary-fixed-dim": "#bbc6e9",
+                        "on-tertiary-container": "#5b6685"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "margin-desktop": "80px",
+                        "margin-mobile": "20px",
+                        "section-gap": "120px",
+                        "stack-sm": "8px",
+                        "container-max": "1200px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["DM Sans"],
+                        "headline-lg-mobile": ["DM Sans"],
+                        "headline-xl": ["DM Sans"],
+                        "quote-display": ["DM Sans"],
+                        "headline-md": ["DM Sans"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "headline-xl": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "quote-display": ["24px", {"lineHeight": "36px", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .organic-blob {
+            position: absolute;
+            z-index: -1;
+            filter: blur(60px);
+            opacity: 0.4;
+            border-radius: 50%;
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .ambient-shadow-peach {
+            box-shadow: 0 20px 40px -10px rgba(248, 215, 214, 0.5);
+        }
+
+        .ambient-shadow-blue {
+            box-shadow: 0 20px 40px -10px rgba(207, 234, 245, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-bg-pearl text-text-navy font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="bg-bg-pearl/80 backdrop-blur-md font-body-md text-body-md docked full-width top-0 sticky z-50 transition-all duration-300">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-20">
+<div class="flex items-center gap-2">
+<img alt="Mind'in Logo" class="h-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL5A9IweSt1mDjyJ-4SBrXICsmWnBuseICaisgHG4uSDt1ZWz5eOOSwL1oiOFNx40_gHMlEuGKvbaH2eCw29JI8UKKVMztxskNWNkf_c4T5sTfLPAKLy2HGJR0XPq_N6HbMG7pwDaw4IQ20tTEEINMtvG4YX3XWk2wnaMc6aGwfd0v19CUvAkencgAZ24XunYrGs-pb2LgUZRVDrKLia9YNFXKxVnHInxY1uQGIHmKpAjiHrUs0XGpnEjJBKBWHXw8FeIuj6olE0B-"/>
+<span class="font-headline-md text-headline-md font-bold text-text-navy">Mind'in</span>
+</div>
+<nav class="hidden md:flex items-center gap-stack-lg">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 transition-colors duration-300" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Services</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Approach</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Articles</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">FAQ</a>
+</nav>
+<button class="bg-text-navy text-white px-6 py-3 rounded-full font-label-md hover:bg-primary transition-all duration-300 active:scale-95">
+                Book a Session
+            </button>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
+<!-- Organic Blobs -->
+<div class="organic-blob bg-surface-sky w-[600px] h-[600px] -top-20 -left-20 animate-pulse"></div>
+<div class="organic-blob bg-surface-peach w-[500px] h-[500px] bottom-0 -right-20"></div>
+<div class="px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center relative z-10">
+<div class="scroll-reveal active">
+<h1 class="font-headline-xl text-headline-xl mb-stack-md leading-tight">
+                    A Safe Space to <span class="text-primary">Understand Yourself</span>, Heal, and Grow
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg max-w-lg">
+                    Navigate your emotions with compassionate, personalized therapy in a safe, supportive space designed for your unique journey.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-text-navy text-white px-8 py-4 rounded-full font-label-md hover:shadow-lg transition-all">
+                        Book a Session
+                    </button>
+<button class="bg-surface-sky text-text-navy px-8 py-4 rounded-full font-label-md hover:bg-primary-container transition-all">
+                        Explore Services
+                    </button>
+</div>
+</div>
+<div class="scroll-reveal active delay-200">
+<div class="relative p-6">
+<div class="absolute inset-0 bg-surface-peach/20 rounded-[4rem] rotate-3 -z-10"></div>
+<img class="w-full h-auto rounded-[3rem] object-cover ambient-shadow-peach" data-alt="A serene and minimalist illustration of a person sitting in a meditative posture, surrounded by abstract organic shapes in soft pastel blue and peach tones. The lighting is warm and ethereal, suggesting a sense of inner peace and clarity. The overall aesthetic is editorial and premium, perfectly matching the Mind'in brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSBiImGLYX6h7V_M-EOr_h23-dxfEAEPwwrXySYGjbcmblhem8vcY7ILRfLeBZX8NI9Ag9uKTP6JxKi8wk2LkjkjVfGm8XWbpKjf4QUP_kRISFz4_FCiJAOseq5l8xIlK3zMcvYwJ6ayYioA6keK-vcXYoDsY37yo_hJ253K8JjAI7nMI4scFq5y1EF-HUCBxKguwuCQcRGP85pRqDSznNS-elqzWYDuMtyv7coW4VxluTlKwXTZRL8ydS6d_ozlD8LafADebqPvaG"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Support Areas (Bento-style Grid) -->
+<section class="py-section-gap relative">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-stack-lg scroll-reveal">
+<h2 class="font-headline-lg text-headline-lg mb-4">Areas of Support</h2>
+<p class="font-body-md text-on-surface-variant max-w-2xl mx-auto">Specialized care tailored to the complexities of human emotion and experience.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter scroll-reveal">
+<!-- Support Cards -->
+<div class="group p-8 bg-white rounded-xl ambient-shadow-blue hover:-translate-y-2 transition-all duration-300 text-center">
+<img class="w-20 h-20 mx-auto mb-4 object-contain" data-alt="Minimalist soft-colored circular icons representing emotional states. One icon shows a gentle wave for Anxiety, another shows a soft sun behind hills for Stress. The style is hand-drawn and organic, using muted pastel tones of blue, peach, and sage." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-avgb_E-yEYZWXT4LUbNIfN7sXmxuPvV4TLq76hQdRYAKWMuopGzjwTBguDBbjYisfT4Sl6Y4gQzwLZk9o9L5DBb6Op2ibRxG4VOrvs0kky7EHmZ_CDdrRnFOKfxb4b7NI3dndBceKwd2TtFkDI78IyIh0Js7Wp0gyWjX9m38A1FoIdAK5kSVTJdfD10wX0DDz2NrZxbc80A8BgCMkqaKjuRmfHKxn-e2v0CKatD0SQiNZhRrSQ3tRY5ZuItjYlKV3rzlBa9cQs9c"/>
+<h3 class="font-headline-md text-body-lg font-bold">Anxiety</h3>
+</div>
+<!-- Repeat for others - simplified for demo -->
+<div class="group p-8 bg-white rounded-xl ambient-shadow-peach hover:-translate-y-2 transition-all duration-300 text-center">
+<div class="w-20 h-20 mx-auto mb-4 bg-surface-peach/30 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-4xl">wb_sunny</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold">Stress</h3>
+</div>
+<div class="group p-8 bg-white rounded-xl ambient-shadow-blue hover:-translate-y-2 transition-all duration-300 text-center">
+<div class="w-20 h-20 mx-auto mb-4 bg-surface-sky/30 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl">eco</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold">Depression</h3>
+</div>
+<div class="group p-8 bg-white rounded-xl ambient-shadow-peach hover:-translate-y-2 transition-all duration-300 text-center">
+<div class="w-20 h-20 mx-auto mb-4 bg-surface-peach/30 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-4xl">favorite</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold">Relationships</h3>
+</div>
+<!-- Row 2 -->
+<div class="group p-8 bg-white rounded-xl ambient-shadow-blue hover:-translate-y-2 transition-all duration-300 text-center">
+<div class="w-20 h-20 mx-auto mb-4 bg-surface-sky/30 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl">self_improvement</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold">Self-Esteem</h3>
+</div>
+<div class="group p-8 bg-white rounded-xl ambient-shadow-peach hover:-translate-y-2 transition-all duration-300 text-center">
+<div class="w-20 h-20 mx-auto mb-4 bg-surface-peach/30 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-4xl">battery_charging_full</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold">Burnout</h3>
+</div>
+<div class="group p-8 bg-white rounded-xl ambient-shadow-blue hover:-translate-y-2 transition-all duration-300 text-center">
+<div class="w-20 h-20 mx-auto mb-4 bg-surface-sky/30 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl">trending_up</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold">Personal Growth</h3>
+</div>
+<div class="group p-8 bg-white rounded-xl ambient-shadow-peach hover:-translate-y-2 transition-all duration-300 text-center">
+<div class="w-20 h-20 mx-auto mb-4 bg-surface-peach/30 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-4xl">spa</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold">Wellness</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-section-gap bg-surface-container-low/50 relative">
+<div class="px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
+<div class="scroll-reveal">
+<div class="relative inline-block">
+<img class="rounded-xl w-full max-w-md ambient-shadow-blue" data-alt="A warm and approachable professional portrait of a therapist in her 40s with a kind smile. She is sitting in a light-filled, modern therapy room with bookshelves and soft green plants in the background. The lighting is soft and natural, creating a mood of safety and professionalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9-y7pLT9iMfzYG-yxQh3DAJEzm653fr-OU8NUhAi1JR7fZqp4wSrRkI2JWGQFh2_g5ptBgR8luxMHtrs6MuIqBs4AMllSWV8Ih85s4zhztRqqY7-hRA3KBf7AQeSISMZe77Go5UkdZSPR9wWg8fWrQ1pk2yWCZJOA_zad_a-ku2ZQARRieIz3-ioY9dbueBj4iiQN1zxFMV0lT1HTGdrZ-rCZGVzKNuVKP11tmqGq0K_48wQWcjYD31C1OuVrejoneHv8Ntih_3oE"/>
+<div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-lg ambient-shadow-peach hidden md:block">
+<p class="font-headline-md text-primary font-bold">12+</p>
+<p class="text-label-md">Years Experience</p>
+</div>
+</div>
+</div>
+<div class="scroll-reveal">
+<span class="text-primary font-label-md tracking-widest uppercase">Our Story</span>
+<h2 class="font-headline-lg text-headline-lg mt-2 mb-stack-md">A Sanctuary for Healing and Growth</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
+                    I founded Mind'in with a simple belief: therapy should be a sanctuary. Not a sterile clinic, but a warm space where you can let down your guard and explore the depths of your inner world without judgment.
+                </p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg">
+                    My approach combines evidence-based clinical practice with a deeply human, empathetic touch. Whether you're navigating a specific crisis or seeking long-term personal evolution, we walk this path together.
+                </p>
+<button class="border-2 border-text-navy text-text-navy px-8 py-3 rounded-full font-label-md hover:bg-text-navy hover:text-white transition-all">
+                    Read Full Story
+                </button>
+</div>
+</div>
+</section>
+<!-- How Therapy Works (Timeline) -->
+<section class="py-section-gap">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-center mb-16 scroll-reveal">Your Journey Forward</h2>
+<div class="relative">
+<!-- Line -->
+<div class="absolute top-1/2 left-0 w-full h-0.5 bg-outline-variant/30 -translate-y-1/2 hidden md:block"></div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-stack-lg relative z-10">
+<div class="text-center scroll-reveal">
+<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 ambient-shadow-blue border-4 border-surface-sky">
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+</div>
+<h4 class="font-bold mb-2">Book a Session</h4>
+<p class="text-on-surface-variant text-sm">Choose a time that fits your schedule for our first meeting.</p>
+</div>
+<div class="text-center scroll-reveal delay-100">
+<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 ambient-shadow-peach border-4 border-surface-peach">
+<span class="material-symbols-outlined text-secondary">forum</span>
+</div>
+<h4 class="font-bold mb-2">The Conversation</h4>
+<p class="text-on-surface-variant text-sm">We'll discuss your needs in a safe, open environment.</p>
+</div>
+<div class="text-center scroll-reveal delay-200">
+<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 ambient-shadow-blue border-4 border-surface-sky">
+<span class="material-symbols-outlined text-primary">psychology</span>
+</div>
+<h4 class="font-bold mb-2">Personalized Plan</h4>
+<p class="text-on-surface-variant text-sm">Tailoring evidence-based techniques to your unique goals.</p>
+</div>
+<div class="text-center scroll-reveal delay-300">
+<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 ambient-shadow-peach border-4 border-surface-peach">
+<span class="material-symbols-outlined text-secondary">auto_awesome</span>
+</div>
+<h4 class="font-bold mb-2">Growth Journey</h4>
+<p class="text-on-surface-variant text-sm">Consistent support as you heal and evolve your mindset.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Mind'in (Bento) -->
+<section class="py-section-gap bg-text-navy text-white overflow-hidden relative">
+<div class="organic-blob bg-primary/20 w-[800px] h-[800px] -bottom-40 -left-40"></div>
+<div class="px-margin-desktop max-w-container-max mx-auto relative z-10">
+<h2 class="font-headline-lg text-headline-lg text-center mb-16 scroll-reveal">Why Choose Mind'in</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="p-8 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 transition-all scroll-reveal">
+<span class="material-symbols-outlined text-primary-fixed mb-4 text-3xl">verified_user</span>
+<h3 class="text-xl font-bold mb-2">Confidential</h3>
+<p class="text-outline-variant">Your privacy is our highest priority, protected by medical-grade security.</p>
+</div>
+<div class="p-8 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 transition-all scroll-reveal">
+<span class="material-symbols-outlined text-secondary-fixed mb-4 text-3xl">person</span>
+<h3 class="text-xl font-bold mb-2">Personalized</h3>
+<p class="text-outline-variant">No one-size-fits-all. Every session is adapted to your current needs.</p>
+</div>
+<div class="p-8 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 transition-all scroll-reveal">
+<span class="material-symbols-outlined text-primary-fixed mb-4 text-3xl">science</span>
+<h3 class="text-xl font-bold mb-2">Evidence-Based</h3>
+<p class="text-outline-variant">Clinical methodologies rooted in the latest psychological research.</p>
+</div>
+<div class="p-8 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 transition-all scroll-reveal">
+<span class="material-symbols-outlined text-secondary-fixed mb-4 text-3xl">laptop_mac</span>
+<h3 class="text-xl font-bold mb-2">Online & Secure</h3>
+<p class="text-outline-variant">Therapy from the comfort of your home, wherever you are in the world.</p>
+</div>
+<div class="p-8 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 transition-all scroll-reveal">
+<span class="material-symbols-outlined text-primary-fixed mb-4 text-3xl">schedule</span>
+<h3 class="text-xl font-bold mb-2">Flexible</h3>
+<p class="text-outline-variant">Morning, evening, and weekend slots available to fit your busy life.</p>
+</div>
+<div class="p-8 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 transition-all scroll-reveal">
+<span class="material-symbols-outlined text-secondary-fixed mb-4 text-3xl">volunteer_activism</span>
+<h3 class="text-xl font-bold mb-2">Compassionate</h3>
+<p class="text-outline-variant">A deeply human connection focused on warmth and radical empathy.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Carousel (Simple Interaction) -->
+<section class="py-section-gap overflow-hidden">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-center mb-16 scroll-reveal">Voices of Healing</h2>
+<div class="flex gap-8 transition-transform duration-500 cursor-grab active:cursor-grabbing" id="testimonial-track">
+<!-- Card 1 -->
+<div class="min-w-[350px] p-8 bg-white rounded-xl ambient-shadow-blue border border-surface-sky/30">
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-quote-display text-body-md italic mb-6">"Mind'in gave me the tools to handle my anxiety in a way no other therapy had. The environment is so calming."</p>
+<div class="font-label-md">— Sarah K., Creative Director</div>
+</div>
+<!-- Card 2 -->
+<div class="min-w-[350px] p-8 bg-white rounded-xl ambient-shadow-peach border border-surface-peach/30">
+<div class="flex text-secondary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-quote-display text-body-md italic mb-6">"Finally, a therapist who actually listens and provides practical strategies for burnout. Life-changing."</p>
+<div class="font-label-md">— Michael T., Software Engineer</div>
+</div>
+<!-- Card 3 -->
+<div class="min-w-[350px] p-8 bg-white rounded-xl ambient-shadow-blue border border-surface-sky/30">
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-quote-display text-body-md italic mb-6">"The combination of professional expertise and genuine warmth is rare. I feel truly seen at Mind'in."</p>
+<div class="font-label-md">— Elena R., Educator</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-section-gap bg-surface-container-low">
+<div class="max-w-3xl mx-auto px-margin-mobile">
+<h2 class="font-headline-lg text-headline-lg text-center mb-12 scroll-reveal">Common Questions</h2>
+<div class="space-y-4">
+<!-- FAQ Item -->
+<div class="bg-white rounded-xl overflow-hidden border border-outline-variant/20 scroll-reveal">
+<button class="w-full flex justify-between items-center p-6 text-left hover:bg-surface-bright transition-colors" onclick="toggleFaq(this)">
+<span class="font-bold">How long is each therapy session?</span>
+<span class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+</button>
+<div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6 pb-6 text-on-surface-variant">
+                        Standard sessions are 50 minutes long. We also offer extended sessions for couples or deep-dive intensive work if requested.
+                    </div>
+</div>
+<div class="bg-white rounded-xl overflow-hidden border border-outline-variant/20 scroll-reveal">
+<button class="w-full flex justify-between items-center p-6 text-left hover:bg-surface-bright transition-colors" onclick="toggleFaq(this)">
+<span class="font-bold">Do you accept health insurance?</span>
+<span class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+</button>
+<div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6 pb-6 text-on-surface-variant">
+                        We provide detailed invoices that can be submitted for out-of-network reimbursement. Please check with your provider for specific coverage details.
+                    </div>
+</div>
+<div class="bg-white rounded-xl overflow-hidden border border-outline-variant/20 scroll-reveal">
+<button class="w-full flex justify-between items-center p-6 text-left hover:bg-surface-bright transition-colors" onclick="toggleFaq(this)">
+<span class="font-bold">Can I switch from online to in-person?</span>
+<span class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+</button>
+<div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6 pb-6 text-on-surface-variant">
+                        Yes, we offer hybrid options depending on your location and availability in our physical sanctuary office.
+                    </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-section-gap relative overflow-hidden">
+<div class="organic-blob bg-surface-sky w-[600px] h-[600px] -top-20 -right-20"></div>
+<div class="px-margin-desktop max-w-container-max mx-auto text-center relative z-10">
+<div class="bg-white/40 backdrop-blur-xl p-12 md:p-24 rounded-[4rem] ambient-shadow-blue border border-white">
+<h2 class="font-headline-xl text-headline-xl mb-6">Ready to Start Your Journey?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl mx-auto">
+                    The first step is often the hardest, but you don't have to walk it alone. Book a consultation today.
+                </p>
+<div class="flex flex-wrap justify-center gap-6">
+<button class="bg-text-navy text-white px-10 py-5 rounded-full font-label-md hover:scale-105 transition-transform">
+                        Book Your First Session
+                    </button>
+<button class="border-2 border-text-navy text-text-navy px-10 py-5 rounded-full font-label-md hover:bg-text-navy hover:text-white transition-all">
+                        Contact Me
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-on-background full-width border-t border-outline-variant/30">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg w-full px-margin-desktop py-stack-lg max-w-container-max mx-auto">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<img alt="Mind'in Logo" class="h-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL5A9IweSt1mDjyJ-4SBrXICsmWnBuseICaisgHG4uSDt1ZWz5eOOSwL1oiOFNx40_gHMlEuGKvbaH2eCw29JI8UKKVMztxskNWNkf_c4T5sTfLPAKLy2HGJR0XPq_N6HbMG7pwDaw4IQ20tTEEINMtvG4YX3XWk2wnaMc6aGwfd0v19CUvAkencgAZ24XunYrGs-pb2LgUZRVDrKLia9YNFXKxVnHInxY1uQGIHmKpAjiHrUs0XGpnEjJBKBWHXw8FeIuj6olE0B-"/>
+<span class="font-headline-md text-headline-md font-bold text-text-navy dark:text-primary-fixed">Mind'in</span>
+</div>
+<p class="font-body-md text-on-surface-variant dark:text-surface-variant max-w-sm">
+                    © 2024 Mind'in Therapy. A sanctuary for healing and growth.
+                </p>
+<div class="flex gap-4 mt-2">
+<a class="text-on-surface-variant hover:text-sage-accent transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">public</span>
+</a>
+<a class="text-on-surface-variant hover:text-sage-accent transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">mail</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="flex flex-col gap-3">
+<h5 class="font-bold text-primary">Explore</h5>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-sage-accent transition-colors duration-200" href="#">Services</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-sage-accent transition-colors duration-200" href="#">Articles</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-sage-accent transition-colors duration-200" href="#">FAQ</a>
+</div>
+<div class="flex flex-col gap-3">
+<h5 class="font-bold text-primary">Company</h5>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-sage-accent transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-sage-accent transition-colors duration-200" href="#">Terms of Service</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-sage-accent transition-colors duration-200" href="#">Contact Us</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Intersection Observer for Scroll Reveal
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        // FAQ Toggle
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.material-symbols-outlined');
+            
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Horizontal Drag for Testimonials
+        const track = document.getElementById('testimonial-track');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        track.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - track.offsetLeft;
+            scrollLeft = track.scrollLeft;
+        });
+        track.addEventListener('mouseleave', () => isDown = false);
+        track.addEventListener('mouseup', () => isDown = false);
+        track.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - track.offsetLeft;
+            const walk = (x - startX) * 2;
+            track.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+</body></html>

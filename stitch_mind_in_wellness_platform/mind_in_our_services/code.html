@@ -1,0 +1,517 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Services | Mind'in Therapy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#314a53",
+                        "secondary": "#715858",
+                        "secondary-fixed-dim": "#dfbfbe",
+                        "on-tertiary-fixed-variant": "#3b4663",
+                        "surface-container-high": "#eae8e1",
+                        "inverse-primary": "#b0cbd5",
+                        "outline": "#72787b",
+                        "surface-container-lowest": "#ffffff",
+                        "accent-moss": "#6C7856",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#f0eee7",
+                        "on-secondary-container": "#755d5c",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#49626b",
+                        "primary": "#49626b",
+                        "surface-blue": "#CFEAF5",
+                        "surface-peach": "#F8D7D6",
+                        "tertiary-fixed": "#dae2ff",
+                        "on-primary-fixed": "#031f27",
+                        "secondary-fixed": "#fcdbda",
+                        "text-muted": "#46572A",
+                        "primary-fixed": "#cce7f2",
+                        "surface-variant": "#e4e2dc",
+                        "on-surface-variant": "#42484a",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#535e7c",
+                        "on-secondary-fixed-variant": "#584141",
+                        "on-tertiary-fixed": "#0f1b36",
+                        "primary-container": "#cfeaf5",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#f9d8d7",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#30312c",
+                        "tertiary-container": "#dee5ff",
+                        "background": "#fbf9f2",
+                        "surface": "#fbf9f2",
+                        "on-surface": "#1b1c18",
+                        "on-tertiary-container": "#5b6685",
+                        "on-secondary-fixed": "#281717",
+                        "on-secondary": "#ffffff",
+                        "surface-cream": "#FFFDF6",
+                        "outline-variant": "#c2c7ca",
+                        "surface-container-low": "#f5f4ed",
+                        "on-primary-container": "#516a74",
+                        "surface-container-highest": "#e4e2dc",
+                        "surface-bright": "#fbf9f2",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#1b1c18",
+                        "surface-dim": "#dcdad3",
+                        "tertiary-fixed-dim": "#bbc6e9",
+                        "surface-pearl": "#FFFFFF",
+                        "primary-fixed-dim": "#b0cbd5",
+                        "inverse-on-surface": "#f3f1ea"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "section-gap": "120px",
+                        "margin-mobile": "20px",
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "container-max": "1200px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["DM Sans", "sans-serif"],
+                        "headline-sm": ["DM Sans", "sans-serif"],
+                        "label-sm": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "headline-md": ["DM Sans", "sans-serif"],
+                        "display-lg": ["DM Sans", "sans-serif"],
+                        "label-md": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["36px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.7", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #fbf9f2;
+            overflow-x: hidden;
+        }
+        .blob-bg {
+            filter: blur(80px);
+            opacity: 0.15;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .service-card {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 40px 40px -15px rgba(73, 98, 107, 0.08);
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- Global Background Blobs -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none overflow-hidden">
+<div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-surface-blue rounded-full blob-bg"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-surface-peach rounded-full blob-bg"></div>
+<div class="absolute top-[40%] right-[15%] w-[30%] h-[30%] bg-secondary-container rounded-full blob-bg" style="opacity: 0.1;"></div>
+</div>
+<!-- Navigation -->
+<nav class="bg-background/80 dark:bg-background/80 backdrop-blur-md shadow-[0_40px_40px_-15px_rgba(73,98,107,0.04)] docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
+<a class="text-headline-md font-display-lg-mobile font-medium text-primary dark:text-primary-fixed-dim" href="index.html"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlk3xpbayP2dGVN4AHC3uYyOTrTuUxZKqtnZ3yl8SrQlmPggTLWURVVhUeaHJwchoaupHxF70qEBQNobW8IefXWBCXktiCgXlMk5cFqcBH2bLmZHnuyyiYInRyZbhjkkIWFju1iDGhklQYxsz8A5naZ3YtAZHvIwGrn9CNBPtiGOtLqX1SpypzlVF3TGV4-5Hb4AKwTLqHjRmCQISge4MtcnzkldvnFmyQWWGkkeGTr5pAnAOtSH2XNOA4CdnKSTXnGFo322LyOJZF" alt="Mind'in Logo" class="h-10 w-auto object-contain"></a>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all duration-200" href="#">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all duration-200" href="#">About</a>
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1" href="#">Services</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all duration-200" href="#">Blog</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all duration-200" href="#">Resources</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all duration-200" href="#">FAQ</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all duration-200" href="#">Contact</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-md text-label-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shadow-sm">
+                Book a Session
+            </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative px-margin-mobile md:px-margin-desktop pt-24 pb-section-gap max-w-container-max mx-auto text-center">
+<div class="max-w-3xl mx-auto space-y-6">
+<span class="inline-block bg-primary-container text-on-primary-container px-4 py-1 rounded-full font-label-sm text-label-sm tracking-widest uppercase">Expert Care</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary">Support designed around your experiences and needs.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">We provide a compassionate space to navigate life's complexities. Explore our specialized therapy services tailored to help you find balance and inner peace.</p>
+</div>
+</header>
+<!-- Services Grid -->
+<main class="px-margin-mobile md:px-margin-desktop pb-section-gap max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Anxiety Card -->
+<div class="service-card bg-surface-pearl rounded-[16px] p-8 flex flex-col h-full shadow-[0_40px_40px_-15px_rgba(73,98,107,0.04)] transition-all duration-700 ease-out opacity-100 translate-y-0" style="transition-delay: 0ms;">
+<div class="w-16 h-16 mb-6 rounded-2xl bg-surface-blue flex items-center justify-center overflow-hidden">
+<img alt="Anxiety icon" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLsGYvNTT4tmVFCNS1SgbiNXWMQ6xNiOz5L3s-LgRFpnzZV_rNgPm491TvBbddjlT3ObvlElG_6-ZfiqWovm43XM2pHJQAvVJZUH9osYAJyJrOskHAHCfIqIi0WYNh6tTvcDV37r3DZjSMIWb7_qgykPcp5lsD5DAgzFcqyxQ41X1lJuVzKS8vB_TfEqfd79hrQ8UqTsKSMQTCj8GytUUuUByIpAIne7zNDZ2Z1HgsYap6HPWs_4o4E86i8">
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Anxiety</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Transform overwhelm into tranquility. We help you identify triggers and develop sustainable coping mechanisms for a calmer daily life.</p>
+<div class="mb-8">
+<p class="font-label-md text-label-md text-primary mb-3 uppercase tracking-wider">Common Concerns</p>
+<ul class="space-y-2">
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Panic attacks
+                        </li>
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Social avoidance
+                        </li>
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Persistent worry
+                        </li>
+</ul>
+</div>
+<div class="flex items-center gap-4 mt-auto">
+<button class="bg-primary text-on-primary flex-1 py-3 rounded-full font-label-md text-label-md hover:opacity-90 transition-opacity">Book Session</button>
+<button class="border border-primary text-primary flex-1 py-3 rounded-full font-label-md text-label-md hover:bg-primary/5 transition-colors">Learn More</button>
+</div>
+</div>
+<!-- Stress Card -->
+<div class="service-card bg-surface-pearl rounded-[16px] p-8 flex flex-col h-full shadow-[0_40px_40px_-15px_rgba(73,98,107,0.04)] transition-all duration-700 ease-out opacity-100 translate-y-0" style="transition-delay: 100ms;">
+<div class="w-16 h-16 mb-6 rounded-2xl bg-surface-peach flex items-center justify-center overflow-hidden">
+<img alt="Stress icon" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLsGYvNTT4tmVFCNS1SgbiNXWMQ6xNiOz5L3s-LgRFpnzZV_rNgPm491TvBbddjlT3ObvlElG_6-ZfiqWovm43XM2pHJQAvVJZUH9osYAJyJrOskHAHCfIqIi0WYNh6tTvcDV37r3DZjSMIWb7_qgykPcp5lsD5DAgzFcqyxQ41X1lJuVzKS8vB_TfEqfd79hrQ8UqTsKSMQTCj8GytUUuUByIpAIne7zNDZ2Z1HgsYap6HPWs_4o4E86i8">
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Stress</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Navigate modern pressures with resilience. Our stress management techniques are designed to restore your energy and focus.</p>
+<div class="mb-8">
+<p class="font-label-md text-label-md text-primary mb-3 uppercase tracking-wider">Common Concerns</p>
+<ul class="space-y-2">
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Workplace tension
+                        </li>
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Sleep disturbances
+                        </li>
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Physical fatigue
+                        </li>
+</ul>
+</div>
+<div class="flex items-center gap-4 mt-auto">
+<button class="bg-primary text-on-primary flex-1 py-3 rounded-full font-label-md text-label-md hover:opacity-90 transition-opacity">Book Session</button>
+<button class="border border-primary text-primary flex-1 py-3 rounded-full font-label-md text-label-md hover:bg-primary/5 transition-colors">Learn More</button>
+</div>
+</div>
+<!-- Self-Esteem Card -->
+<div class="service-card bg-surface-pearl rounded-[16px] p-8 flex flex-col h-full shadow-[0_40px_40px_-15px_rgba(73,98,107,0.04)] transition-all duration-700 ease-out opacity-100 translate-y-0" style="transition-delay: 200ms;">
+<div class="w-16 h-16 mb-6 rounded-2xl bg-tertiary-container flex items-center justify-center overflow-hidden">
+<img alt="Self-Esteem icon" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLsGYvNTT4tmVFCNS1SgbiNXWMQ6xNiOz5L3s-LgRFpnzZV_rNgPm491TvBbddjlT3ObvlElG_6-ZfiqWovm43XM2pHJQAvVJZUH9osYAJyJrOskHAHCfIqIi0WYNh6tTvcDV37r3DZjSMIWb7_qgykPcp5lsD5DAgzFcqyxQ41X1lJuVzKS8vB_TfEqfd79hrQ8UqTsKSMQTCj8GytUUuUByIpAIne7zNDZ2Z1HgsYap6HPWs_4o4E86i8">
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Self-Esteem</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Build a foundation of self-worth. We work with you to challenge negative self-talk and embrace your authentic strengths.</p>
+<div class="mb-8">
+<p class="font-label-md text-label-md text-primary mb-3 uppercase tracking-wider">Common Concerns</p>
+<ul class="space-y-2">
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Imposter syndrome
+                        </li>
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Self-criticism
+                        </li>
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Boundary issues
+                        </li>
+</ul>
+</div>
+<div class="flex items-center gap-4 mt-auto">
+<button class="bg-primary text-on-primary flex-1 py-3 rounded-full font-label-md text-label-md hover:opacity-90 transition-opacity">Book Session</button>
+<button class="border border-primary text-primary flex-1 py-3 rounded-full font-label-md text-label-md hover:bg-primary/5 transition-colors">Learn More</button>
+</div>
+</div>
+<!-- Relationships Card -->
+<div class="service-card bg-surface-pearl rounded-[16px] p-8 flex flex-col h-full shadow-[0_40px_40px_-15px_rgba(73,98,107,0.04)] transition-all duration-700 ease-out opacity-100 translate-y-0" style="transition-delay: 300ms;">
+<div class="w-16 h-16 mb-6 rounded-2xl bg-secondary-container flex items-center justify-center overflow-hidden">
+<img alt="Relationships icon" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLsGYvNTT4tmVFCNS1SgbiNXWMQ6xNiOz5L3s-LgRFpnzZV_rNgPm491TvBbddjlT3ObvlElG_6-ZfiqWovm43XM2pHJQAvVJZUH9osYAJyJrOskHAHCfIqIi0WYNh6tTvcDV37r3DZjSMIWb7_qgykPcp5lsD5DAgzFcqyxQ41X1lJuVzKS8vB_TfEqfd79hrQ8UqTsKSMQTCj8GytUUuUByIpAIne7zNDZ2Z1HgsYap6HPWs_4o4E86i8">
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Relationships</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Foster deeper connections. Whether with partners, family, or friends, we help improve communication and resolve conflict.</p>
+<div class="mb-8">
+<p class="font-label-md text-label-md text-primary mb-3 uppercase tracking-wider">Common Concerns</p>
+<ul class="space-y-2">
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Communication gaps
+                        </li>
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Trust rebuilding
+                        </li>
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Attachment patterns
+                        </li>
+</ul>
+</div>
+<div class="flex items-center gap-4 mt-auto">
+<button class="bg-primary text-on-primary flex-1 py-3 rounded-full font-label-md text-label-md hover:opacity-90 transition-opacity">Book Session</button>
+<button class="border border-primary text-primary flex-1 py-3 rounded-full font-label-md text-label-md hover:bg-primary/5 transition-colors">Learn More</button>
+</div>
+</div>
+<!-- Burnout Card -->
+<div class="service-card bg-surface-pearl rounded-[16px] p-8 flex flex-col h-full shadow-[0_40px_40px_-15px_rgba(73,98,107,0.04)] transition-all duration-700 ease-out opacity-100 translate-y-0" style="transition-delay: 400ms;">
+<div class="w-16 h-16 mb-6 rounded-2xl bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img alt="Burnout icon" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLsGYvNTT4tmVFCNS1SgbiNXWMQ6xNiOz5L3s-LgRFpnzZV_rNgPm491TvBbddjlT3ObvlElG_6-ZfiqWovm43XM2pHJQAvVJZUH9osYAJyJrOskHAHCfIqIi0WYNh6tTvcDV37r3DZjSMIWb7_qgykPcp5lsD5DAgzFcqyxQ41X1lJuVzKS8vB_TfEqfd79hrQ8UqTsKSMQTCj8GytUUuUByIpAIne7zNDZ2Z1HgsYap6HPWs_4o4E86i8">
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Burnout</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Recover your spark. We provide structural strategies and emotional support to help you recover from chronic exhaustion.</p>
+<div class="mb-8">
+<p class="font-label-md text-label-md text-primary mb-3 uppercase tracking-wider">Common Concerns</p>
+<ul class="space-y-2">
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Emotional drainage
+                        </li>
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Loss of motivation
+                        </li>
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Decision fatigue
+                        </li>
+</ul>
+</div>
+<div class="flex items-center gap-4 mt-auto">
+<button class="bg-primary text-on-primary flex-1 py-3 rounded-full font-label-md text-label-md hover:opacity-90 transition-opacity">Book Session</button>
+<button class="border border-primary text-primary flex-1 py-3 rounded-full font-label-md text-label-md hover:bg-primary/5 transition-colors">Learn More</button>
+</div>
+</div>
+<!-- Depression Card -->
+<div class="service-card bg-surface-pearl rounded-[16px] p-8 flex flex-col h-full shadow-[0_40px_40px_-15px_rgba(73,98,107,0.04)] transition-all duration-700 ease-out opacity-100 translate-y-0" style="transition-delay: 500ms;">
+<div class="w-16 h-16 mb-6 rounded-2xl bg-primary-fixed flex items-center justify-center overflow-hidden">
+<img alt="Depression icon" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLsGYvNTT4tmVFCNS1SgbiNXWMQ6xNiOz5L3s-LgRFpnzZV_rNgPm491TvBbddjlT3ObvlElG_6-ZfiqWovm43XM2pHJQAvVJZUH9osYAJyJrOskHAHCfIqIi0WYNh6tTvcDV37r3DZjSMIWb7_qgykPcp5lsD5DAgzFcqyxQ41X1lJuVzKS8vB_TfEqfd79hrQ8UqTsKSMQTCj8GytUUuUByIpAIne7zNDZ2Z1HgsYap6HPWs_4o4E86i8">
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Depression</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Find hope in the shadows. Gentle, evidence-based therapy to help you reconnect with joy and rediscover your sense of purpose.</p>
+<div class="mb-8">
+<p class="font-label-md text-label-md text-primary mb-3 uppercase tracking-wider">Common Concerns</p>
+<ul class="space-y-2">
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Lack of energy
+                        </li>
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Social withdrawal
+                        </li>
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Hopelessness
+                        </li>
+</ul>
+</div>
+<div class="flex items-center gap-4 mt-auto">
+<button class="bg-primary text-on-primary flex-1 py-3 rounded-full font-label-md text-label-md hover:opacity-90 transition-opacity">Book Session</button>
+<button class="border border-primary text-primary flex-1 py-3 rounded-full font-label-md text-label-md hover:bg-primary/5 transition-colors">Learn More</button>
+</div>
+</div>
+<!-- Personal Growth Card -->
+<div class="service-card bg-surface-pearl rounded-[16px] p-8 flex flex-col h-full shadow-[0_40px_40px_-15px_rgba(73,98,107,0.04)] transition-all duration-700 ease-out opacity-100 translate-y-0" style="transition-delay: 600ms;">
+<div class="w-16 h-16 mb-6 rounded-2xl bg-surface-container flex items-center justify-center overflow-hidden">
+<img alt="Personal Growth icon" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLsGYvNTT4tmVFCNS1SgbiNXWMQ6xNiOz5L3s-LgRFpnzZV_rNgPm491TvBbddjlT3ObvlElG_6-ZfiqWovm43XM2pHJQAvVJZUH9osYAJyJrOskHAHCfIqIi0WYNh6tTvcDV37r3DZjSMIWb7_qgykPcp5lsD5DAgzFcqyxQ41X1lJuVzKS8vB_TfEqfd79hrQ8UqTsKSMQTCj8GytUUuUByIpAIne7zNDZ2Z1HgsYap6HPWs_4o4E86i8">
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Personal Growth</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Evolve into your best self. We support your journey of self-discovery, helping you align your actions with your deepest values.</p>
+<div class="mb-8">
+<p class="font-label-md text-label-md text-primary mb-3 uppercase tracking-wider">Common Concerns</p>
+<ul class="space-y-2">
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Life transitions
+                        </li>
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Value alignment
+                        </li>
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Goal setting
+                        </li>
+</ul>
+</div>
+<div class="flex items-center gap-4 mt-auto">
+<button class="bg-primary text-on-primary flex-1 py-3 rounded-full font-label-md text-label-md hover:opacity-90 transition-opacity">Book Session</button>
+<button class="border border-primary text-primary flex-1 py-3 rounded-full font-label-md text-label-md hover:bg-primary/5 transition-colors">Learn More</button>
+</div>
+</div>
+<!-- Emotional Wellness Card -->
+<div class="service-card bg-surface-pearl rounded-[16px] p-8 flex flex-col h-full shadow-[0_40px_40px_-15px_rgba(73,98,107,0.04)] transition-all duration-700 ease-out opacity-100 translate-y-0" style="transition-delay: 700ms;">
+<div class="w-16 h-16 mb-6 rounded-2xl bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="Emotional Wellness icon" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLsGYvNTT4tmVFCNS1SgbiNXWMQ6xNiOz5L3s-LgRFpnzZV_rNgPm491TvBbddjlT3ObvlElG_6-ZfiqWovm43XM2pHJQAvVJZUH9osYAJyJrOskHAHCfIqIi0WYNh6tTvcDV37r3DZjSMIWb7_qgykPcp5lsD5DAgzFcqyxQ41X1lJuVzKS8vB_TfEqfd79hrQ8UqTsKSMQTCj8GytUUuUByIpAIne7zNDZ2Z1HgsYap6HPWs_4o4E86i8">
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Emotional Wellness</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Cultivate emotional intelligence and balance. Learn to navigate the full spectrum of human emotions with grace and mindfulness.</p>
+<div class="mb-8">
+<p class="font-label-md text-label-md text-primary mb-3 uppercase tracking-wider">Common Concerns</p>
+<ul class="space-y-2">
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Mood regulation
+                        </li>
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Mindfulness skills
+                        </li>
+<li class="flex items-start gap-2 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Inner peace
+                        </li>
+</ul>
+</div>
+<div class="flex items-center gap-4 mt-auto">
+<button class="bg-primary text-on-primary flex-1 py-3 rounded-full font-label-md text-label-md hover:opacity-90 transition-opacity">Book Session</button>
+<button class="border border-primary text-primary flex-1 py-3 rounded-full font-label-md text-label-md hover:bg-primary/5 transition-colors">Learn More</button>
+</div>
+</div>
+</div>
+</main>
+<!-- FAQ Preview Section (Asymmetric Layout) -->
+<section class="bg-surface-container/50 py-section-gap px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+<div class="lg:col-span-5 space-y-6">
+<h2 class="font-headline-md text-headline-md text-primary">Not sure which service is right for you?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">We understand that starting therapy can be overwhelming. We offer a free 15-minute consultation to help you find the right path and the right professional for your needs.</p>
+<button class="bg-secondary text-on-secondary px-8 py-3 rounded-full font-label-md text-label-md hover:scale-[1.02] transition-transform">Schedule Free Consultation</button>
+</div>
+<div class="lg:col-span-7 space-y-4">
+<div class="bg-surface-pearl p-6 rounded-xl border-l-4 border-primary shadow-sm">
+<div class="flex justify-between items-center cursor-pointer">
+<span class="font-label-md text-label-md text-primary">How do I choose a therapist?</span>
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+<div class="bg-surface-pearl p-6 rounded-xl border-l-4 border-transparent hover:border-primary/30 transition-colors shadow-sm">
+<div class="flex justify-between items-center cursor-pointer">
+<span class="font-label-md text-label-md text-on-surface">What should I expect in my first session?</span>
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+<div class="bg-surface-pearl p-6 rounded-xl border-l-4 border-transparent hover:border-primary/30 transition-colors shadow-sm">
+<div class="flex justify-between items-center cursor-pointer">
+<span class="font-label-md text-label-md text-on-surface">Are the sessions confidential?</span>
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-high">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-section-gap max-w-container-max mx-auto">
+<div class="space-y-6">
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlk3xpbayP2dGVN4AHC3uYyOTrTuUxZKqtnZ3yl8SrQlmPggTLWURVVhUeaHJwchoaupHxF70qEBQNobW8IefXWBCXktiCgXlMk5cFqcBH2bLmZHnuyyiYInRyZbhjkkIWFju1iDGhklQYxsz8A5naZ3YtAZHvIwGrn9CNBPtiGOtLqX1SpypzlVF3TGV4-5Hb4AKwTLqHjRmCQISge4MtcnzkldvnFmyQWWGkkeGTr5pAnAOtSH2XNOA4CdnKSTXnGFo322LyOJZF" alt="Mind'in Logo" class="h-12 w-auto object-contain mb-6">
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">Building emotional resilience through professional support and human connection.</p>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-md text-label-md text-on-surface font-bold">Services</h4>
+<ul class="space-y-2">
+<li class=""><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Individual Therapy</a></li>
+<li class=""><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Couples Counseling</a></li>
+<li class=""><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Stress Management</a></li>
+<li class=""><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Workshops</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-md text-label-md text-on-surface font-bold">Quick Links</h4>
+<ul class="space-y-2">
+<li class=""><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">About Us</a></li>
+<li class=""><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Blog</a></li>
+<li class=""><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a></li>
+<li class=""><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Careers</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-md text-label-md text-on-surface font-bold">Contact Us</h4>
+<ul class="space-y-2">
+<li class="font-label-sm text-label-sm text-on-surface-variant">hello@mindintherapy.com</li>
+<li class="font-label-sm text-label-sm text-on-surface-variant">+1 (555) 000-0000</li>
+<li class="pt-4 flex gap-4">
+<a class="text-primary hover:scale-110 transition-transform" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-primary hover:scale-110 transition-transform" href="#"><span class="material-symbols-outlined">mail</span></a>
+<a class="text-primary hover:scale-110 transition-transform" href="#"><span class="material-symbols-outlined">call</span></a>
+</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-surface-variant/30 py-8 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Mind'in Therapy. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary" href="#">Cookie Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary" href="#">Accessibility</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const icon = card.querySelector('img');
+                if (icon) icon.style.transform = 'scale(1.1) rotate(5deg)';
+            });
+            card.addEventListener('mouseleave', () => {
+                const icon = card.querySelector('img');
+                if (icon) icon.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        // Simple smooth entrance animation for grid items
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card').forEach((card, index) => {
+            card.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700', 'ease-out');
+            card.style.transitionDelay = `${index * 100}ms`;
+            observer.observe(card);
+        });
+    </script>
+
+
+</body></html>
