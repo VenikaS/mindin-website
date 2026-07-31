@@ -6,16 +6,8 @@ This guide explains how to connect your Next.js booking form with a Google Sheet
 
 ## Step 1: Create a Google Sheet
 1. Open [Google Sheets](https://sheets.google.com) and create a new blank spreadsheet.
-2. Add the following headers in the first row:
-   - **Column A**: Date Submitted
-   - **Column B**: Name
-   - **Column C**: Email
-   - **Column D**: Phone
-   - **Column E**: Focus Area / Service
-   - **Column F**: Format (Online/Offline)
-   - **Column G**: Session Date
-   - **Column H**: Session Time
-   - **Column I**: Healing Goals / Notes
+2. Note your spreadsheet's ID from the URL (the long string of letters and numbers).
+3. The script will automatically add headers when the first booking is submitted.
 
 ---
 
@@ -24,44 +16,146 @@ This guide explains how to connect your Next.js booking form with a Google Sheet
 2. Delete any default code in the editor and paste the following script:
 
 ```javascript
+const SPREADSHEET_ID = "YOUR_SPREADSHEET_ID_HERE";
+const SHEET_NAME = "Sheet1";
+
+const HEADERS = [
+  "Submitted At",
+  "Name",
+  "Email",
+  "Phone",
+  "Service",
+  "Format",
+  "Date",
+  "Time",
+  "Goals"
+];
+
 function doPost(e) {
+  const lock = LockService.getScriptLock();
+  let hasLock = false;
+
   try {
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-    var data = JSON.parse(e.postData.contents);
-    
-    // Append a new row with the booking details
-    sheet.appendRow([
-      new Date(), 
-      data.name, 
-      data.email, 
-      data.phone, 
-      data.service, 
-      data.format, 
-      data.date, 
-      data.time, 
-      data.goals
-    ]);
-    
-    return ContentService.createTextOutput(JSON.stringify({ status: "success" }))
-      .setMimeType(ContentService.MimeType.JSON)
-      .setHeader("Access-Control-Allow-Origin", "*");
-  } catch (err) {
-    return ContentService.createTextOutput(JSON.stringify({ status: "error", message: err.toString() }))
-      .setMimeType(ContentService.MimeType.JSON)
-      .setHeader("Access-Control-Allow-Origin", "*");
+    lock.waitLock(10000);
+    hasLock = true;
+
+    const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+    let sheet = ss.getSheetByName(SHEET_NAME);
+
+    // Create sheet if it doesn't exist
+    if (!sheet) {
+      sheet = ss.insertSheet(SHEET_NAME);
+    }
+
+    ensureHeaders(sheet);
+
+    if (!e || !e.postData || !e.postData.contents) {
+      throw new Error("Missing POST body");
+    }
+
+    // Read POST body
+    const data = JSON.parse(e.postData.contents);
+
+    if (isDuplicateBooking(sheet, data)) {
+      return jsonResponse({
+        status: "duplicate",
+        message: "Booking already exists"
+      });
+    }
+
+    const row = [
+      data.submitted_at || new Date(),
+      data.name || "",
+      data.email || "",
+      data.phone || "",
+      data.service || "",
+      data.format || "",
+      data.date || "",
+      data.time || "",
+      data.goals || ""
+    ];
+
+    // Save data
+    sheet.appendRow(row);
+
+    return jsonResponse({
+      status: "success",
+      message: "Booking saved successfully"
+    });
+
+  } catch (error) {
+    return jsonResponse({
+      status: "error",
+      message: error.toString()
+    });
+
+  } finally {
+    if (hasLock) {
+      lock.releaseLock();
+    }
   }
 }
 
-// Enable CORS Preflight requests
-function doOptions(e) {
-  return ContentService.createTextOutput("")
-    .setHeader("Access-Control-Allow-Origin", "*")
-    .setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
-    .setHeader("Access-Control-Allow-Headers", "Content-Type");
+function ensureHeaders(sheet) {
+  const headerRange = sheet.getRange(1, 1, 1, HEADERS.length);
+  const currentHeaders = headerRange.getValues()[0];
+  const headersMissing = currentHeaders.every(value => value === "");
+
+  if (headersMissing) {
+    headerRange.setValues([HEADERS]);
+  }
+}
+
+function isDuplicateBooking(sheet, data) {
+  const lastRow = sheet.getLastRow();
+
+  if (lastRow <= 1) {
+    return false;
+  }
+
+  const rows = sheet.getRange(2, 1, lastRow - 1, HEADERS.length).getValues();
+  const incomingKey = getBookingKey(data);
+
+  return rows.some(row => {
+    const existingData = {
+      email: row[2],
+      phone: row[3],
+      service: row[4],
+      format: row[5],
+      date: row[6],
+      time: row[7]
+    };
+
+    return getBookingKey(existingData) === incomingKey;
+  });
+}
+
+function getBookingKey(data) {
+  return [
+    data.email,
+    data.phone,
+    data.service,
+    data.format,
+    data.date,
+    data.time
+  ].map(value => String(value || "").trim().toLowerCase()).join("|");
+}
+
+function jsonResponse(payload) {
+  return ContentService
+    .createTextOutput(JSON.stringify(payload))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+function doGet() {
+  return ContentService
+    .createTextOutput("Booking API is running.")
+    .setMimeType(ContentService.MimeType.TEXT);
 }
 ```
 
-3. Click the **Save** icon (diskette) at the top of the editor.
+3. Replace `YOUR_SPREADSHEET_ID_HERE` with your actual Google Sheet ID.
+4. Click the **Save** icon (diskette) at the top of the editor.
 
 ---
 

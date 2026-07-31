@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { BriefcaseBusiness, Camera, ExternalLink } from "lucide-react";
+import { BriefcaseBusiness, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
@@ -24,19 +24,6 @@ const socialLinks = [
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/psychologistvenika?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     icon: BriefcaseBusiness,
-  },
-];
-
-const organizations = [
-  {
-    name: "Authentic Psychologist",
-    href: "https://authenticpsychologist.com/",
-    logo: "/images/authentic-psychologist-logo.jpg",
-  },
-  {
-    name: "Space to Accept",
-    href: "https://www.spacetoaccept.com/",
-    logo: "/images/space-to-accept-logo.png",
   },
 ];
 
@@ -166,35 +153,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-primary/10 pt-8 pb-8">
-          <h4 className="text-text-navy text-sm font-semibold uppercase tracking-wider mb-5">Associated Organizations</h4>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl">
-            {organizations.map((org) => (
-              <a
-                key={org.name}
-                href={org.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 rounded-2xl border border-primary/10 bg-surface-pearl p-4 hover:shadow-soft-blue transition-all group"
-              >
-                <div className="h-14 w-14 shrink-0 rounded-xl bg-white border border-primary/10 overflow-hidden flex items-center justify-center">
-                  <img src={org.logo} alt={`${org.name} logo`} className="h-full w-full object-contain p-1.5" />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-sm font-semibold text-text-navy group-hover:text-primary transition-colors">{org.name}</p>
-                  <p className="text-xs text-text-charcoal/60 flex items-center gap-1 mt-1">
-                    Visit website <ExternalLink className="h-3 w-3" />
-                  </p>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-
         {/* Bottom Bar */}
         <div className="border-t border-primary/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-text-charcoal/50 text-xs">
-            &copy; {new Date().getFullYear()} Mind'in Therapy. All rights reserved.
+            &copy; {new Date().getFullYear()} Mind&apos;in Therapy. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="text-text-charcoal/50 hover:text-primary text-xs transition-colors">

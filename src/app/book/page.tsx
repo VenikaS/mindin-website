@@ -32,6 +32,8 @@ const times = ["10:00 AM", "11:30 AM", "01:00 PM", "02:30 PM", "04:00 PM", "05:3
 export default function BookAppointmentPage() {
   const router = useRouter();
   const [step, setStep] = React.useState(1);
+  const isSubmittingRef = React.useRef(false);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [formData, setFormData] = React.useState({
     service: "",
     format: "",
@@ -84,14 +86,24 @@ export default function BookAppointmentPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (isSubmittingRef.current) {
+      return;
+    }
+
+    isSubmittingRef.current = true;
+    setIsSubmitting(true);
     
     const webhookUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_WEBHOOK_URL || "";
     if (webhookUrl) {
       try {
+        const submittedAt = new Date().toISOString();
+
         await fetch(webhookUrl, {
           method: "POST",
           headers: { "Content-Type": "text/plain;charset=utf-8" },
           body: JSON.stringify({
+            submitted_at: submittedAt,
             name: formData.name,
             email: formData.email,
             phone: formData.phone,
@@ -135,7 +147,7 @@ export default function BookAppointmentPage() {
           <div className="space-y-1">
             <h4 className="font-semibold text-text-navy text-sm">Emergency Support Disclaimer</h4>
             <p className="text-xs text-text-charcoal/80 leading-relaxed">
-              Mind'in is not an emergency service. If you are in immediate danger or experiencing a crisis, please contact emergency services or go to the nearest hospital immediately.
+              Mind&apos;in is not an emergency service. If you are in immediate danger or experiencing a crisis, please contact emergency services or go to the nearest hospital immediately.
             </p>
           </div>
         </div>
@@ -403,8 +415,8 @@ export default function BookAppointmentPage() {
                   Continue <ArrowRight className="w-4 h-4" />
                 </Button>
               ) : (
-                <Button variant="cta" type="submit" className="flex items-center gap-2">
-                  Confirm Booking <ShieldCheck className="w-5 h-5" />
+                <Button variant="cta" type="submit" disabled={isSubmitting} className="flex items-center gap-2">
+                  {isSubmitting ? "Saving..." : "Confirm Booking"} <ShieldCheck className="w-5 h-5" />
                 </Button>
               )}
             </div>
