@@ -20,28 +20,28 @@ export default function PrivacyPolicyPage() {
           <section className="space-y-3">
             <h2 className="text-xl font-display font-semibold text-text-navy">1. Patient Confidentiality</h2>
             <p>
-              Your trust is our most valuable asset. At Mind'in, all consultations, video sessions, therapist notes, and intake documents are protected under strict patient-therapist confidentiality protocols.
+              Your trust is deeply valued. At Mind&apos;in, all consultations, video sessions, therapist notes, and intake documents are protected under strict patient-therapist confidentiality protocols.
             </p>
           </section>
 
           <section className="space-y-3">
             <h2 className="text-xl font-display font-semibold text-text-navy">2. HIPAA & Encryption Compliance</h2>
             <p>
-              We conduct all online sessions over telehealth portals utilizing end-to-end encryption. Your personal health details and session recordings (which we never keep unless explicitly consented to for study purposes) are secure and satisfy industry standards.
+              Online sessions are conducted over telehealth portals utilizing end-to-end encryption. Your personal health details and session recordings, which are never kept unless explicitly consented to for study purposes, are secure and satisfy industry standards.
             </p>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-xl font-display font-semibold text-text-navy">3. Information We Collect</h2>
+            <h2 className="text-xl font-display font-semibold text-text-navy">3. Information Collected</h2>
             <p>
-              We collect your name, contact email, and telephone number during the booking steps. This detail is only used to coordinate calendars and send session invites. We never lease or sell your contact information to third parties.
+              Your name, contact email, and telephone number are collected during the booking steps. This detail is only used to coordinate calendars and send session invites. Your contact information is never leased or sold to third parties.
             </p>
           </section>
 
           <section className="space-y-3">
             <h2 className="text-xl font-display font-semibold text-text-navy">4. Your Rights</h2>
             <p>
-              You have the right to request deletion of your contact records, view any therapist notes associated with your file, and retract consent for treatment at any point. Contact us to discuss any privacy questions.
+              You have the right to request deletion of your contact records, view any therapist notes associated with your file, and retract consent for treatment at any point. Reach out to discuss any privacy questions.
             </p>
           </section>
         </div>

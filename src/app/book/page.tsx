@@ -137,7 +137,7 @@ export default function BookAppointmentPage() {
         <div className="text-center mb-12 space-y-4">
           <h1 className="text-4xl font-display text-text-navy">Begin Your Journey</h1>
           <p className="text-base text-text-charcoal/80 max-w-lg mx-auto">
-            Choose a path that feels right for you. We are here to support your emotional well-being with professional, compassionate care.
+            Choose a path that feels right for you. I am here to support your emotional well-being with professional, compassionate care.
           </p>
         </div>
 
@@ -354,7 +354,7 @@ export default function BookAppointmentPage() {
                       <textarea
                         value={formData.goals}
                         onChange={(e) => setFormData({ ...formData, goals: e.target.value })}
-                        placeholder="Tell us a little bit about what you'd like to achieve..."
+                        placeholder="Tell me a little bit about what you'd like to achieve..."
                         rows={4}
                         className="w-full bg-surface border border-primary/10 rounded-2xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm text-text-navy"
                       />

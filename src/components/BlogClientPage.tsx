@@ -56,13 +56,13 @@ export default function BlogClientPage({
         {/* Header Hero */}
         <div className="max-w-3xl mb-16">
           <span className="text-sm font-semibold tracking-widest text-primary uppercase block mb-4">
-            The Mind'in Journal
+            The Mind&apos;in Journal
           </span>
           <h1 className="text-4xl md:text-5xl font-display text-text-navy mb-6">
-            Insights for emotional well-being.
+            Blog posts for emotional well-being.
           </h1>
           <p className="text-lg text-text-charcoal/80 leading-relaxed">
-            Explore a curated collection of articles, expert advice, and gentle reminders designed to help you navigate life's emotional landscape with clarity and compassion.
+            Explore a curated collection of articles, expert advice, and gentle reminders designed to help you navigate life&apos;s emotional landscape with clarity and compassion.
           </p>
         </div>
 
@@ -172,7 +172,7 @@ export default function BlogClientPage({
           <div className="text-center py-24 bg-surface-pearl rounded-[3rem] border border-primary/5 shadow-sm max-w-2xl mx-auto space-y-4">
             <h3 className="text-2xl font-display text-text-navy">Journal Articles Coming Soon!</h3>
             <p className="text-sm text-text-charcoal/70 max-w-md mx-auto leading-relaxed">
-              We are currently crafting thoughtful, evidence-backed articles, somatic techniques, and stories on systemic and narrative therapy. Check back soon for regular updates.
+              Posts coming soon.
             </p>
           </div>
         ) : (

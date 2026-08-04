@@ -1,23 +1,10 @@
-import React from "react";
-import { getSanityClient } from "@/sanity/client";
-import { allBlogsQuery, categoriesQuery } from "@/sanity/queries";
-import { SanityBlog, SanityCategory } from "@/sanity/types";
-import BlogClientPage from "@/components/BlogClientPage";
-import { draftMode } from "next/headers";
-
-export const revalidate = 60; // Revalidate cache every 60 seconds (ISR)
-
-export default async function BlogListingPage() {
-  // Check if Draft Mode is active
-  const { isEnabled } = await draftMode();
-  
-  const client = getSanityClient(isEnabled);
-
-  // Fetch blogs and categories concurrently
-  const [blogs, categories] = await Promise.all([
-    client.fetch<SanityBlog[]>(allBlogsQuery),
-    client.fetch<SanityCategory[]>(categoriesQuery),
-  ]);
-
-  return <BlogClientPage initialBlogs={blogs} initialCategories={categories} />;
+export default function BlogListingPage() {
+  return (
+    <div className="relative min-h-screen bg-neutral-bg pt-16 pb-24">
+      <div className="relative z-10 mx-auto flex min-h-[50vh] max-w-4xl flex-col items-center justify-center px-6 text-center">
+        <span className="text-sm font-semibold uppercase tracking-widest text-primary">Blog</span>
+        <h1 className="mt-4 text-4xl font-display text-text-navy md:text-5xl">Posts coming soon</h1>
+      </div>
+    </div>
+  );
 }

@@ -24,17 +24,17 @@ export default function AboutPage() {
   const philosophies = [
     {
       title: "Radical Empathy",
-      desc: "We practice deep, non-judgmental active listening, meeting you exactly where you are in your healing journey.",
+      desc: "I practice deep, non-judgmental active listening, meeting you exactly where you are in your healing journey.",
       icon: Heart,
     },
     {
       title: "Evidence-Based Methodologies",
-      desc: "Our treatments combine scientific research with clinical wisdom to create a plan that delivers measurable improvement.",
+      desc: "My approach combines scientific research with clinical wisdom to create a plan that supports meaningful change.",
       icon: Verified,
     },
     {
       title: "Emotional Safety",
-      desc: "We ensure total confidentiality, HIPAA-compliant encryption, and a peaceful virtual setting for every session.",
+      desc: "I prioritize confidentiality, secure online care, and a peaceful setting for every session.",
       icon: Shield,
     },
   ];
@@ -51,12 +51,12 @@ export default function AboutPage() {
       <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8">
         {/* Header Hero */}
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-          <span className="text-sm font-semibold tracking-widest text-primary uppercase">About Mind'in</span>
+          <span className="text-sm font-semibold tracking-widest text-primary uppercase">About Mind&apos;in</span>
           <h1 className="text-4xl md:text-5xl font-display text-text-navy leading-tight">
-            Meet Venika & Our Story
+            About Venika
           </h1>
           <p className="text-lg text-text-charcoal/80 leading-relaxed">
-            Discover the therapeutic philosophy, credentials, and values that guide our practice.
+            Discover the therapeutic philosophy, credentials, and values that guide my practice.
           </p>
         </div>
 
@@ -106,7 +106,7 @@ export default function AboutPage() {
                   <h4 className="font-semibold text-text-navy text-sm">Qualifications & Certifications</h4>
                   <ul className="text-xs text-text-charcoal/70 mt-1 list-disc list-inside space-y-1">
                     <li>BA+MA Clinical Psychology</li>
-                    <li>Family Therapy Grad Cert (Kings' College, London)</li>
+                    <li>Family Therapy Grad Cert (Kings&apos; College, London)</li>
                     <li>Queer Affirmative Counselling Practice (QACP)</li>
                     <li>Expressive Arts & Therapies (FECAT)</li>
                   </ul>
@@ -130,22 +130,22 @@ export default function AboutPage() {
         {/* Story & Mission Split Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-32 border-t border-primary/10 pt-20">
           <div className="space-y-6">
-            <h3 className="text-2xl md:text-3xl font-display text-text-navy">Our Mission</h3>
+            <h3 className="text-2xl md:text-3xl font-display text-text-navy">My Mission</h3>
             <p className="text-text-charcoal/80 leading-relaxed text-sm md:text-base">
-              At Mind'in, our mission is to make premium, professional therapy accessible, comfortable, and deeply human. We seek to dismantle the cold, clinical stigma around mental healthcare by offering an aesthetic, peaceful digital space where healing feels inviting rather than intimidating.
+              At Mind&apos;in, my mission is to make professional therapy accessible, comfortable, and deeply human. I seek to offer a peaceful space where healing feels inviting rather than intimidating.
             </p>
           </div>
           <div className="space-y-6">
-            <h3 className="text-2xl md:text-3xl font-display text-text-navy">Our Vision</h3>
+            <h3 className="text-2xl md:text-3xl font-display text-text-navy">My Vision</h3>
             <p className="text-text-charcoal/80 leading-relaxed text-sm md:text-base">
-              We envision a world where mental well-being is treated with the same proactive, routine, and warm care as physical health. By blending modern technologies with clinical excellence, we help you build emotional resilience that carries you through the highs and lows of modern life.
+              I envision a world where mental well-being is treated with the same proactive, routine, and warm care as physical health. Through thoughtful, evidence-informed therapy, I help you build emotional resilience that carries you through the highs and lows of modern life.
             </p>
           </div>
         </div>
 
         {/* Therapy Philosophy Section */}
         <div className="bg-surface border border-primary/5 rounded-[3rem] p-10 md:p-16 mb-24">
-          <h2 className="text-3xl font-display text-text-navy text-center mb-16">The Mind'in Philosophy</h2>
+          <h2 className="text-3xl font-display text-text-navy text-center mb-16">The Mind&apos;in Philosophy</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {philosophies.map((phil) => {
               const IconComp = phil.icon;
@@ -167,7 +167,7 @@ export default function AboutPage() {
           <div className="relative z-10 max-w-xl mx-auto space-y-6">
             <h2 className="text-2xl md:text-4xl font-display text-text-navy">Ready to begin your journey?</h2>
             <p className="text-text-charcoal/80 text-sm md:text-base leading-relaxed">
-              Book a gentle consultation session with Venika and explore if our approach is right for you.
+              Book a gentle consultation session with Venika and explore if this approach is right for you.
             </p>
             <div className="flex justify-center pt-2">
               <Link href="/book">

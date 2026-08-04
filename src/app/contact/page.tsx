@@ -49,9 +49,9 @@ export default function ContactPage() {
         {/* Header Block */}
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
           <span className="text-sm font-semibold tracking-widest text-primary uppercase">Reach Out</span>
-          <h1 className="text-4xl md:text-5xl font-display text-text-navy">We are here to listen.</h1>
+          <h1 className="text-4xl md:text-5xl font-display text-text-navy">I am here to listen.</h1>
           <p className="text-base text-text-charcoal/80 leading-relaxed">
-            Have questions about our therapeutic tracks, scheduling, or fee structure? Get in touch and let's begin the conversation.
+            Have questions about therapy, scheduling, or fee structure? Get in touch and let&apos;s begin the conversation.
           </p>
         </div>
 
@@ -61,7 +61,7 @@ export default function ContactPage() {
           <div className="lg:col-span-5 space-y-8">
             <h2 className="text-2xl font-display text-text-navy">Contact Information</h2>
             <p className="text-text-charcoal/70 text-sm leading-relaxed">
-              We look forward to connecting. Feel free to use the contact details below, or send us a secure message using the form.
+              I look forward to connecting. Feel free to use the contact details below, or send a secure message using the form.
             </p>
 
             <div className="space-y-6">
@@ -81,7 +81,9 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-text-navy text-sm">WhatsApp Business</h4>
-                  <p className="text-sm text-text-charcoal/70 mt-1">Available upon email enquiry</p>
+                  <a href="https://wa.me/919625088869" target="_blank" rel="noopener noreferrer" className="text-sm text-text-charcoal/70 mt-1 inline-block hover:text-primary transition-colors">
+                    9625088869
+                  </a>
                 </div>
               </div>
 
@@ -106,7 +108,7 @@ export default function ContactPage() {
                 </div>
                 <h3 className="text-2xl font-display text-text-navy">Message Sent</h3>
                 <p className="text-sm text-text-charcoal/75 max-w-sm mx-auto leading-relaxed">
-                  Thank you for reaching out. We have received your query and will reply within 24 business hours.
+                  Thank you for reaching out. Your query has been received and I will reply within 24 business hours.
                 </p>
                 <Button variant="outline" onClick={() => setSuccess(false)} className="mt-4">
                   Send Another Message
@@ -138,7 +140,7 @@ export default function ContactPage() {
                   <label className="block text-xs font-semibold text-primary uppercase tracking-wider">Message</label>
                   <textarea
                     {...register("message")}
-                    placeholder="Describe how we can support you..."
+                    placeholder="Describe how I can support you..."
                     rows={5}
                     className={`w-full bg-surface border rounded-2xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm text-text-navy ${
                       errors.message ? "border-error" : "border-primary/10"
@@ -161,7 +163,7 @@ export default function ContactPage() {
           <div className="space-y-2">
             <h4 className="font-semibold text-text-navy text-sm">Emergency Support Disclaimer</h4>
             <p className="text-xs text-text-charcoal/80 leading-relaxed">
-              Mind'in is not a crisis center. If you are experiencing a mental health crisis, self-harm impulses, or active suicidal thoughts, please call emergency services immediately.
+              Mind&apos;in is not a crisis center. If you are experiencing a mental health crisis, self-harm impulses, or active suicidal thoughts, please call emergency services immediately.
             </p>
           </div>
         </div>

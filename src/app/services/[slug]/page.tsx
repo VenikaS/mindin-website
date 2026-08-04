@@ -22,17 +22,17 @@ export default function ServiceDetailPage() {
   const treatmentPhases = [
     {
       title: "Exploration & Grounding",
-      desc: "In our initial sessions, we look at the immediate symptoms and establish practical grounding skills to help regulate your nervous system.",
+      desc: "In initial sessions, you and I look at the immediate symptoms and establish practical grounding skills to help regulate your nervous system.",
       icon: Hourglass,
     },
     {
       title: "Identifying Roots",
-      desc: "Together, we identify the cognitive patterns, past experiences, and subconscious beliefs that trigger your distress.",
+      desc: "Together, you and I identify the cognitive patterns, past experiences, and subconscious beliefs that trigger your distress.",
       icon: Compass,
     },
     {
       title: "Empowerment & Integration",
-      desc: "We practice and integrate new behaviors, boundaries, and thought habits, helping you step back into your life with confidence.",
+      desc: "You and I practice and integrate new behaviors, boundaries, and thought habits, helping you step back into your life with confidence.",
       icon: HeartHandshake,
     },
   ];
@@ -72,9 +72,9 @@ export default function ServiceDetailPage() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
           {/* Main content column */}
           <div className="md:col-span-7 space-y-8">
-            <h2 className="text-2xl font-display text-text-navy">Our Therapeutic Approach</h2>
+            <h2 className="text-2xl font-display text-text-navy">Therapeutic Approach</h2>
             <p className="text-text-charcoal/85 leading-relaxed text-sm md:text-base">
-              In our sessions, we look at the holistic, systemic picture—your lived experiences, family cycles, societal expectations, gender, and environment. We work from a systemic and narrative framework that is trauma-informed and queer-friendly, helping you reflect, regulate your nervous system, and reclaim your narrative.
+              In sessions, you and I look at the holistic, systemic picture: your lived experiences, family cycles, societal expectations, gender, and environment. I work from a systemic and narrative framework that is trauma-informed and queer-friendly, helping you reflect, regulate your nervous system, and reclaim your narrative.
             </p>
             {service.extendedContent && (
               <div dangerouslySetInnerHTML={{ __html: service.extendedContent }} />
@@ -106,7 +106,7 @@ export default function ServiceDetailPage() {
           <div className="md:col-span-5 space-y-8">
             {/* Symptoms list card */}
             <div className="bg-surface p-8 rounded-[2rem] border border-primary/5 shadow-sm">
-              <h3 className="text-lg font-semibold text-text-navy mb-4 uppercase tracking-wider">Common Symptoms We Treat</h3>
+              <h3 className="text-lg font-semibold text-text-navy mb-4 uppercase tracking-wider">Common Symptoms Addressed</h3>
               <ul className="space-y-3">
                 {service.concerns.map((concern) => (
                   <li key={concern} className="flex items-start gap-2.5 text-text-charcoal/80 text-sm">
@@ -121,7 +121,7 @@ export default function ServiceDetailPage() {
             <div className="bg-primary-container/40 p-8 rounded-[2rem] border border-primary-light/20 shadow-sm space-y-6">
               <h3 className="text-xl font-display text-text-navy">Ready to feel better?</h3>
               <p className="text-xs text-text-charcoal/80 leading-relaxed">
-                You don't have to navigate this alone. Choose a time and book your initial consultation session online today.
+                You don&apos;t have to navigate this alone. Choose a time and book your initial consultation session online today.
               </p>
               <Link href="/book" className="block">
                 <Button variant="cta" className="w-full h-12">

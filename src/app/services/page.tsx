@@ -30,7 +30,7 @@ export const servicesData = [
     shortTitle: "Early Career Therapists",
     icon: Sprout,
     color: "bg-surface-blue",
-    desc: "Whether you have just completed your masters or are in the early years of your therapy practice (0-5 years of experience), transitioning to practice can feel unnerving. We offer specialized Clinical Supervision and Personal Therapy support to help you grow.",
+    desc: "Whether you have just completed your masters or are in the early years of your therapy practice (0-5 years of experience), transitioning to practice can feel unnerving. I offer specialized Clinical Supervision and Personal Therapy support to help you grow.",
     concerns: ["Supervision (Narrative & Systemic)", "Therapy for imposter syndrome", "Burnout & countertransference", "Building clinical confidence"],
     extendedContent: `
       <div class="space-y-6 mt-6">
@@ -59,7 +59,7 @@ export const servicesData = [
     shortTitle: "Childhood Trauma",
     icon: Shield,
     color: "bg-surface-peach",
-    desc: "Our experiences in childhood significantly shape how we see ourselves and how we see the world. Difficulties and stress during this time can lead to mental health concerns not only in childhood but also in adulthood. If you have gone through any kind of abuse or neglect in your childhood, therapy can help you have a safe space to express and make sense of your experiences.",
+    desc: "Experiences in childhood significantly shape how you see yourself and how you see the world. Difficulties and stress during this time can lead to mental health concerns not only in childhood but also in adulthood. If you have gone through any kind of abuse or neglect in your childhood, therapy can help you have a safe space to express and make sense of your experiences.",
     concerns: ["Developmental trauma", "Emotional or physical neglect", "Adult attachment struggles", "Processing past abuse"],
   },
   {
@@ -110,7 +110,7 @@ export default function ServicesPage() {
             Support designed around your experiences and needs.
           </h1>
           <p className="text-lg text-text-charcoal/80 leading-relaxed">
-            We provide a compassionate space to navigate life's complexities. Explore our specialized therapy services tailored to help you find balance and inner peace.
+            I provide a compassionate space to navigate life&apos;s complexities. Explore therapy services tailored to help you find balance and inner peace.
           </p>
         </div>
 
@@ -172,7 +172,7 @@ export default function ServicesPage() {
           <div className="space-y-2">
             <h4 className="font-semibold text-text-navy text-sm">Emergency Support Disclaimer</h4>
             <p className="text-xs text-text-charcoal/80 leading-relaxed">
-              Mind'in is not a crisis support service. If you or someone you know is in immediate danger, or experiencing severe distress, please call emergency services or go to the nearest emergency room immediately. We are here to support your routine wellness, but acute emergencies require specialized crisis providers.
+              Mind&apos;in is not a crisis support service. If you or someone you know is in immediate danger, or experiencing severe distress, please call emergency services or go to the nearest emergency room immediately. I am here to support routine wellness, but acute emergencies require specialized crisis providers.
             </p>
           </div>
         </div>

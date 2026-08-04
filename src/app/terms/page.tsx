@@ -20,28 +20,28 @@ export default function TermsPage() {
           <section className="space-y-3">
             <h2 className="text-xl font-display font-semibold text-text-navy">1. Session Bookings</h2>
             <p>
-              By scheduling an appointment, you agree to secure your slot with accurate personal contact details. Any session slots are reserved exclusively for you, and we expect prompt attendance at the scheduled hour.
+              By scheduling an appointment, you agree to secure your slot with accurate personal contact details. Any session slots are reserved exclusively for you, and prompt attendance is expected at the scheduled hour.
             </p>
           </section>
 
           <section className="space-y-3">
             <h2 className="text-xl font-display font-semibold text-text-navy">2. Cancellation Policy</h2>
             <p>
-              We require at least 24 hours notice for any cancellation or rescheduling requests. Cancellations made with less than 24 hours notice will be subject to the full session fee, except in cases of documented physical emergencies.
+              At least 24 hours notice is required for any cancellation or rescheduling requests. Cancellations made with less than 24 hours notice will be subject to the full session fee, except in cases of documented physical emergencies.
             </p>
           </section>
 
           <section className="space-y-3">
             <h2 className="text-xl font-display font-semibold text-text-navy">3. Emergency Exceptions</h2>
             <p>
-              Mind'in services are not designed for acute crisis counseling or critical emergencies. If you are experiencing suicidal impulses, please call emergency services immediately or visit a hospital emergency room.
+              Mind&apos;in services are not designed for acute crisis counseling or critical emergencies. If you are experiencing suicidal impulses, please call emergency services immediately or visit a hospital emergency room.
             </p>
           </section>
 
           <section className="space-y-3">
             <h2 className="text-xl font-display font-semibold text-text-navy">4. Clinical Discretion</h2>
             <p>
-              Our therapist reserves the right to terminate treatment or recommend external clinic referrals if it is determined that online therapy does not satisfy your current clinical needs.
+              The therapist reserves the right to terminate treatment or recommend external clinic referrals if it is determined that online therapy does not satisfy your current clinical needs.
             </p>
           </section>
         </div>
