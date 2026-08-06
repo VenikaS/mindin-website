@@ -19,16 +19,6 @@ const formats = [
   { id: "phone", title: "Phone Call", desc: "A voice-only consultation.", icon: Phone },
 ];
 
-const dates = [
-  { id: "2026-07-20", label: "Mon, Jul 20" },
-  { id: "2026-07-21", label: "Tue, Jul 21" },
-  { id: "2026-07-22", label: "Wed, Jul 22" },
-  { id: "2026-07-23", label: "Thu, Jul 23" },
-  { id: "2026-07-24", label: "Fri, Jul 24" },
-];
-
-const times = ["10:00 AM", "11:30 AM", "01:00 PM", "02:30 PM", "04:00 PM", "05:30 PM"];
-
 export default function BookAppointmentPage() {
   const router = useRouter();
   const [step, setStep] = React.useState(1);
@@ -44,6 +34,40 @@ export default function BookAppointmentPage() {
     phone: "",
     goals: "",
   });
+
+  const [availableDates, setAvailableDates] = React.useState<{ id: string; label: string; isWeekend: boolean }[]>([]);
+
+  React.useEffect(() => {
+    const datesList = [];
+    const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    
+    for (let i = 1; i <= 7; i++) {
+      const d = new Date();
+      d.setDate(d.getDate() + i);
+      const dayName = daysOfWeek[d.getDay()];
+      const monthName = months[d.getMonth()];
+      const dayNum = d.getDate();
+      
+      const year = d.getFullYear();
+      const month = String(d.getMonth() + 1).padStart(2, "0");
+      const dateStr = String(dayNum).padStart(2, "0");
+      const id = `${year}-${month}-${dateStr}`;
+      
+      datesList.push({
+        id,
+        label: `${dayName}, ${monthName} ${dayNum}`,
+        isWeekend: d.getDay() === 0 || d.getDay() === 6
+      });
+    }
+    setAvailableDates(datesList);
+  }, []);
+
+  const selectedDateObj = availableDates.find(d => d.id === formData.date);
+  const isWeekend = selectedDateObj?.isWeekend || false;
+  const availableTimes = isWeekend
+    ? ["10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM"]
+    : ["11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM"];
 
   const [formErrors, setFormErrors] = React.useState<Record<string, string>>({});
 
@@ -249,10 +273,10 @@ export default function BookAppointmentPage() {
                   >
                     <h2 className="text-2xl font-display text-text-navy">Select a date</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {dates.map((d) => (
+                      {availableDates.map((d) => (
                         <div
                           key={d.id}
-                          onClick={() => setFormData({ ...formData, date: d.id })}
+                          onClick={() => setFormData({ ...formData, date: d.id, time: "" })}
                           className={`p-5 rounded-2xl border-2 cursor-pointer text-center font-medium transition-all ${
                             formData.date === d.id
                               ? "border-primary bg-primary-container/30 text-text-navy"
@@ -276,7 +300,7 @@ export default function BookAppointmentPage() {
                   >
                     <h2 className="text-2xl font-display text-text-navy">Available times</h2>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                      {times.map((t) => (
+                      {availableTimes.map((t) => (
                         <div
                           key={t}
                           onClick={() => setFormData({ ...formData, time: t })}

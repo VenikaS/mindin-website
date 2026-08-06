@@ -45,7 +45,7 @@ export default function HomePage() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative z-10 mx-auto max-w-7xl px-6 md:px-8 pt-12 md:pt-20 pb-24">
+      <section className="relative z-10 mx-auto max-w-7xl px-6 md:px-8 pt-10 md:pt-14 pb-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -53,15 +53,19 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-6 space-y-7 text-left"
           >
-            <span className="text-sm font-semibold tracking-widest text-primary uppercase">Welcome to Mind&apos;in</span>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-display text-text-navy leading-tight tracking-tight">
               You Matter and <br />
               Your Mental Health Matters
             </h1>
-            <p className="text-base md:text-lg text-text-charcoal/80 leading-relaxed max-w-xl">
-              As a therapist I believe mental health is not one size fits all and neither is my approach. Therefore, I offer therapy sessions tailored to your specific needs so that this work can be done with the depth and commitment it requires by me as your therapist.
-            </p>
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="space-y-3">
+              <p className="text-base md:text-lg text-text-charcoal/80 leading-relaxed max-w-xl italic">
+                &ldquo;As a therapist I believe mental health is not one size fits all and neither is my approach. Therefore, I offer therapy sessions tailored to your specific needs so that this work can be done with the depth and commitment it requires by me as your therapist.&rdquo;
+              </p>
+              <p className="text-sm font-semibold text-text-navy/90">
+                &mdash; Venika Singhal, Founder Mind&apos;in &amp; Psychotherapist
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-4 pt-2">
               <Link href="/book">
                 <Button variant="primary" size="lg">
                   Book Your First Session
@@ -84,8 +88,8 @@ export default function HomePage() {
             <div className="relative w-full max-w-md aspect-square">
               <div className="absolute -inset-4 bg-primary-light/20 rounded-[3rem] blur-2xl animate-pulse-slow" />
               <img
-                alt="Mind'in Calm Therapy Room"
-                src="/images/therapy-room.jpg"
+                alt="Venika Singhal"
+                src="/images/homepage-therapist.jpg"
                 className="relative rounded-[3rem] shadow-soft-blue w-full h-full object-cover border border-primary-light/20"
               />
             </div>
@@ -94,24 +98,24 @@ export default function HomePage() {
       </section>
 
       {/* Getting Started */}
-      <section className="bg-text-navy text-white py-28 relative z-10">
+      <section className="bg-text-navy text-white pt-8 md:pt-10 pb-16 md:pb-20 relative z-10">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-20 space-y-6">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-5">
             <h2 className="text-3xl md:text-4xl font-display text-white">Getting Started</h2>
-            <p className="text-white/95 text-lg md:text-xl font-medium leading-relaxed max-w-2xl mx-auto">
+            <p className="text-white text-xl md:text-2xl font-semibold leading-relaxed max-w-3xl mx-auto">
               You don&apos;t have to figure out everything alone. Whether you&apos;re facing a specific challenge or seeking a deeper understanding of yourself, I am here for you.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 relative">
             {/* Connection line */}
-            <div className="hidden md:block absolute top-10 left-0 right-0 h-0.5 bg-primary/20 -z-0" />
+            <div className="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-primary/20 -z-0" />
             {processSteps.map((step) => (
-              <div key={step.num} className="text-center space-y-5 relative z-10">
-                <div className="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center mx-auto text-xl font-bold border-4 border-text-navy shadow-lg">
+              <div key={step.num} className="text-center space-y-6 relative z-10">
+                <div className="w-24 h-24 bg-primary text-white rounded-full flex items-center justify-center mx-auto text-3xl font-bold border-4 border-text-navy shadow-lg">
                   {step.num}
                 </div>
-                <h4 className="text-xl font-semibold text-white">{step.title}</h4>
-                <p className="text-white/70 text-sm leading-relaxed max-w-xs mx-auto">{step.desc}</p>
+                <h4 className="text-2xl font-semibold text-white">{step.title}</h4>
+                <p className="text-white/80 text-base leading-relaxed max-w-sm mx-auto">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -119,9 +123,9 @@ export default function HomePage() {
       </section>
 
       {/* Testimonies */}
-      <section className="py-28 relative z-10">
+      <section className="py-16 md:py-20 relative z-10">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
-          <h2 className="text-3xl md:text-4xl font-display text-text-navy text-center mb-16">Testimonies</h2>
+          <h2 className="text-3xl md:text-4xl font-display text-text-navy text-center mb-12">Testimonies</h2>
           <TestimonialsCarousel />
         </div>
       </section>

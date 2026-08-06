@@ -1,26 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, BookOpen, BriefcaseBusiness, Camera, ExternalLink, Heart, Shield, Verified } from "lucide-react";
+import { Heart, Shield, Verified } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function AboutPage() {
-  const socialLinks = [
-    {
-      label: "Instagram",
-      href: "https://www.instagram.com/psychologist_venika.singhal?igsh=Zzl2djVhbHoxaWZ6",
-      icon: Camera,
-    },
-    {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/psychologistvenika?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-      icon: BriefcaseBusiness,
-    },
-  ];
-
-
-
   const philosophies = [
     {
       title: "Radical Empathy",
@@ -48,80 +33,87 @@ export default function AboutPage() {
       </div>
 
       {/* Main Container */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8">
-        {/* Header Hero */}
-        <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-          <span className="text-sm font-semibold tracking-widest text-primary uppercase">About Mind&apos;in</span>
-          <h1 className="text-4xl md:text-5xl font-display text-text-navy leading-tight">
-            About Venika
-          </h1>
-          <p className="text-lg text-text-charcoal/80 leading-relaxed">
-            Discover the therapeutic philosophy, credentials, and values that guide my practice.
-          </p>
-        </div>
-
+      <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8 pt-10 md:pt-16">
         {/* Therapist Bio Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-32">
           <div className="lg:col-span-5 relative">
             <div className="absolute -inset-4 border border-primary/10 rounded-[3rem] -z-10" />
             <div className="rounded-[3rem] overflow-hidden aspect-[4/5] shadow-soft-blue max-w-md mx-auto">
               <img
-                alt="Venika - Psychotherapist"
-                src="/images/therapist.png"
+                alt="Venika Singhal - Psychotherapist"
+                src="/images/about-me-therapist.jpg"
                 className="w-full h-full object-cover"
               />
             </div>
           </div>
-          <div className="lg:col-span-7 space-y-8">
-            <h2 className="text-3xl font-display text-text-navy">Venika, Psychotherapist</h2>
-            <p className="text-text-charcoal/85 leading-relaxed text-base md:text-lg">
-              Hello! I am Venika, a therapist whose work is rooted in the systemic and narrative approach. This entails understanding individual concerns and patterns through gender, privilege, caste, family, disability and other structures that shape our reality.
-            </p>
-            <p className="text-text-charcoal/80 leading-relaxed text-sm md:text-base">
-              The therapeutic relationship enables reflection, regulation and provides a safe space for you and your emotions. The therapy space is committed to honoring your lived experiences and to enable you to reclaim your narrative.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-3">
-              {socialLinks.map(({ label, href, icon: Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-surface-pearl px-4 py-2 text-sm font-medium text-text-navy hover:border-primary/30 hover:text-primary transition-colors"
-                >
-                  <Icon className="h-4 w-4" />
-                  {label}
-                </a>
-              ))}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="space-y-2">
+              <h2 className="text-3xl md:text-4xl font-display text-text-navy">Venika Singhal (She/Her)</h2>
+              <p className="text-primary font-semibold text-base md:text-lg">Founder mind&rsquo;in &amp; Psychotherapist</p>
             </div>
             
-            {/* Credentials / Qualifications Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-xl bg-surface-blue flex items-center justify-center shrink-0">
-                  <Award className="w-5 h-5 text-primary" />
-                </div>
+            <ul className="space-y-6 text-text-charcoal/85 text-base leading-relaxed">
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
                 <div>
-                  <h4 className="font-semibold text-text-navy text-sm">Qualifications & Certifications</h4>
-                  <ul className="text-xs text-text-charcoal/70 mt-1 list-disc list-inside space-y-1">
-                    <li>BA+MA Clinical Psychology</li>
-                    <li>Family Therapy Grad Cert (Kings&apos; College, London)</li>
+                  <strong className="text-text-navy font-semibold">Qualifications:</strong>
+                  <ul className="mt-2 ml-4 list-disc list-inside space-y-1 text-sm text-text-charcoal/80">
+                    <li>BA+MA (Dual) Clinical Psychology</li>
+                    <li>Family Therapy Grad Cert (King&apos;s College, London)</li>
                     <li>Queer Affirmative Counselling Practice (QACP)</li>
-                    <li>Expressive Arts & Therapies (FECAT)</li>
+                    <li>Expressive Arts &amp; Therapies (FECAT)</li>
                   </ul>
                 </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-xl bg-surface-peach flex items-center justify-center shrink-0">
-                  <BookOpen className="w-5 h-5 text-primary" />
-                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
                 <div>
-                  <h4 className="font-semibold text-text-navy text-sm">Therapy Approaches</h4>
-                  <p className="text-xs text-text-charcoal/70 mt-0.5">Systemic & Narrative (Trauma-informed & Queer-friendly)</p>
+                  <strong className="text-text-navy font-semibold">Practicing as a therapist since 2017</strong>
                 </div>
-              </div>
-            </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                <div>
+                  <strong className="text-text-navy font-semibold">Who I work with:</strong> Residing and Non-Residing Indians
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                <div>
+                  <strong className="text-text-navy font-semibold">Therapy Approaches:</strong> Systemic &amp; Narrative, Trauma-Informed &amp; Queer-Affirmative.
+                  <p className="mt-2 text-sm text-text-charcoal/80">
+                    This entails understanding mental health concerns and patterns through gender, privilege, caste, family, disability and other structures that shape your reality. Developing skills and resources to reshape and change personal narratives that drive your distress is an important part of these approaches. Trauma-Informed &amp; Queer-Affirmative lens is grounded in safety, inclusion, collaboration and respect for your lived experiences.
+                  </p>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                <div>
+                  <strong className="text-text-navy font-semibold">Languages Known:</strong> English &amp; Hindi
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                <div>
+                  <strong className="text-text-navy font-semibold">Areas of Specializations:</strong> Please find detailed information about this in the{" "}
+                  <Link href="/services" className="text-primary hover:underline font-medium">
+                    Services section
+                  </Link>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                <div>
+                  <strong className="text-text-navy font-semibold">My Therapy Style:</strong> My aim as a therapist is to provide a safe space for curiosity &amp; exploration of yourself, understanding your patterns that make you feel stuck and together creating possibilities for change &amp; growth with you.
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                <div>
+                  <strong className="text-text-navy font-semibold">Fun Facts about me:</strong> My favorite movie is Kung Fu Panda; I enjoy having coffee with friends and love the earthy smell of rain
+                </div>
+              </li>
+            </ul>
 
 
           </div>

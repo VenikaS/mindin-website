@@ -10,13 +10,17 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About Venika" },
+  { href: "/about", label: "About Me" },
   {
     href: "/services",
     label: "Services",
     children: [
       { href: "/services/anxiety-depression", label: "Anxiety & Depression" },
-      { href: "/services/childhood-trauma", label: "Childhood Trauma" },
+      { href: "/services/immigrants-students", label: "Immigrants & Students" },
+      { href: "/services/career-therapists", label: "Early Career Therapists" },
+      { href: "/services/childhood-trauma", label: "Childhood Trauma Support" },
+      { href: "/services/parentified-adults", label: "Parentified Adults" },
+      { href: "/services/reproductive-health", label: "Reproductive Health" },
       { href: "/services/couples-family", label: "Couples & Family" },
     ],
   },
@@ -32,7 +36,7 @@ const navLinks = [
   },
   {
     href: "/contact",
-    label: "Contact",
+    label: "Contact Me",
     children: [
       { href: "/contact", label: "Enquiry Form" },
       { href: "https://wa.me/919625088869", label: "WhatsApp" },
@@ -67,7 +71,7 @@ export default function Navbar() {
         <div className="mx-auto max-w-7xl px-6 md:px-8 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="relative h-9 w-32 flex items-center justify-center bg-transparent">
+            <div className="relative h-12 w-44 flex items-center justify-center bg-transparent">
               <img
                 src="/images/logo.png"
                 alt="Mind'in"

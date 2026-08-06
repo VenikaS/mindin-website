@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Mail } from "lucide-react";
+import { Mail, AlertTriangle } from "lucide-react";
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
@@ -30,35 +30,35 @@ function WhatsAppIcon({ className }: { className?: string }) {
 }
 
 const contactLinks = [
-    {
-      label: "Instagram",
-      href: "https://www.instagram.com/psychologist_venika.singhal?igsh=Zzl2djVhbHoxaWZ6",
-      icon: InstagramIcon,
-    },
-    {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/psychologistvenika?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-      icon: LinkedInIcon,
-    },
-    {
-      label: "WhatsApp",
-      href: "https://wa.me/919625088869",
-      icon: WhatsAppIcon,
-    },
-    {
-      label: "Email",
-      href: "mailto:psychologist.venikas@gmail.com",
-      icon: Mail,
-    },
-  ];
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/psychologist_venika.singhal?igsh=Zzl2djVhbHoxaWZ6",
+    icon: InstagramIcon,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/psychologistvenika?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    icon: LinkedInIcon,
+  },
+  {
+    label: "WhatsApp",
+    href: "https://wa.me/919625088869",
+    icon: WhatsAppIcon,
+  },
+  {
+    label: "Email",
+    href: "mailto:psychologist.venikas@gmail.com",
+    icon: Mail,
+  },
+];
 
 export default function Footer() {
   return (
     <footer className="bg-surface border-t border-primary/5 pt-20 pb-10">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-[auto_auto_1fr] gap-10 md:gap-14 mb-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 mb-16 items-start">
           {/* Logo & Intro */}
-          <div className="flex flex-col gap-6">
+          <div className="md:col-span-3 flex flex-col gap-6">
             <Link href="/" className="flex items-center gap-2 group">
               <div className="relative h-16 w-56 flex items-center justify-center bg-transparent">
                 <img
@@ -71,14 +71,14 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="text-text-navy text-sm font-semibold uppercase tracking-wider mb-6">Quick Links</h4>
+          <div className="md:col-span-3">
+            <h4 className="text-text-navy text-sm font-bold uppercase tracking-wider mb-6">Quick Links</h4>
             <ul className="flex flex-col gap-4">
-              {["About Venika", "Services", "FAQ", "Connect"].map((link) => (
+              {["About Me", "Services", "FAQ", "Contact Me"].map((link) => (
                 <li key={link}>
                   <Link
                     href={
-                      link === "About Venika"
+                      link === "About Me"
                         ? "/about"
                         : link === "Services"
                         ? "/services"
@@ -95,9 +95,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Links */}
-          <div>
-            <h4 className="text-text-navy text-sm font-semibold uppercase tracking-wider mb-6">Connect</h4>
+          {/* Socials & Emergency Disclaimer */}
+          <div className="md:col-span-6 space-y-6">
             <div className="flex items-center gap-3">
               {contactLinks.map(({ label, href, icon: Icon }) => (
                 <a
@@ -113,13 +112,22 @@ export default function Footer() {
                 </a>
               ))}
             </div>
+
+            {/* Crisis Disclaimer */}
+            <div className="bg-red-50/70 border border-red-200/50 rounded-2xl p-4 flex gap-3 items-start text-xs text-red-800 leading-relaxed font-bold">
+              <AlertTriangle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
+              <div>
+                <span className="block mb-1 text-sm text-red-950 font-bold">Crisis & Emergency Disclaimer:</span>
+                Mind’in does not provide crisis & emergency support services. Therefore in case of any physical, emotional, psychological emergency where urgent action is required including but not limited to any danger/threat to you or someone else, self-harm, active suicidal intent please go to the nearest hospital and call emergency services.
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="border-t border-primary/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-text-charcoal/50 text-xs">
-            &copy; {new Date().getFullYear()} Mind&apos;in Therapy. All rights reserved.
+          <p className="text-text-charcoal/50 text-xs font-medium">
+            Copyright &copy; Mind&apos;in 2026 - All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="text-text-charcoal/50 hover:text-primary text-xs transition-colors">
