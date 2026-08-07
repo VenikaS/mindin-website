@@ -38,7 +38,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="relative min-h-screen bg-neutral-bg pt-12 pb-24">
+    <div className="relative min-h-screen bg-neutral-bg pt-4 pb-24">
       {/* Background Decor Blobs */}
       <div className="blob-container">
         <div className="blob bg-surface-blue w-[500px] h-[500px] -left-20 top-20" />

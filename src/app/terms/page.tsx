@@ -4,7 +4,7 @@ import { ArrowLeft } from "lucide-react";
 
 export default function TermsPage() {
   return (
-    <div className="relative min-h-screen bg-neutral-bg pt-12 pb-24">
+    <div className="relative min-h-screen bg-neutral-bg pt-4 pb-24">
       <div className="relative z-10 mx-auto max-w-3xl px-6">
         <Link
           href="/"

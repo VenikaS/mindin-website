@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, DM_Sans } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CrisisBanner from "@/components/CrisisBanner";
 import "./globals.css";
 
 const inter = Inter({
@@ -33,6 +34,7 @@ export default function RootLayout({
       className={`${inter.variable} ${dmSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-neutral-bg text-text-charcoal font-sans selection:bg-primary-light selection:text-text-navy">
+        <CrisisBanner />
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />

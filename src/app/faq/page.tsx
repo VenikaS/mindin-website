@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 
 export default function FAQPage() {
   return (
-    <div className="relative min-h-screen bg-neutral-bg pt-12 pb-24">
+    <div className="relative min-h-screen bg-neutral-bg pt-4 pb-24">
       {/* Background Decor Blobs */}
       <div className="blob-container">
         <div className="blob bg-surface-peach w-[450px] h-[450px] -left-20 top-10" />

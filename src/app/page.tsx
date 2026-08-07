@@ -45,7 +45,7 @@ export default function HomePage() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative z-10 mx-auto max-w-7xl px-6 md:px-8 pt-10 md:pt-14 pb-14">
+      <section className="relative z-10 mx-auto max-w-7xl px-6 md:px-8 pt-4 md:pt-6 pb-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -98,7 +98,7 @@ export default function HomePage() {
       </section>
 
       {/* Getting Started */}
-      <section className="bg-text-navy text-white pt-8 md:pt-10 pb-16 md:pb-20 relative z-10">
+      <section className="bg-text-navy text-white pt-8 md:pt-10 pb-10 md:pb-12 relative z-10">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-5">
             <h2 className="text-3xl md:text-4xl font-display text-white">Getting Started</h2>
@@ -123,9 +123,9 @@ export default function HomePage() {
       </section>
 
       {/* Testimonies */}
-      <section className="py-16 md:py-20 relative z-10">
+      <section className="pt-10 pb-12 md:pt-12 md:pb-14 relative z-10">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
-          <h2 className="text-3xl md:text-4xl font-display text-text-navy text-center mb-12">Testimonies</h2>
+          <h2 className="text-3xl md:text-4xl font-display text-text-navy text-center mb-6">Testimonies</h2>
           <TestimonialsCarousel />
         </div>
       </section>

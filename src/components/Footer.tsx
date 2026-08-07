@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, AlertTriangle } from "lucide-react";
+import { Mail } from "lucide-react";
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
@@ -113,14 +113,7 @@ export default function Footer() {
               ))}
             </div>
 
-            {/* Crisis Disclaimer */}
-            <div className="bg-red-50/70 border border-red-200/50 rounded-2xl p-4 flex gap-3 items-start text-xs text-red-800 leading-relaxed font-bold">
-              <AlertTriangle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
-              <div>
-                <span className="block mb-1 text-sm text-red-950 font-bold">Crisis & Emergency Disclaimer:</span>
-                Mind’in does not provide crisis & emergency support services. Therefore in case of any physical, emotional, psychological emergency where urgent action is required including but not limited to any danger/threat to you or someone else, self-harm, active suicidal intent please go to the nearest hospital and call emergency services.
-              </div>
-            </div>
+
           </div>
         </div>
 
