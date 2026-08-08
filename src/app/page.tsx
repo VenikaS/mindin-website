@@ -98,9 +98,9 @@ export default function HomePage() {
       </section>
 
       {/* Getting Started */}
-      <section className="bg-text-navy text-white pt-8 md:pt-10 pb-10 md:pb-12 relative z-10">
+      <section className="bg-text-navy text-white pt-6 md:pt-8 pb-8 md:pb-10 relative z-10">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-5">
+          <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
             <h2 className="text-3xl md:text-4xl font-display text-white">Getting Started</h2>
             <p className="text-white text-xl md:text-2xl font-semibold leading-relaxed max-w-3xl mx-auto">
               You don&apos;t have to figure out everything alone. Whether you&apos;re facing a specific challenge or seeking a deeper understanding of yourself, I am here for you.

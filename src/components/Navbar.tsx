@@ -90,7 +90,7 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     className={cn(
-                      "inline-flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary relative py-1 text-text-charcoal",
+                      "inline-flex items-center gap-1 text-base font-medium transition-colors hover:text-primary relative py-1 text-text-charcoal",
                       isActive ? "text-primary" : "text-text-charcoal/80"
                     )}
                   >

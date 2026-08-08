@@ -28,7 +28,7 @@ export default function AboutPage() {
               />
             </div>
           </div>
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-6 md:pt-6">
             <div className="space-y-2">
               <h2 className="text-3xl md:text-4xl font-display text-text-navy flex flex-wrap items-baseline gap-2">
                 <span>Venika Singhal</span>
@@ -65,7 +65,7 @@ export default function AboutPage() {
               <li className="flex items-start gap-3">
                 <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
                 <div>
-                  <strong className="text-text-navy font-semibold">Therapy Approaches:</strong> Systemic &amp; Narrative, Trauma-Informed &amp; Queer-Affirmative.
+                  <strong className="text-text-navy font-semibold">Therapy Approaches:</strong> Systemic &amp; Narrative; Trauma-Informed &amp; Queer-Affirmative
                   <p className="mt-2 text-sm text-text-charcoal/80">
                     This entails understanding mental health concerns and patterns through gender, privilege, caste, family, disability and other structures that shape your reality. Developing skills and resources to reshape and change personal narratives that drive your distress is an important part of these approaches. Trauma-Informed &amp; Queer-Affirmative lens is grounded in safety, inclusion, collaboration and respect for your lived experiences.
                   </p>
@@ -103,7 +103,7 @@ export default function AboutPage() {
         </div>
 
         {/* Mind'in Journey & Philosophy Section */}
-        <div className="border-t border-primary/10 pt-20">
+        <div className="border-t border-primary/10 pt-12">
           <h2 className="text-3xl md:text-4xl font-display text-text-navy mb-12 text-center lg:text-left">
             Mind&rsquo;in Journey &amp; Philosophy
           </h2>
@@ -131,7 +131,7 @@ export default function AboutPage() {
               </p>
               <p>
                 Needless to say, this poster earned its&rsquo; spot on my therapy room wall and inspired me to create
-                Mind&rsquo;in. Mind&rsquo;in quite literally means going inside your mind to explore and be curious yourself
+                Mind&rsquo;in. Mind&rsquo;in quite literally means &lsquo;going inside your mind&rsquo; to explore and be curious yourself
                 and as a result build awareness about what drives your thinking, emotions and behaviours. The
                 purpose of mind&rsquo;in is to provide a safe space for you to be able to become who you
                 authentically are and move forward to where you want to be in your life.

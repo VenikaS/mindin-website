@@ -54,9 +54,9 @@ const contactLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-surface border-t border-primary/5 pt-20 pb-10">
+    <footer className="bg-surface border-t border-primary/5 pt-10 pb-6">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 mb-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 mb-10 items-start">
           {/* Logo & Intro */}
           <div className="md:col-span-3 flex flex-col gap-6">
             <Link href="/" className="flex items-center gap-2 group">
@@ -72,7 +72,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="md:col-span-3">
-            <h4 className="text-text-navy text-sm font-bold uppercase tracking-wider mb-6">Quick Links</h4>
+            <h4 className="text-text-navy text-lg font-bold uppercase tracking-wider mb-4">Quick Links</h4>
             <ul className="flex flex-col gap-4">
               {["About Me", "Services", "FAQ", "Contact Me"].map((link) => (
                 <li key={link}>
