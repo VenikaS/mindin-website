@@ -98,10 +98,9 @@ export default function HomePage() {
       </section>
 
       {/* Getting Started */}
-      <section className="bg-text-navy text-white pt-6 md:pt-8 pb-8 md:pb-10 relative z-10">
+      <section className="bg-text-navy text-white pt-6 md:pt-8 pb-6 md:pb-8 relative z-10">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
-            <h2 className="text-3xl md:text-4xl font-display text-white">Getting Started</h2>
+          <div className="text-center max-w-3xl mx-auto mb-6 space-y-3">
             <p className="text-white text-xl md:text-2xl font-semibold leading-relaxed max-w-3xl mx-auto">
               You don&apos;t have to figure out everything alone. Whether you&apos;re facing a specific challenge or seeking a deeper understanding of yourself, I am here for you.
             </p>
@@ -110,11 +109,10 @@ export default function HomePage() {
             {/* Connection line */}
             <div className="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-primary/20 -z-0" />
             {processSteps.map((step) => (
-              <div key={step.num} className="text-center space-y-6 relative z-10">
+              <div key={step.num} className="text-center space-y-3 relative z-10">
                 <div className="w-24 h-24 bg-primary text-white rounded-full flex items-center justify-center mx-auto text-3xl font-bold border-4 border-text-navy shadow-lg">
                   {step.num}
                 </div>
-                <h4 className="text-2xl font-semibold text-white">{step.title}</h4>
                 <p className="text-white/80 text-base leading-relaxed max-w-sm mx-auto">{step.desc}</p>
               </div>
             ))}

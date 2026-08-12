@@ -72,3 +72,24 @@ export const relatedBlogsQuery = groq`
     }
   }
 `;
+
+// Query to get all testimonials
+export const testimonialsQuery = groq`
+  *[_type == "testimonial"] | order(order asc) {
+    _id,
+    quote,
+    author,
+    role,
+    color,
+    order
+  }
+`;
+
+// Query to get active future booking slots
+export const bookingSlotsQuery = groq`
+  *[_type == "bookingSlot" && date >= $today && count(times) > 0] | order(date asc) {
+    _id,
+    date,
+    times
+  }
+`;

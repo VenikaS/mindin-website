@@ -5,7 +5,11 @@ import useEmblaCarousel from "embla-carousel-react";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 
-const testimonials = [
+import { client } from "@/sanity/client";
+import { testimonialsQuery } from "@/sanity/queries";
+import { SanityTestimonial } from "@/sanity/types";
+
+const fallbackTestimonials = [
   {
     quote: "Working alongside Venika has been an enriching experience. She is keen observer and an empathetic listener, bringing thoughtfulness and genuine presence to every interaction. As a therapist she feels deeply, reflects consistently on her practice and approaches her work with humility and care. Her understanding of family dynamics within the Indian context is both nuanced and grounded in strong ethical values. This allows her to navigate the complexities of this work with sensitivity and insight. What I admire most is her unwavering commitment to learning and evolving as a therapist. It is truly a pleasure to learn from her and witness the passion she brings to continually refining her skills.",
     author: "Shubhangi Agrawal",
@@ -39,7 +43,34 @@ const testimonials = [
 ];
 
 export default function TestimonialsCarousel() {
+  const [list, setList] = React.useState(fallbackTestimonials);
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+
+  React.useEffect(() => {
+    async function loadTestimonials() {
+      try {
+        const fetched = await client.fetch<SanityTestimonial[]>(testimonialsQuery);
+        if (fetched && fetched.length > 0) {
+          const mapped = fetched.map((t) => ({
+            quote: t.quote,
+            author: t.author,
+            role: t.role || "",
+            color: t.color === "blue" ? "bg-surface-blue/40" : "bg-surface-peach/40",
+          }));
+          setList(mapped);
+        }
+      } catch (error) {
+        console.error("Error fetching testimonials from Sanity:", error);
+      }
+    }
+    loadTestimonials();
+  }, []);
+
+  React.useEffect(() => {
+    if (emblaApi) {
+      emblaApi.reInit();
+    }
+  }, [emblaApi, list]);
 
   const scrollPrev = React.useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -53,7 +84,7 @@ export default function TestimonialsCarousel() {
     <div className="relative max-w-2xl mx-auto px-4">
       <div className="overflow-hidden cursor-grab active:cursor-grabbing" ref={emblaRef}>
         <div className="flex">
-          {testimonials.map((t, idx) => (
+          {list.map((t, idx) => (
             <div
               key={idx}
               className="flex-[0_0_100%] min-w-0 pl-3"

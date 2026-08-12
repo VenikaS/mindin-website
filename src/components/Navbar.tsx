@@ -25,15 +25,7 @@ const navLinks = [
     ],
   },
   { href: "/blog", label: "Blog" },
-  {
-    href: "/faq",
-    label: "FAQ",
-    children: [
-      { href: "/faq", label: "Getting Started" },
-      { href: "/faq", label: "Sessions & Fees" },
-      { href: "/faq", label: "Privacy" },
-    ],
-  },
+  { href: "/faq", label: "FAQ" },
   {
     href: "/contact",
     label: "Contact Me",

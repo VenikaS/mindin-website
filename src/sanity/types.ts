@@ -28,3 +28,18 @@ export interface SanityBlog {
   seoTitle?: string;
   seoDescription?: string;
 }
+
+export interface SanityTestimonial {
+  _id: string;
+  quote: string;
+  author: string;
+  role?: string;
+  color?: string;
+  order?: number;
+}
+
+export interface SanityBookingSlot {
+  _id: string;
+  date: string;
+  times: string[];
+}

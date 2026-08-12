@@ -3,8 +3,12 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Brain, Heart, Smile, Sparkles, AlertTriangle, ShieldCheck, Video, MapPin, Phone, ArrowRight, ArrowLeft } from "lucide-react";
+import { Brain, Heart, Smile, Sparkles, AlertTriangle, ShieldCheck, Video, MapPin, Phone, ArrowRight, ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+import { client } from "@/sanity/client";
+import { bookingSlotsQuery } from "@/sanity/queries";
+import { SanityBookingSlot } from "@/sanity/types";
 
 const services = [
   { id: "anxiety-depression", title: "Anxiety & Depression Support", desc: "Regulating nervous system & low mood.", icon: Brain },
@@ -36,6 +40,7 @@ export default function BookAppointmentPage() {
   });
 
   const [availableDates, setAvailableDates] = React.useState<{ id: string; label: string; isWeekend: boolean }[]>([]);
+  const [dbSlots, setDbSlots] = React.useState<SanityBookingSlot[]>([]);
 
   React.useEffect(() => {
     const datesList = [];
@@ -63,13 +68,133 @@ export default function BookAppointmentPage() {
     setAvailableDates(datesList);
   }, []);
 
-  const selectedDateObj = availableDates.find(d => d.id === formData.date);
-  const isWeekend = selectedDateObj?.isWeekend || false;
-  const availableTimes = isWeekend
-    ? ["10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM"]
-    : ["11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM"];
+  React.useEffect(() => {
+    async function loadSlots() {
+      try {
+        const todayStr = new Date().toISOString().split("T")[0];
+        const fetched = await client.fetch<SanityBookingSlot[]>(bookingSlotsQuery, { today: todayStr });
+        setDbSlots(fetched || []);
+      } catch (error) {
+        console.error("Error loading booking slots from Sanity:", error);
+      }
+    }
+    loadSlots();
+  }, []);
+
+  // Group slots by date
+  const sanityDatesList = React.useMemo(() => {
+    if (dbSlots.length === 0) return [];
+    
+    // Get unique dates
+    const uniqueDates = Array.from(new Set(dbSlots.map(s => s.date))).sort();
+    
+    const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    
+    return uniqueDates.map(dateStr => {
+      const parts = dateStr.split("-");
+      const parsedDate = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+      const dayName = daysOfWeek[parsedDate.getDay()];
+      const monthName = months[parsedDate.getMonth()];
+      const dayNum = parsedDate.getDate();
+      
+      return {
+        id: dateStr,
+        label: `${dayName}, ${monthName} ${dayNum}`,
+        isWeekend: parsedDate.getDay() === 0 || parsedDate.getDay() === 6
+      };
+    });
+  }, [dbSlots]);
+
+  const datesToDisplay = dbSlots.length > 0 ? sanityDatesList : availableDates;
+
+  // Derive available times for the selected date
+  const availableTimes = React.useMemo(() => {
+    if (dbSlots.length > 0) {
+      const slotDoc = dbSlots.find(s => s.date === formData.date);
+      return slotDoc ? slotDoc.times || [] : [];
+    }
+    
+    // Fallback behavior
+    const selectedDateObj = availableDates.find(d => d.id === formData.date);
+    const isWeekend = selectedDateObj?.isWeekend || false;
+    return isWeekend
+      ? ["10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM"]
+      : ["11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM"];
+  }, [dbSlots, formData.date, availableDates]);
 
   const [formErrors, setFormErrors] = React.useState<Record<string, string>>({});
+
+  const [currentMonth, setCurrentMonth] = React.useState(new Date().getMonth());
+  const [currentYear, setCurrentYear] = React.useState(new Date().getFullYear());
+
+  const getDaysInMonth = (month: number, year: number) => {
+    return new Date(year, month + 1, 0).getDate();
+  };
+
+  const getFirstDayOfMonth = (month: number, year: number) => {
+    return new Date(year, month, 1).getDay();
+  };
+
+  const calendarDays = React.useMemo(() => {
+    const totalDays = getDaysInMonth(currentMonth, currentYear);
+    const firstDayIndex = getFirstDayOfMonth(currentMonth, currentYear);
+    
+    const days = [];
+    
+    // Previous month padding days
+    const prevMonthIdx = currentMonth === 0 ? 11 : currentMonth - 1;
+    const prevMonthYear = currentMonth === 0 ? currentYear - 1 : currentYear;
+    const prevMonthDaysCount = getDaysInMonth(prevMonthIdx, prevMonthYear);
+    for (let i = firstDayIndex - 1; i >= 0; i--) {
+      const d = prevMonthDaysCount - i;
+      const mStr = String(prevMonthIdx + 1).padStart(2, "0");
+      const dStr = String(d).padStart(2, "0");
+      days.push({
+        dayNum: d,
+        dateStr: `${prevMonthYear}-${mStr}-${dStr}`,
+        isCurrentMonth: false,
+      });
+    }
+    
+    // Current month days
+    for (let d = 1; d <= totalDays; d++) {
+      const mStr = String(currentMonth + 1).padStart(2, "0");
+      const dStr = String(d).padStart(2, "0");
+      days.push({
+        dayNum: d,
+        dateStr: `${currentYear}-${mStr}-${dStr}`,
+        isCurrentMonth: true,
+      });
+    }
+    
+    return days;
+  }, [currentMonth, currentYear]);
+
+  const isDateSelectable = React.useCallback((dateStr: string) => {
+    if (dbSlots.length > 0) {
+      return dbSlots.some(s => s.date === dateStr && s.times && s.times.length > 0);
+    }
+    return availableDates.some(d => d.id === dateStr);
+  }, [dbSlots, availableDates]);
+
+  const prevMonth = () => {
+    if (currentMonth === 0) {
+      setCurrentMonth(11);
+      setCurrentYear((prev) => prev - 1);
+    } else {
+      setCurrentMonth((prev) => prev - 1);
+    }
+  };
+
+  const nextMonth = () => {
+    if (currentMonth === 11) {
+      setCurrentMonth(0);
+      setCurrentYear((prev) => prev + 1);
+    } else {
+      setCurrentMonth((prev) => prev + 1);
+    }
+  };
 
   const nextStep = () => {
     if (step === 1 && !formData.service) {
@@ -80,15 +205,17 @@ export default function BookAppointmentPage() {
       alert("Please select a connection format.");
       return;
     }
-    if (step === 3 && !formData.date) {
-      alert("Please select a date.");
-      return;
+    if (step === 3) {
+      if (!formData.date) {
+        alert("Please select a date.");
+        return;
+      }
+      if (!formData.time) {
+        alert("Please select a time.");
+        return;
+      }
     }
-    if (step === 4 && !formData.time) {
-      alert("Please select a time.");
-      return;
-    }
-    if (step === 5) {
+    if (step === 4) {
       const errors: Record<string, string> = {};
       if (!formData.name.trim()) errors.name = "Full Name is required.";
       if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email))
@@ -101,7 +228,7 @@ export default function BookAppointmentPage() {
       }
       setFormErrors({});
     }
-    setStep((prev) => Math.min(prev + 1, 6));
+    setStep((prev) => Math.min(prev + 1, 5));
   };
 
   const prevStep = () => {
@@ -146,7 +273,7 @@ export default function BookAppointmentPage() {
     router.push("/thank-you");
   };
 
-  const progressPercent = Math.round((step / 6) * 100);
+  const progressPercent = Math.round((step / 5) * 100);
 
   return (
     <div className="relative min-h-screen bg-neutral-bg pt-4 pb-24">
@@ -181,7 +308,7 @@ export default function BookAppointmentPage() {
           {/* Progress bar */}
           <div className="mb-10">
             <div className="flex justify-between items-center text-xs font-semibold uppercase tracking-wider text-primary mb-3">
-              <span>Step {step} of 6</span>
+              <span>Step {step} of 5</span>
               <span>{progressPercent}% Complete</span>
             </div>
             <div className="h-1.5 w-full bg-surface rounded-full overflow-hidden">
@@ -271,21 +398,107 @@ export default function BookAppointmentPage() {
                     exit={{ opacity: 0, x: -10 }}
                     className="space-y-6"
                   >
-                    <h2 className="text-2xl font-display text-text-navy">Select a date</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {availableDates.map((d) => (
-                        <div
-                          key={d.id}
-                          onClick={() => setFormData({ ...formData, date: d.id, time: "" })}
-                          className={`p-5 rounded-2xl border-2 cursor-pointer text-center font-medium transition-all ${
-                            formData.date === d.id
-                              ? "border-primary bg-primary-container/30 text-text-navy"
-                              : "border-primary/10 bg-surface-pearl hover:border-primary/50 text-text-charcoal"
-                          }`}
-                        >
-                          {d.label}
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                      {/* Left: Calendar Widget */}
+                      <div className="md:col-span-7 space-y-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <h2 className="text-xl font-display text-text-navy">Select a date</h2>
+                          <div className="flex items-center gap-2">
+                            <button
+                              type="button"
+                              onClick={prevMonth}
+                              className="p-2 rounded-lg border border-primary/10 bg-surface-pearl hover:bg-primary-light/45 transition-colors cursor-pointer text-text-navy flex items-center justify-center"
+                              aria-label="Previous month"
+                            >
+                              <ChevronLeft className="w-4 h-4" />
+                            </button>
+                            <span className="text-sm font-semibold text-text-navy min-w-[120px] text-center">
+                              {["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][currentMonth]} {currentYear}
+                            </span>
+                            <button
+                              type="button"
+                              onClick={nextMonth}
+                              className="p-2 rounded-lg border border-primary/10 bg-surface-pearl hover:bg-primary-light/45 transition-colors cursor-pointer text-text-navy flex items-center justify-center"
+                              aria-label="Next month"
+                            >
+                              <ChevronRight className="w-4 h-4" />
+                            </button>
+                          </div>
                         </div>
-                      ))}
+
+                        <div className="bg-surface-pearl border border-primary/5 rounded-3xl p-5 shadow-sm space-y-4">
+                          {/* Weekdays header */}
+                          <div className="grid grid-cols-7 gap-2 text-center text-xs font-semibold text-primary uppercase tracking-wider">
+                            {["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].map(day => (
+                              <div key={day} className="py-1">{day}</div>
+                            ))}
+                          </div>
+
+                          {/* Days grid */}
+                          <div className="grid grid-cols-7 gap-2 text-center text-sm">
+                            {calendarDays.map((d, index) => {
+                              const selectable = d.isCurrentMonth && isDateSelectable(d.dateStr);
+                              const isSelected = formData.date === d.dateStr;
+                              
+                              return (
+                                <button
+                                  key={index}
+                                  type="button"
+                                  disabled={!selectable}
+                                  onClick={() => setFormData({ ...formData, date: d.dateStr, time: "" })}
+                                  className={`py-2.5 rounded-xl font-semibold transition-all flex items-center justify-center relative ${
+                                    !d.isCurrentMonth
+                                      ? "text-text-charcoal/20 cursor-default font-normal"
+                                      : !selectable
+                                      ? "text-text-charcoal/30 cursor-not-allowed font-normal hover:bg-transparent"
+                                      : isSelected
+                                      ? "bg-primary text-white shadow-md shadow-primary/20 scale-105"
+                                      : "bg-primary-light/30 text-text-navy hover:bg-primary-light/60 hover:scale-105"
+                                  }`}
+                                >
+                                  {d.dayNum}
+                                  {selectable && !isSelected && (
+                                    <span className="absolute bottom-1 w-1.5 h-1.5 rounded-full bg-primary" />
+                                  )}
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Right: Time Selection */}
+                      <div className="md:col-span-5 space-y-4">
+                        <h2 className="text-xl font-display text-text-navy">Available times</h2>
+                        {formData.date ? (
+                          availableTimes.length > 0 ? (
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[360px] overflow-y-auto pr-1">
+                              {availableTimes.map((t) => (
+                                <button
+                                  key={t}
+                                  type="button"
+                                  onClick={() => setFormData({ ...formData, time: t })}
+                                  className={`p-3 rounded-xl border-2 cursor-pointer text-center font-medium transition-all w-full ${
+                                    formData.time === t
+                                      ? "border-primary bg-primary text-white"
+                                      : "border-primary/10 bg-surface-pearl hover:border-primary/50 text-text-charcoal"
+                                  }`}
+                                >
+                                  {t}
+                                </button>
+                              ))}
+                            </div>
+                          ) : (
+                            <p className="text-sm text-text-charcoal/70 bg-surface-pearl border border-primary/5 rounded-2xl p-5 text-center">
+                              No slots available for this date.
+                            </p>
+                          )
+                        ) : (
+                          <div className="bg-surface-pearl border border-primary/5 rounded-2xl p-8 text-center text-text-charcoal/50 italic">
+                            Please select a date on the calendar first to see available times.
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </motion.div>
                 )}
@@ -293,33 +506,6 @@ export default function BookAppointmentPage() {
                 {step === 4 && (
                   <motion.div
                     key="step4"
-                    initial={{ opacity: 0, x: 10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -10 }}
-                    className="space-y-6"
-                  >
-                    <h2 className="text-2xl font-display text-text-navy">Available times</h2>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                      {availableTimes.map((t) => (
-                        <div
-                          key={t}
-                          onClick={() => setFormData({ ...formData, time: t })}
-                          className={`p-4 rounded-xl border-2 cursor-pointer text-center font-medium transition-all ${
-                            formData.time === t
-                              ? "border-primary bg-primary text-white"
-                              : "border-primary/10 bg-surface-pearl hover:border-primary/50 text-text-charcoal"
-                          }`}
-                        >
-                          {t}
-                        </div>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-
-                {step === 5 && (
-                  <motion.div
-                    key="step5"
                     initial={{ opacity: 0, x: 10 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -10 }}
@@ -386,9 +572,9 @@ export default function BookAppointmentPage() {
                   </motion.div>
                 )}
 
-                {step === 6 && (
+                {step === 5 && (
                   <motion.div
-                    key="step6"
+                    key="step5"
                     initial={{ opacity: 0, x: 10 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -10 }}
@@ -434,7 +620,7 @@ export default function BookAppointmentPage() {
                 <div />
               )}
 
-              {step < 6 ? (
+              {step < 5 ? (
                 <Button variant="primary" type="button" onClick={nextStep} className="flex items-center gap-2">
                   Continue <ArrowRight className="w-4 h-4" />
                 </Button>
