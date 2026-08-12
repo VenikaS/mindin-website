@@ -54,13 +54,13 @@ const contactLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-surface border-t border-primary/5 pt-10 pb-6">
+    <footer className="bg-surface border-t border-primary/5 pt-5 pb-3">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 mb-10 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-8 mb-4 items-start">
           {/* Logo & Intro */}
-          <div className="md:col-span-3 flex flex-col gap-6">
+          <div className="md:col-span-3 flex flex-col gap-3">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="relative h-16 w-56 flex items-center justify-center bg-transparent">
+              <div className="relative h-10 w-40 flex items-center justify-center bg-transparent">
                 <img
                   src="/images/logo.png"
                   alt="Mind'in"
@@ -72,9 +72,9 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="md:col-span-3">
-            <h4 className="text-text-navy text-lg font-bold uppercase tracking-wider mb-4">Quick Links</h4>
-            <ul className="flex flex-col gap-4">
-              {["About Me", "Services", "FAQ", "Contact Me"].map((link) => (
+            <h4 className="text-text-navy text-sm font-bold uppercase tracking-wider mb-2.5">Quick Links</h4>
+            <ul className="flex flex-col gap-2">
+              {["About Me", "Services", "FAQ"].map((link) => (
                 <li key={link}>
                   <Link
                     href={
@@ -96,7 +96,13 @@ export default function Footer() {
           </div>
 
           {/* Socials & Emergency Disclaimer */}
-          <div className="md:col-span-6 space-y-6">
+          <div className="md:col-span-6 space-y-3">
+            <Link
+              href="/contact"
+              className="text-text-charcoal/80 text-sm hover:text-primary transition-colors"
+            >
+              Contact Me
+            </Link>
             <div className="flex items-center gap-3">
               {contactLinks.map(({ label, href, icon: Icon }) => (
                 <a
@@ -112,22 +118,22 @@ export default function Footer() {
                 </a>
               ))}
             </div>
+            <div className="flex items-center gap-5">
+              <Link href="/privacy" className="text-text-charcoal/50 hover:text-primary text-xs transition-colors">
+                Privacy Policy
+              </Link>
+              <Link href="/terms" className="text-text-charcoal/50 hover:text-primary text-xs transition-colors">
+                Terms of Service
+              </Link>
+            </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-primary/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="border-t border-primary/10 pt-3 flex items-center">
           <p className="text-text-charcoal/50 text-xs font-medium">
             Copyright &copy; Mind&apos;in 2026 - All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
-            <Link href="/privacy" className="text-text-charcoal/50 hover:text-primary text-xs transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="text-text-charcoal/50 hover:text-primary text-xs transition-colors">
-              Terms of Service
-            </Link>
-          </div>
         </div>
       </div>
     </footer>
