@@ -72,9 +72,8 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="md:col-span-3">
-            <h4 className="text-text-navy text-sm font-bold uppercase tracking-wider mb-2.5">Quick Links</h4>
-            <ul className="flex flex-col gap-2">
-              {["About Me", "Services", "FAQ"].map((link) => (
+            <ul className="flex flex-col gap-4">
+              {["About Me", "Services", "FAQ", "Contact Me"].map((link) => (
                 <li key={link}>
                   <Link
                     href={
@@ -96,14 +95,9 @@ export default function Footer() {
           </div>
 
           {/* Socials & Emergency Disclaimer */}
-          <div className="md:col-span-6 space-y-3">
-            <Link
-              href="/contact"
-              className="text-text-charcoal/80 text-sm hover:text-primary transition-colors"
-            >
-              Contact Me
-            </Link>
-            <div className="flex items-center gap-3">
+          <div className="md:col-span-6 space-y-4">
+            <h4 className="text-text-navy text-lg font-bold uppercase tracking-wider">Contact Me</h4>
+            <div className="flex items-center gap-3 pt-2">
               {contactLinks.map(({ label, href, icon: Icon }) => (
                 <a
                   key={label}
@@ -117,14 +111,6 @@ export default function Footer() {
                   <Icon className="h-4.5 w-4.5" />
                 </a>
               ))}
-            </div>
-            <div className="flex items-center gap-5">
-              <Link href="/privacy" className="text-text-charcoal/50 hover:text-primary text-xs transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="text-text-charcoal/50 hover:text-primary text-xs transition-colors">
-                Terms of Service
-              </Link>
             </div>
           </div>
         </div>

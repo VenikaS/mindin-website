@@ -29,11 +29,6 @@ const navLinks = [
   {
     href: "/contact",
     label: "Contact Me",
-    children: [
-      { href: "/contact", label: "Enquiry Form" },
-      { href: "https://wa.me/919625088869", label: "WhatsApp" },
-      { href: "mailto:psychologist.venikas@gmail.com", label: "Email" },
-    ],
   },
 ];
 

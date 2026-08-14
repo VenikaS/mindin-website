@@ -17,8 +17,8 @@ export default function AboutPage() {
       {/* Main Container */}
       <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8 pt-2 md:pt-4">
         {/* Therapist Bio Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mb-32">
-          <div className="lg:col-span-5 relative w-full max-w-md mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-32">
+          <div className="lg:col-span-5 relative w-full max-w-md mx-auto pt-2">
             <div className="absolute -inset-4 border border-primary/10 rounded-[3rem] -z-10" />
             <div className="rounded-[3rem] overflow-hidden aspect-[4/5] shadow-soft-blue w-full">
               <img
@@ -28,7 +28,7 @@ export default function AboutPage() {
               />
             </div>
           </div>
-          <div className="lg:col-span-7 space-y-6 md:pt-6">
+          <div className="lg:col-span-7 space-y-6">
             <div className="space-y-2">
               <h2 className="text-3xl md:text-4xl font-display text-text-navy flex flex-wrap items-baseline gap-2">
                 <span>Venika Singhal</span>
