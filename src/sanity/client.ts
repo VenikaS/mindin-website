@@ -45,6 +45,24 @@ try {
       perspective: "previewDrafts",
     }) as unknown as SanityClientLike;
   }
+
+  // Safe wrapper to prevent network/DNS/offline errors from causing overlay crashes in dev mode
+  const wrapSafeFetch = (originalClient: SanityClientLike) => {
+    const originalFetch = originalClient.fetch;
+    originalClient.fetch = async <T>(query: string, params?: any): Promise<T> => {
+      try {
+        return await originalFetch(query, params);
+      } catch (err) {
+        console.warn("⚠️ Sanity connection failed (offline or DNS error). Falling back to mock data.");
+        return [] as unknown as T;
+      }
+    };
+  };
+
+  if (isValidProjectId) {
+    wrapSafeFetch(client);
+    wrapSafeFetch(previewClient);
+  }
 } catch (err) {
   console.warn("⚠️ Sanity client initialization failed. Falling back to mock client.", err);
   client = mockClient;

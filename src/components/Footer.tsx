@@ -54,13 +54,13 @@ const contactLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-surface border-t border-primary/5 pt-5 pb-3">
+    <footer className="bg-surface border-t border-primary/5 pt-10 pb-6">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-8 mb-4 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 mb-10 items-start">
           {/* Logo & Intro */}
-          <div className="md:col-span-3 flex flex-col gap-3">
+          <div className="md:col-span-4 flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="relative h-10 w-40 flex items-center justify-center bg-transparent">
+              <div className="relative h-14 w-52 flex items-center justify-center bg-transparent">
                 <img
                   src="/images/logo.png"
                   alt="Mind'in"
@@ -68,55 +68,63 @@ export default function Footer() {
                 />
               </div>
             </Link>
+            <p className="text-text-charcoal/70 text-xs md:text-sm leading-relaxed max-w-sm">
+              Providing compassionate, evidence-based therapy and professional supervision to support your mental well-being and personal growth.
+            </p>
           </div>
 
           {/* Quick Links */}
-          <div className="md:col-span-3">
-            <ul className="flex flex-col gap-4">
-              {["About Me", "Services", "FAQ", "Contact Me"].map((link) => (
-                <li key={link}>
-                  <Link
-                    href={
-                      link === "About Me"
-                        ? "/about"
-                        : link === "Services"
-                        ? "/services"
-                        : link === "FAQ"
-                        ? "/faq"
-                        : "/contact"
-                    }
-                    className="text-text-charcoal/80 text-sm hover:text-primary transition-colors"
-                  >
-                    {link}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div className="md:col-span-4 flex flex-col items-start md:items-center">
+            <div className="w-full max-w-[200px]">
+              <h4 className="text-text-navy text-sm font-bold uppercase tracking-wider mb-4">Quick Links</h4>
+              <ul className="flex flex-col gap-4">
+                {["About Me", "Services", "FAQ", "Blog"].map((link) => (
+                  <li key={link}>
+                    <Link
+                      href={
+                        link === "About Me"
+                          ? "/about"
+                          : link === "Services"
+                          ? "/services"
+                          : link === "FAQ"
+                          ? "/faq"
+                          : "/blog"
+                      }
+                      className="text-text-charcoal/80 text-sm hover:text-primary transition-colors"
+                    >
+                      {link}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           {/* Socials & Emergency Disclaimer */}
-          <div className="md:col-span-6 space-y-4">
-            <h4 className="text-text-navy text-lg font-bold uppercase tracking-wider">Contact Me</h4>
-            <div className="flex items-center gap-3 pt-2">
-              {contactLinks.map(({ label, href, icon: Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-primary-light/50 flex items-center justify-center text-text-navy hover:bg-primary hover:text-white transition-colors"
-                  aria-label={label}
-                  title={label}
-                >
-                  <Icon className="h-4.5 w-4.5" />
-                </a>
-              ))}
+          <div className="md:col-span-4 flex flex-col items-start md:items-center">
+            <div className="w-full max-w-[200px] flex flex-col items-start md:items-center">
+              <h4 className="text-text-navy text-sm font-bold uppercase tracking-wider mb-4">Contact Me</h4>
+              <div className="flex items-center gap-3">
+                {contactLinks.map(({ label, href, icon: Icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 rounded-full bg-primary-light/50 flex items-center justify-center text-text-navy hover:bg-primary hover:text-white transition-colors"
+                    aria-label={label}
+                    title={label}
+                  >
+                    <Icon className="h-4.5 w-4.5" />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-primary/10 pt-3 flex items-center">
+        <div className="border-t border-primary/10 pt-3 flex items-center justify-between">
           <p className="text-text-charcoal/50 text-xs font-medium">
             Copyright &copy; Mind&apos;in 2026 - All rights reserved.
           </p>

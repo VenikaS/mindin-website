@@ -11,16 +11,15 @@ import { bookingSlotsQuery } from "@/sanity/queries";
 import { SanityBookingSlot } from "@/sanity/types";
 
 const services = [
-  { id: "anxiety-depression", title: "Anxiety & Depression Support", desc: "Regulating nervous system & low mood.", icon: Brain },
-  { id: "immigrants-students", title: "Immigrants & Students", desc: "Navigating displacement and adjustment.", icon: Sparkles },
-  { id: "childhood-trauma", title: "Childhood Trauma", desc: "Healing adverse childhood experiences.", icon: Heart },
-  { id: "couples-family", title: "Couples & Family", desc: "Systemic therapy for relationships.", icon: Smile },
+  { id: "individual", title: "Individual Therapy", desc: "One-on-one session for personal growth & healing.", icon: Brain },
+  { id: "couples", title: "Couples Therapy", desc: "Strengthening communication and relationship bonds.", icon: Heart },
+  { id: "family", title: "Family Therapy", desc: "Navigating unhelpful patterns & family dynamics.", icon: Smile },
+  { id: "supervision", title: "One-on-one Supervision", desc: "Enhancing clinical skills for therapists.", icon: Sparkles },
 ];
 
 const formats = [
-  { id: "online", title: "Online Video", desc: "Secure link sent via email.", icon: Video },
-  { id: "in-person", title: "In-Person", desc: "At Saraswati Clinic, Sector 46, Noida.", icon: MapPin },
-  { id: "phone", title: "Phone Call", desc: "A voice-only consultation.", icon: Phone },
+  { id: "online", title: "Online Video Consultation", desc: "Secure Google Meet link sent via email.", icon: Video },
+  { id: "in-person", title: "In-Person Consultation", desc: "At Saraswati Clinic, Sector 46, Noida.", icon: MapPin },
 ];
 
 export default function BookAppointmentPage() {
@@ -270,7 +269,7 @@ export default function BookAppointmentPage() {
       }
     }
     
-    router.push("/thank-you");
+    router.push("/thank-you?format=" + formData.format);
   };
 
   const progressPercent = Math.round((step / 5) * 100);
@@ -286,21 +285,12 @@ export default function BookAppointmentPage() {
       <div className="relative z-10 mx-auto max-w-3xl px-6">
         {/* Header Title */}
         <div className="text-center mb-12 space-y-4">
-          <h1 className="text-4xl font-display text-text-navy">Begin Your Journey</h1>
-          <p className="text-base text-text-charcoal/80 max-w-lg mx-auto">
-            Choose a path that feels right for you. I am here to support your emotional well-being with professional, compassionate care.
+          <h1 className="text-3xl md:text-4xl font-display text-text-navy max-w-2xl mx-auto leading-tight">
+            As you begin your mental well-being journey, I will be here for you through every step
+          </h1>
+          <p className="text-sm text-text-charcoal/70 max-w-xl mx-auto italic font-medium">
+            *If this will be your first session then before making a session booking, please contact me either on the given whatsapp number or email given on the &apos;contact me&apos; tab.
           </p>
-        </div>
-
-        {/* Emergency disclaimer banner */}
-        <div className="bg-red-50 border border-red-200/50 rounded-2xl p-5 mb-8 flex gap-4 items-start shadow-sm">
-          <AlertTriangle className="w-5 h-5 text-error shrink-0 mt-0.5" />
-          <div className="space-y-1">
-            <h4 className="font-semibold text-text-navy text-sm">Emergency Support Disclaimer</h4>
-            <p className="text-xs text-text-charcoal/80 leading-relaxed">
-              Mind&apos;in is not an emergency service. If you are in immediate danger or experiencing a crisis, please contact emergency services or go to the nearest hospital immediately.
-            </p>
-          </div>
         </div>
 
         {/* Stepper Card */}
@@ -330,7 +320,7 @@ export default function BookAppointmentPage() {
                     exit={{ opacity: 0, x: -10 }}
                     className="space-y-6"
                   >
-                    <h2 className="text-2xl font-display text-text-navy">What area would you like to focus on?</h2>
+                    <h2 className="text-2xl font-display text-text-navy">Which session are you looking for?</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {services.map((item) => {
                         const IconComp = item.icon;
@@ -362,7 +352,7 @@ export default function BookAppointmentPage() {
                     exit={{ opacity: 0, x: -10 }}
                     className="space-y-6"
                   >
-                    <h2 className="text-2xl font-display text-text-navy">How would you like to connect?</h2>
+                    <h2 className="text-2xl font-display text-text-navy">How would you like to Connect?</h2>
                     <div className="space-y-4">
                       {formats.map((item) => {
                         const IconComp = item.icon;
@@ -469,7 +459,7 @@ export default function BookAppointmentPage() {
 
                       {/* Right: Time Selection */}
                       <div className="md:col-span-5 space-y-4">
-                        <h2 className="text-xl font-display text-text-navy">Available times</h2>
+                        <h2 className="text-xl font-display text-text-navy">Available slots</h2>
                         {formData.date ? (
                           availableTimes.length > 0 ? (
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[360px] overflow-y-auto pr-1">
@@ -495,7 +485,7 @@ export default function BookAppointmentPage() {
                           )
                         ) : (
                           <div className="bg-surface-pearl border border-primary/5 rounded-2xl p-8 text-center text-text-charcoal/50 italic">
-                            Please select a date on the calendar first to see available times.
+                            Please select a date on the calendar first to see available slots.
                           </div>
                         )}
                       </div>
@@ -511,7 +501,7 @@ export default function BookAppointmentPage() {
                     exit={{ opacity: 0, x: -10 }}
                     className="space-y-6"
                   >
-                    <h2 className="text-2xl font-display text-text-navy">Personal Details</h2>
+                    <h2 className="text-2xl font-display text-text-navy">Please complete the following details</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <label className="block text-xs font-semibold text-primary uppercase tracking-wider">Full Name</label>

@@ -59,13 +59,15 @@ export default function AboutPage() {
               <li className="flex items-start gap-3">
                 <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
                 <div>
-                  <strong className="text-text-navy font-semibold">Who I work with:</strong> Residing and Non-Residing Indians
+                  <strong className="text-text-navy font-semibold">Who I work with:</strong>{" "}
+                  Residing and Non-Residing Indians
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
                 <div>
-                  <strong className="text-text-navy font-semibold">Therapy Approaches:</strong> Systemic &amp; Narrative; Trauma-Informed &amp; Queer-Affirmative
+                  <strong className="text-text-navy font-semibold">Therapy Approaches:</strong>{" "}
+                  Systemic &amp; Narrative; Trauma-Informed &amp; Queer-Affirmative
                   <p className="mt-2 text-sm text-text-charcoal/80">
                     This entails understanding mental health concerns and patterns through gender, privilege, caste, family, disability and other structures that shape your reality. Developing skills and resources to reshape and change personal narratives that drive your distress is an important part of these approaches. Trauma-Informed &amp; Queer-Affirmative lens is grounded in safety, inclusion, collaboration and respect for your lived experiences.
                   </p>
@@ -74,13 +76,15 @@ export default function AboutPage() {
               <li className="flex items-start gap-3">
                 <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
                 <div>
-                  <strong className="text-text-navy font-semibold">Languages Known:</strong> English &amp; Hindi
+                  <strong className="text-text-navy font-semibold">Languages Known:</strong>{" "}
+                  English &amp; Hindi
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
                 <div>
-                  <strong className="text-text-navy font-semibold">Areas of Specializations:</strong> Please find detailed information about this in the{" "}
+                  <strong className="text-text-navy font-semibold">Areas of Specializations:</strong>{" "}
+                  Please find detailed information about this in the{" "}
                   <Link href="/services" className="text-primary hover:underline font-medium">
                     Services section
                   </Link>
@@ -89,13 +93,15 @@ export default function AboutPage() {
               <li className="flex items-start gap-3">
                 <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
                 <div>
-                  <strong className="text-text-navy font-semibold">My Therapy Style:</strong> My aim as a therapist is to provide a safe space for curiosity &amp; exploration of yourself, understanding your patterns that make you feel stuck and together creating possibilities for change &amp; growth with you.
+                  <strong className="text-text-navy font-semibold">My Therapy Style:</strong>{" "}
+                  My aim as a therapist is to provide a safe space for curiosity &amp; exploration of yourself, understanding your patterns that make you feel stuck and together creating possibilities for change &amp; growth with you.
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
                 <div>
-                  <strong className="text-text-navy font-semibold">Fun Facts about me:</strong> My favorite movie is Kung Fu Panda; I enjoy having coffee with friends and love the earthy smell of rain
+                  <strong className="text-text-navy font-semibold">Fun Facts about me:</strong>{" "}
+                  My favorite movie is Kung Fu Panda; I enjoy having coffee with friends and love the earthy smell of rain
                 </div>
               </li>
             </ul>
