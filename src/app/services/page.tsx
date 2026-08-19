@@ -153,8 +153,11 @@ export default function ServicesPage() {
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <h1 className="text-4xl md:text-5xl font-display text-text-navy leading-tight">
-            Therapy Services
+            Services
           </h1>
+          <p className="text-text-charcoal/80 text-lg md:text-xl font-medium max-w-2xl mx-auto">
+            Psychotherapy, Supervision Services and Workshops & Trainings
+          </p>
           <div className="h-1 w-20 bg-primary/20 mx-auto rounded-full" />
         </div>
 
@@ -202,7 +205,7 @@ export default function ServicesPage() {
         {/* Section 2: Supervision */}
         <section className="space-y-8">
           <div className="border-b border-primary/10 pb-4">
-            <h2 className="text-3xl font-display text-text-navy">Supervision</h2>
+            <h2 className="text-3xl font-display text-text-navy">Supervision Services</h2>
             <p className="text-text-charcoal/60 text-sm mt-1">Support and guidance for early-career mental health practitioners.</p>
           </div>
 

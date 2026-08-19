@@ -8,21 +8,18 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-const navLinks = [
+interface NavLink {
+  href: string;
+  label: string;
+  children?: { href: string; label: string }[];
+}
+
+const navLinks: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Me" },
   {
     href: "/services",
     label: "Services",
-    children: [
-      { href: "/services/anxiety-depression", label: "Anxiety & Depression" },
-      { href: "/services/immigrants-students", label: "Immigrants & Students" },
-      { href: "/services/career-therapists", label: "Early Career Therapists" },
-      { href: "/services/childhood-trauma", label: "Childhood Trauma Support" },
-      { href: "/services/parentified-adults", label: "Parentified Adults" },
-      { href: "/services/reproductive-health", label: "Reproductive Health" },
-      { href: "/services/couples-family", label: "Couples & Family" },
-    ],
   },
   { href: "/blog", label: "Blog" },
   { href: "/faq", label: "FAQ" },
@@ -93,7 +90,7 @@ export default function Navbar() {
                   </Link>
                   {hasChildren && (
                     <div className="invisible absolute left-1/2 top-full z-50 mt-3 w-56 -translate-x-1/2 rounded-2xl border border-primary/10 bg-surface-pearl p-2 opacity-0 shadow-soft-blue transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                      {link.children.map((child) => {
+                      {link.children?.map((child) => {
                         const isExternal = child.href.startsWith("http") || child.href.startsWith("mailto:");
                         return (
                           <Link

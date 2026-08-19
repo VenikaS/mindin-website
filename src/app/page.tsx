@@ -15,9 +15,9 @@ function WhatsAppIcon({ className }: { className?: string }) {
 
 export default function HomePage() {
   const processSteps = [
-    { num: 1, title: "Step 1", desc: "Identify the area of concern or goal that you want to work on in therapy." },
-    { num: 2, title: "Step 2", desc: "Either fill the enquiry form or reach out on the listed WhatsApp number to book your introductory 10-15 minute call." },
-    { num: 3, title: "Step 3", desc: "Work with me as your therapist through online or offline sessions with a plan tailored to your needs." },
+    { num: 1, title: "Step 1", desc: "Identify if you want to opt for therapy or supervision services" },
+    { num: 2, title: "Step 2", desc: "Either fill the enquiry form or reach out on the listed WhatsApp number to book your introductory 10-15 minute call" },
+    { num: 3, title: "Step 3", desc: "Work with me as your therapist through online or offline sessions with a process tailored to your needs" },
   ];
 
   return (
@@ -54,7 +54,7 @@ export default function HomePage() {
             className="lg:col-span-6 space-y-7 text-left"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-display text-text-navy leading-tight tracking-tight">
-              You Matter and <br />
+              You Matter, <br />
               Your Mental Health Matters
             </h1>
             <div className="space-y-3">

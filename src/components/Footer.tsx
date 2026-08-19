@@ -54,13 +54,13 @@ const contactLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-surface border-t border-primary/5 pt-10 pb-6">
+    <footer className="bg-text-navy border-t border-white/10 pt-10 pb-6 text-white">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 mb-10 items-start">
           {/* Logo & Intro */}
           <div className="md:col-span-4 flex flex-col gap-4">
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="relative h-14 w-52 flex items-center justify-center bg-transparent">
+            <Link href="/" className="flex items-center gap-2.5 group">
+              <div className="relative h-12 w-44 flex items-center justify-center bg-transparent">
                 <img
                   src="/images/logo.png"
                   alt="Mind'in"
@@ -68,15 +68,15 @@ export default function Footer() {
                 />
               </div>
             </Link>
-            <p className="text-text-charcoal/70 text-xs md:text-sm leading-relaxed max-w-sm">
-              Providing compassionate, evidence-based therapy and professional supervision to support your mental well-being and personal growth.
+            <p className="text-white/70 text-xs md:text-sm leading-relaxed max-w-sm">
+              A mental health service designed to support you step-by-step for your personal and professional growth through psychotherapy, supervision, trainings and workshops
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="md:col-span-4 flex flex-col items-start md:items-center">
             <div className="w-full max-w-[200px]">
-              <h4 className="text-text-navy text-sm font-bold uppercase tracking-wider mb-4">Quick Links</h4>
+              <p className="text-white text-sm font-bold uppercase tracking-wider mb-4">Quick Links</p>
               <ul className="flex flex-col gap-4">
                 {["About Me", "Services", "FAQ", "Blog"].map((link) => (
                   <li key={link}>
@@ -90,7 +90,7 @@ export default function Footer() {
                           ? "/faq"
                           : "/blog"
                       }
-                      className="text-text-charcoal/80 text-sm hover:text-primary transition-colors"
+                      className="text-white/80 text-sm hover:text-primary-light transition-colors"
                     >
                       {link}
                     </Link>
@@ -103,7 +103,7 @@ export default function Footer() {
           {/* Socials & Emergency Disclaimer */}
           <div className="md:col-span-4 flex flex-col items-start md:items-center">
             <div className="w-full max-w-[200px] flex flex-col items-start md:items-center">
-              <h4 className="text-text-navy text-sm font-bold uppercase tracking-wider mb-4">Contact Me</h4>
+              <p className="text-white text-sm font-bold uppercase tracking-wider mb-4">Contact Me</p>
               <div className="flex items-center gap-3">
                 {contactLinks.map(({ label, href, icon: Icon }) => (
                   <a
@@ -111,7 +111,7 @@ export default function Footer() {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-full bg-primary-light/50 flex items-center justify-center text-text-navy hover:bg-primary hover:text-white transition-colors"
+                    className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-primary-light hover:text-text-navy transition-colors"
                     aria-label={label}
                     title={label}
                   >
@@ -124,8 +124,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-primary/10 pt-3 flex items-center justify-between">
-          <p className="text-text-charcoal/50 text-xs font-medium">
+        <div className="border-t border-white/10 pt-3 flex items-center justify-between">
+          <p className="text-white/40 text-xs font-medium">
             Copyright &copy; Mind&apos;in 2026 - All rights reserved.
           </p>
         </div>

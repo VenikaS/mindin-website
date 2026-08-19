@@ -27,34 +27,6 @@ function ThankYouContent() {
         </p>
       </div>
 
-      {/* Quick next steps cards */}
-      <div className="bg-surface rounded-2xl p-6 text-left space-y-4 border border-primary/5">
-        <h4 className="font-semibold text-text-navy text-sm uppercase tracking-wider">Next Steps</h4>
-        <div className="space-y-3">
-          <div className="flex items-start gap-3">
-            <Mail className="w-4.5 h-4.5 text-primary shrink-0 mt-0.5" />
-            <p className="text-xs text-text-charcoal/70">
-              Check your inbox for a confirmation containing details of your booking.
-            </p>
-          </div>
-          {format === "in-person" ? (
-            <div className="flex items-start gap-3">
-              <MapPin className="w-4.5 h-4.5 text-primary shrink-0 mt-0.5" />
-              <p className="text-xs text-text-charcoal/70">
-                Clinic Address: Saraswati Clinic, Sector 46, Noida. Map details sent to your email.
-              </p>
-            </div>
-          ) : (
-            <div className="flex items-start gap-3">
-              <Video className="w-4.5 h-4.5 text-primary shrink-0 mt-0.5" />
-              <p className="text-xs text-text-charcoal/70">
-                A HIPAA-secured, private telehealth video link will be sent to your email 24 hours before the session.
-              </p>
-            </div>
-          )}
-        </div>
-      </div>
-
       <Link href="/" className="inline-block pt-4">
         <Button variant="primary" className="flex items-center gap-2">
           <Home className="w-4 h-4" /> Return to Homepage
