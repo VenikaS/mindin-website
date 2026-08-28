@@ -46,7 +46,7 @@ export default function BookAppointmentPage() {
     const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     
-    for (let i = 1; i <= 7; i++) {
+    for (let i = 1; i <= 30; i++) {
       const d = new Date();
       d.setDate(d.getDate() + i);
       const dayName = daysOfWeek[d.getDay()];
@@ -118,8 +118,8 @@ export default function BookAppointmentPage() {
     const selectedDateObj = availableDates.find(d => d.id === formData.date);
     const isWeekend = selectedDateObj?.isWeekend || false;
     return isWeekend
-      ? ["10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM"]
-      : ["11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM"];
+      ? ["10:00 AM", "11:30 AM", "01:00 PM", "02:30 PM"]
+      : ["11:00 AM", "12:30 PM", "02:00 PM", "03:30 PM", "05:00 PM", "06:30 PM", "08:00 PM"];
   }, [dbSlots, formData.date, availableDates]);
 
   const [formErrors, setFormErrors] = React.useState<Record<string, string>>({});

@@ -60,11 +60,11 @@ export default function Footer() {
           {/* Logo & Intro */}
           <div className="md:col-span-4 flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="relative h-12 w-44 flex items-center justify-center bg-transparent">
+              <div className="relative h-12 w-[148px] overflow-hidden rounded-[14px]">
                 <img
                   src="/images/logo.png"
                   alt="Mind'in"
-                  className="h-full w-full object-contain object-left"
+                  className="h-full w-full object-cover"
                 />
               </div>
             </Link>

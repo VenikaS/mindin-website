@@ -12,7 +12,7 @@ const contactSchema = zod.object({
   name: zod.string().min(1, "Please provide your name."),
   email: zod.string().email("Please provide a valid email address."),
   subject: zod.string().min(1, "Subject is required."),
-  message: zod.string().min(10, "Message must be at least 10 characters long."),
+  message: zod.string().optional(),
 });
 
 type ContactValues = zod.infer<typeof contactSchema>;
@@ -114,19 +114,19 @@ export default function ContactPage() {
                 <h2 className="text-2xl font-display text-text-navy mb-4">Enquiry Form</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="block text-xs font-semibold text-primary uppercase tracking-wider">Your Name</label>
-                    <Input {...register("name")} placeholder="Your name" className={errors.name ? "border-error" : ""} />
+                    <label className="block text-xs font-semibold text-primary uppercase tracking-wider">Your Name *</label>
+                    <Input {...register("name")} placeholder="" className={errors.name ? "border-error" : ""} />
                     {errors.name && <p className="text-xs text-error">{errors.name.message}</p>}
                   </div>
                   <div className="space-y-2">
-                    <label className="block text-xs font-semibold text-primary uppercase tracking-wider">Email</label>
-                    <Input {...register("email")} placeholder="Your email" type="email" className={errors.email ? "border-error" : ""} />
+                    <label className="block text-xs font-semibold text-primary uppercase tracking-wider">Email *</label>
+                    <Input {...register("email")} placeholder="" type="email" className={errors.email ? "border-error" : ""} />
                     {errors.email && <p className="text-xs text-error">{errors.email.message}</p>}
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="block text-xs font-semibold text-primary uppercase tracking-wider">Subject</label>
+                  <label className="block text-xs font-semibold text-primary uppercase tracking-wider">Subject *</label>
                   <Input {...register("subject")} placeholder="" className={errors.subject ? "border-error" : ""} />
                   {errors.subject && <p className="text-xs text-error">{errors.subject.message}</p>}
                 </div>
@@ -135,7 +135,7 @@ export default function ContactPage() {
                   <label className="block text-xs font-semibold text-primary uppercase tracking-wider">Message</label>
                   <textarea
                     {...register("message")}
-                    placeholder="Ask your queries..."
+                    placeholder=""
                     rows={5}
                     className={`w-full bg-surface border rounded-2xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm text-text-navy ${
                       errors.message ? "border-error" : "border-primary/10"

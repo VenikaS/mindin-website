@@ -156,7 +156,7 @@ export default function ServicesPage() {
             Services
           </h1>
           <p className="text-text-charcoal/80 text-lg md:text-xl font-medium max-w-2xl mx-auto">
-            Psychotherapy, Supervision Services and Workshops & Trainings
+            Psychotherapy, Supervision and Workshops & Trainings
           </p>
           <div className="h-1 w-20 bg-primary/20 mx-auto rounded-full" />
         </div>
@@ -165,7 +165,7 @@ export default function ServicesPage() {
         <section className="space-y-8">
           <div className="border-b border-primary/10 pb-4">
             <h2 className="text-3xl font-display text-text-navy">Psychotherapy</h2>
-            <p className="text-text-charcoal/60 text-sm mt-1">Tailored one-on-one and relationship therapy to navigate life's complexities.</p>
+            <p className="text-text-charcoal/60 text-sm mt-1">Therapy sessions for navigating life's difficulties and complex concerns</p>
           </div>
 
           <div className="space-y-6">
@@ -205,8 +205,8 @@ export default function ServicesPage() {
         {/* Section 2: Supervision */}
         <section className="space-y-8">
           <div className="border-b border-primary/10 pb-4">
-            <h2 className="text-3xl font-display text-text-navy">Supervision Services</h2>
-            <p className="text-text-charcoal/60 text-sm mt-1">Support and guidance for early-career mental health practitioners.</p>
+            <h2 className="text-3xl font-display text-text-navy">Supervision</h2>
+            <p className="text-text-charcoal/60 text-sm mt-1">Support and guidance for early-career therapists</p>
           </div>
 
           <div className="bg-surface-pearl border border-primary/5 rounded-[2.5rem] p-8 md:p-10 space-y-8 shadow-sm">
@@ -214,8 +214,8 @@ export default function ServicesPage() {
               <p>
                 Whether you have just completed your masters or are in the early years of your therapy practice, supervision can provide you with the necessary knowledge and practical skills in accordance to where you are in your professional journey. It enables you to improve your skills as a therapist and gain support & guidance for your clinical work. This in turn can help ensure that you as the therapist, are able to provide ethical and quality care to your clients.
               </p>
-              <p className="font-semibold text-primary">
-                These services are best suited for therapists with 0-5 years of experience.
+              <p className="font-semibold text-primary italic">
+                *These services are best suited for therapists with 0-5 years of experience.
               </p>
             </div>
 
@@ -229,10 +229,10 @@ export default function ServicesPage() {
                   </p>
                 </div>
                 <div className="flex gap-4 pt-2">
-                  <Link href="/contact" className="flex-1">
+                  <Link href="/contact" className="flex-1 flex">
                     <Button variant="outline" className="w-full">Enquire</Button>
                   </Link>
-                  <Link href="/book" className="flex-1">
+                  <Link href="/book" className="flex-1 flex">
                     <Button variant="primary" className="w-full">Book Session</Button>
                   </Link>
                 </div>
@@ -250,10 +250,10 @@ export default function ServicesPage() {
                   </p>
                 </div>
                 <div className="flex gap-4 pt-2">
-                  <Link href="/contact" className="flex-1">
+                  <Link href="/contact" className="flex-1 flex">
                     <Button variant="outline" className="w-full">Enquire</Button>
                   </Link>
-                  <Link href="/book" className="flex-1">
+                  <Link href="/book" className="flex-1 flex">
                     <Button variant="primary" className="w-full">Book Session</Button>
                   </Link>
                 </div>
@@ -266,7 +266,7 @@ export default function ServicesPage() {
         <section className="space-y-8">
           <div className="border-b border-primary/10 pb-4">
             <h2 className="text-3xl font-display text-text-navy">Workshops & Trainings</h2>
-            <p className="text-text-charcoal/60 text-sm mt-1">Interactive modules and expressive art workshops designed for organizations.</p>
+            <p className="text-text-charcoal/60 text-sm mt-1">Using expressive arts tools, interactive modules and workshops delivered for organizations</p>
           </div>
 
           <div className="bg-surface-pearl border border-primary/5 rounded-[2.5rem] p-8 md:p-10 space-y-6 shadow-sm">
@@ -275,7 +275,7 @@ export default function ServicesPage() {
             </p>
             <div className="bg-surface rounded-2xl p-6 border border-primary/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <p className="text-text-charcoal/80 text-sm font-semibold">
-                To get started, please reach out to check options or schedule a session.
+                To get started, please reach out via the enquiry form or through the given email id
               </p>
               <div className="flex gap-3">
                 <Link href="/contact">

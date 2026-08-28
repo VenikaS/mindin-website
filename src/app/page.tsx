@@ -17,7 +17,7 @@ export default function HomePage() {
   const processSteps = [
     { num: 1, title: "Step 1", desc: "Identify if you want to opt for therapy or supervision services" },
     { num: 2, title: "Step 2", desc: "Either fill the enquiry form or reach out on the listed WhatsApp number to book your introductory 10-15 minute call" },
-    { num: 3, title: "Step 3", desc: "Work with me as your therapist through online or offline sessions with a process tailored to your needs" },
+    { num: 3, title: "Step 3", desc: "Work with me as your therapist/supervisor through online or offline sessions with a process tailored to your needs" },
   ];
 
   return (
@@ -68,7 +68,7 @@ export default function HomePage() {
             <div className="flex flex-wrap gap-4 pt-2">
               <Link href="/book">
                 <Button variant="primary" size="lg">
-                  Book Your First Session
+                  Book Session
                 </Button>
               </Link>
               <Link href="/services">

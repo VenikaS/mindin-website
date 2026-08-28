@@ -32,7 +32,7 @@ export default function AboutPage() {
             <div className="space-y-2">
               <h2 className="text-3xl md:text-4xl font-display text-text-navy flex flex-wrap items-baseline gap-2">
                 <span>Venika Singhal</span>
-                <span className="text-lg md:text-xl font-sans font-normal text-text-charcoal/60">(She/Her)</span>
+                <span className="text-lg md:text-xl font-sans font-normal text-text-charcoal/60 italic">(She/Her)</span>
               </h2>
               <p className="text-primary font-semibold text-base md:text-lg">Founder Mind&rsquo;in &amp; Psychotherapist</p>
             </div>
@@ -43,10 +43,10 @@ export default function AboutPage() {
                 <div>
                   <strong className="text-text-navy font-semibold">Qualifications:</strong>
                   <ul className="mt-2 ml-4 list-disc list-inside space-y-1 text-sm text-text-charcoal/80">
-                    <li>BA+MA (Dual) Clinical Psychology</li>
-                    <li>Family Therapy Grad Cert (King&apos;s College, London)</li>
-                    <li>Queer Affirmative Counselling Practice (QACP)</li>
-                    <li>Expressive Arts &amp; Therapies (FECAT)</li>
+                    <li>BA+MA <span className="italic">(Dual)</span> Clinical Psychology</li>
+                    <li>Family Therapy Grad Cert <span className="italic">(King&apos;s College, London)</span></li>
+                    <li>Queer Affirmative Counselling Practice <span className="italic">(QACP, Mariwala Health Initiative)</span></li>
+                    <li>Expressive Arts &amp; Therapies <span className="italic">(FECAT)</span></li>
                   </ul>
                 </div>
               </li>
@@ -137,7 +137,7 @@ export default function AboutPage() {
               </p>
               <p>
                 Needless to say, this poster earned its&rsquo; spot on my therapy room wall and inspired me to create
-                Mind&rsquo;in. Mind&rsquo;in quite literally means &lsquo;going inside your mind&rsquo; to explore and be curious yourself
+                Mind&rsquo;in. Mind&rsquo;in quite literally means &lsquo;<span className="italic">going inside your mind</span>&rsquo; to explore and be curious yourself
                 and as a result build awareness about what drives your thinking, emotions and behaviours. The
                 purpose of mind&rsquo;in is to provide a safe space for you to be able to become who you
                 authentically are and move forward to where you want to be in your life.

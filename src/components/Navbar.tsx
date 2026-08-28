@@ -128,63 +128,63 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-      </header>
 
-      {/* Mobile Menu Panel */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[60px] z-40 md:hidden bg-neutral-bg border-b border-primary/10 shadow-lg px-6 py-8"
-          >
-            <nav className="flex flex-col gap-6">
-              {navLinks.map((link) => (
-                <div key={link.href} className="space-y-3">
-                  <Link
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className={cn(
-                      "text-lg font-medium transition-colors hover:text-primary py-1",
-                      pathname === link.href ? "text-primary" : "text-text-charcoal"
+        {/* Mobile Menu Panel */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.2 }}
+              className="absolute inset-x-0 top-full z-40 md:hidden bg-neutral-bg border-b border-primary/10 shadow-lg px-6 py-8"
+            >
+              <nav className="flex flex-col gap-6">
+                {navLinks.map((link) => (
+                  <div key={link.href} className="space-y-3">
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className={cn(
+                        "text-lg font-medium transition-colors hover:text-primary py-1",
+                        pathname === link.href ? "text-primary" : "text-text-charcoal"
+                      )}
+                    >
+                      {link.label}
+                    </Link>
+                    {"children" in link && link.children && (
+                      <div className="flex flex-col gap-3 border-l border-primary/15 pl-4">
+                        {link.children.map((child) => {
+                          const isExternal = child.href.startsWith("http") || child.href.startsWith("mailto:");
+                          return (
+                            <Link
+                              key={`${link.href}-${child.label}`}
+                              href={child.href}
+                              target={isExternal ? "_blank" : undefined}
+                              rel={isExternal ? "noopener noreferrer" : undefined}
+                              onClick={() => setIsOpen(false)}
+                              className="text-sm font-medium text-text-charcoal/70 transition-colors hover:text-primary"
+                            >
+                              {child.label}
+                            </Link>
+                          );
+                        })}
+                      </div>
                     )}
-                  >
-                    {link.label}
+                  </div>
+                ))}
+                <div className="pt-4 border-t border-primary/10">
+                  <Link href="/book" onClick={() => setIsOpen(false)} className="w-full">
+                    <Button variant="primary" size="lg" className="w-full flex items-center justify-center gap-2">
+                      Book Session
+                    </Button>
                   </Link>
-                  {"children" in link && link.children && (
-                    <div className="flex flex-col gap-3 border-l border-primary/15 pl-4">
-                      {link.children.map((child) => {
-                        const isExternal = child.href.startsWith("http") || child.href.startsWith("mailto:");
-                        return (
-                          <Link
-                            key={`${link.href}-${child.label}`}
-                            href={child.href}
-                            target={isExternal ? "_blank" : undefined}
-                            rel={isExternal ? "noopener noreferrer" : undefined}
-                            onClick={() => setIsOpen(false)}
-                            className="text-sm font-medium text-text-charcoal/70 transition-colors hover:text-primary"
-                          >
-                            {child.label}
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  )}
                 </div>
-              ))}
-              <div className="pt-4 border-t border-primary/10">
-                <Link href="/book" onClick={() => setIsOpen(false)} className="w-full">
-                  <Button variant="primary" size="lg" className="w-full flex items-center justify-center gap-2">
-                    Book a Session <ArrowRight className="h-4 w-4" />
-                  </Button>
-                </Link>
-              </div>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </header>
     </>
   );
 }

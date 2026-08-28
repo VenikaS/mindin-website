@@ -78,6 +78,28 @@ function doPost(e) {
     // Save data
     sheet.appendRow(row);
 
+    // Send confirmation email to client
+    if (data.email) {
+      try {
+        const subject = "Session Booking Confirmation - Mind'in";
+        const emailBody = "Hi " + (data.name || "there") + ",\n\n" +
+          "Your session has been successfully booked.\n\n" +
+          "Here are the details:\n" +
+          "- Focus Area: " + (data.service || "N/A") + "\n" +
+          "- Format: " + (data.format || "N/A") + "\n" +
+          "- Date: " + (data.date || "N/A") + "\n" +
+          "- Time: " + (data.time || "N/A") + "\n\n" +
+          "If this is an online session, a secure Google Meet link will be sent to your email 24 hours before the scheduled appointment.\n\n" +
+          "Thank you,\n" +
+          "Venika Singhal\n" +
+          "Founder Mind'in & Psychotherapist";
+        
+        MailApp.sendEmail(data.email, subject, emailBody);
+      } catch (emailErr) {
+        console.error("Failed to send email confirmation: " + emailErr.toString());
+      }
+    }
+
     return jsonResponse({
       status: "success",
       message: "Booking saved successfully"
