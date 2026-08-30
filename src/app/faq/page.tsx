@@ -22,7 +22,7 @@ export default function FAQPage() {
         </div>
 
         {/* FAQ Accordions */}
-        <div className="space-y-6">
+        <div className="bg-surface border border-primary/5 rounded-[2.5rem] p-8 md:p-10 shadow-sm">
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="faq-1">
               <AccordionTrigger>1. What is Psychotherapy?</AccordionTrigger>

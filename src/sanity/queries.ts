@@ -85,11 +85,15 @@ export const testimonialsQuery = groq`
   }
 `;
 
-// Query to get active future booking slots
 export const bookingSlotsQuery = groq`
-  *[_type == "bookingSlot" && date >= $today && count(times) > 0] | order(date asc) {
+  *[_type == "bookingSlot" && date >= $today] | order(date asc) {
     _id,
     date,
-    times
+    times,
+    bookedTimes,
+    startTime,
+    endTime,
+    sessionDuration,
+    gapDuration
   }
 `;

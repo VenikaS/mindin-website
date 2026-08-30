@@ -42,4 +42,9 @@ export interface SanityBookingSlot {
   _id: string;
   date: string;
   times: string[];
+  bookedTimes?: string[];
+  startTime?: string;
+  endTime?: string;
+  sessionDuration?: number;
+  gapDuration?: number;
 }

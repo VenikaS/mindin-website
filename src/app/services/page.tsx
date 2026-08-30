@@ -178,7 +178,7 @@ export default function ServicesPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  className="bg-surface-pearl border border-primary/5 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row md:items-start justify-between gap-6 shadow-sm hover:shadow-soft-blue transition-all duration-300"
+                  className="bg-surface border border-primary/5 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row md:items-start justify-between gap-6 shadow-sm hover:shadow-soft-blue transition-all duration-300"
                 >
                   <div className="flex gap-4 items-start flex-1">
                     <div className="w-12 h-12 rounded-2xl bg-primary-light/50 flex items-center justify-center shrink-0">
@@ -209,7 +209,7 @@ export default function ServicesPage() {
             <p className="text-text-charcoal/60 text-sm mt-1">Support and guidance for early-career therapists</p>
           </div>
 
-          <div className="bg-surface-pearl border border-primary/5 rounded-[2.5rem] p-8 md:p-10 space-y-8 shadow-sm">
+          <div className="bg-surface border border-primary/5 rounded-[2.5rem] p-8 md:p-10 space-y-8 shadow-sm">
             <div className="max-w-3xl space-y-4 text-text-charcoal/80 text-sm leading-relaxed">
               <p>
                 Whether you have just completed your masters or are in the early years of your therapy practice, supervision can provide you with the necessary knowledge and practical skills in accordance to where you are in your professional journey. It enables you to improve your skills as a therapist and gain support & guidance for your clinical work. This in turn can help ensure that you as the therapist, are able to provide ethical and quality care to your clients.
@@ -221,25 +221,25 @@ export default function ServicesPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Option A: One-on-one Supervision */}
-              <div className="bg-surface border border-primary/5 rounded-3xl p-6 flex flex-col justify-between space-y-6">
+              <div className="bg-surface-pearl border border-primary/5 rounded-3xl p-6 flex flex-col justify-between space-y-6">
                 <div className="space-y-3">
                   <h3 className="text-text-navy text-lg font-bold">One-on-one Supervision</h3>
                   <p className="text-text-charcoal/80 text-sm leading-relaxed">
                     The initial sessions will begin with getting to know about you, your therapy style and the challenges and/or biases you maybe encountering in your clinical practice. Thereafter, you and I will be discussing in detail the clinical cases that you maybe feeling stuck with or unsure about. The purpose of this space is to enable you to reflect on your work as a therapist, develop in-depth understanding about your client’s concerns and to be able to enhance your clinical skills through support and guidance.
                   </p>
                 </div>
-                <div className="flex gap-4 pt-2">
-                  <Link href="/contact" className="flex-1 flex">
+                <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                  <Link href="/contact" className="w-full sm:flex-1 flex">
                     <Button variant="outline" className="w-full">Enquire</Button>
                   </Link>
-                  <Link href="/book" className="flex-1 flex">
+                  <Link href="/book" className="w-full sm:flex-1 flex">
                     <Button variant="primary" className="w-full">Book Session</Button>
                   </Link>
                 </div>
               </div>
 
               {/* Option B: Group Supervision */}
-              <div className="bg-surface border border-primary/5 rounded-3xl p-6 flex flex-col justify-between space-y-6">
+              <div className="bg-surface-pearl border border-primary/5 rounded-3xl p-6 flex flex-col justify-between space-y-6">
                 <div className="space-y-3">
                   <h3 className="text-text-navy text-lg font-bold">Group Supervision</h3>
                   <p className="text-text-charcoal/80 text-sm leading-relaxed">
@@ -249,11 +249,11 @@ export default function ServicesPage() {
                     This is a closed group of 5 members, meeting once in two weeks. Please reach out to check for available slots.
                   </p>
                 </div>
-                <div className="flex gap-4 pt-2">
-                  <Link href="/contact" className="flex-1 flex">
+                <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                  <Link href="/contact" className="w-full sm:flex-1 flex">
                     <Button variant="outline" className="w-full">Enquire</Button>
                   </Link>
-                  <Link href="/book" className="flex-1 flex">
+                  <Link href="/book" className="w-full sm:flex-1 flex">
                     <Button variant="primary" className="w-full">Book Session</Button>
                   </Link>
                 </div>
@@ -269,22 +269,22 @@ export default function ServicesPage() {
             <p className="text-text-charcoal/60 text-sm mt-1">Using expressive arts tools, interactive modules and workshops delivered for organizations</p>
           </div>
 
-          <div className="bg-surface-pearl border border-primary/5 rounded-[2.5rem] p-8 md:p-10 space-y-6 shadow-sm">
+          <div className="bg-surface border border-primary/5 rounded-[2.5rem] p-8 md:p-10 space-y-6 shadow-sm">
             <p className="text-text-charcoal/80 text-sm leading-relaxed">
               Through the medium of expressive arts, workshops and trainings on mental health are aimed at promoting well-being and awareness for all individuals in the workplace, college, school or hospital. Learning practical strategies and building skills for emotional awareness, conflict resolution, managing stress & anxiety and maintaining a work-life balance can help create a positive environment of support and inclusivity. Training sessions are flexible and tailored to meet the specific needs of your organization. These are delivered in-person, online or in a hybrid format.
             </p>
-            <div className="bg-surface rounded-2xl p-6 border border-primary/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="bg-surface-pearl rounded-2xl p-6 border border-primary/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <p className="text-text-charcoal/80 text-sm font-semibold">
                 To get started, please reach out via the enquiry form or through the given email id
               </p>
-              <div className="flex gap-3">
-                <Link href="/contact">
-                  <Button variant="outline" className="flex items-center gap-2">
+              <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                <Link href="/contact" className="w-full sm:w-auto">
+                  <Button variant="outline" className="w-full flex items-center justify-center gap-2">
                     Enquiry Form
                   </Button>
                 </Link>
-                <a href="mailto:psychologist.venikas@gmail.com">
-                  <Button variant="primary" className="flex items-center gap-2">
+                <a href="mailto:psychologist.venikas@gmail.com" className="w-full sm:w-auto">
+                  <Button variant="primary" className="w-full flex items-center justify-center gap-2">
                     <Mail className="w-4 h-4" /> Email Me
                   </Button>
                 </a>

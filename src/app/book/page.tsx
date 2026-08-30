@@ -107,19 +107,82 @@ export default function BookAppointmentPage() {
 
   const datesToDisplay = dbSlots.length > 0 ? sanityDatesList : availableDates;
 
-  // Derive available times for the selected date
-  const availableTimes = React.useMemo(() => {
+  // Helper to parse time string into minutes for sorting
+  const timeToMinutes = (timeStr: string) => {
+    const [time, modifier] = timeStr.split(" ");
+    let [hours, minutes] = time.split(":").map(Number);
+    if (hours === 12) {
+      hours = 0;
+    }
+    if (modifier === "PM") {
+      hours += 12;
+    }
+    return hours * 60 + minutes;
+  };
+
+  // Helper to turn minutes back to formatted time string
+  const minutesToTime = (mins: number) => {
+    let hours = Math.floor(mins / 60);
+    const minutes = mins % 60;
+    const modifier = hours >= 12 ? "PM" : "AM";
+    if (hours > 12) {
+      hours -= 12;
+    }
+    if (hours === 0) {
+      hours = 12;
+    }
+    const minsStr = String(minutes).padStart(2, "0");
+    const hoursStr = String(hours).padStart(2, "0");
+    return `${hoursStr}:${minsStr} ${modifier}`;
+  };
+
+  // Helper to generate slots dynamically
+  const generateSlots = (
+    startTimeStr: string,
+    endTimeStr: string,
+    sessionDuration: number = 60,
+    gapDuration: number = 15
+  ): string[] => {
+    const startMins = timeToMinutes(startTimeStr);
+    const endMins = timeToMinutes(endTimeStr);
+    const slots: string[] = [];
+
+    let current = startMins;
+    while (current + sessionDuration <= endMins) {
+      slots.push(minutesToTime(current));
+      current += sessionDuration + gapDuration;
+    }
+    return slots;
+  };
+
+  // Derive all times with booking status for the selected date
+  const dateTimes = React.useMemo(() => {
     if (dbSlots.length > 0) {
       const slotDoc = dbSlots.find(s => s.date === formData.date);
-      return slotDoc ? slotDoc.times || [] : [];
+      if (slotDoc) {
+        let timesList = slotDoc.times || [];
+        if (timesList.length === 0 && slotDoc.startTime && slotDoc.endTime) {
+          timesList = generateSlots(
+            slotDoc.startTime,
+            slotDoc.endTime,
+            slotDoc.sessionDuration || 60,
+            slotDoc.gapDuration || 15
+          );
+        }
+        const available = timesList.map(t => ({ time: t, isBooked: false }));
+        const booked = (slotDoc.bookedTimes || []).map(t => ({ time: t, isBooked: true }));
+        return [...available, ...booked].sort((a, b) => timeToMinutes(a.time) - timeToMinutes(b.time));
+      }
+      return [];
     }
     
     // Fallback behavior
     const selectedDateObj = availableDates.find(d => d.id === formData.date);
     const isWeekend = selectedDateObj?.isWeekend || false;
-    return isWeekend
+    const fallbackList = isWeekend
       ? ["10:00 AM", "11:30 AM", "01:00 PM", "02:30 PM"]
       : ["11:00 AM", "12:30 PM", "02:00 PM", "03:30 PM", "05:00 PM", "06:30 PM", "08:00 PM"];
+    return fallbackList.map(t => ({ time: t, isBooked: false }));
   }, [dbSlots, formData.date, availableDates]);
 
   const [formErrors, setFormErrors] = React.useState<Record<string, string>>({});
@@ -461,20 +524,23 @@ export default function BookAppointmentPage() {
                       <div className="md:col-span-5 space-y-4">
                         <h2 className="text-xl font-display text-text-navy">Available slots</h2>
                         {formData.date ? (
-                          availableTimes.length > 0 ? (
+                          dateTimes.length > 0 ? (
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[360px] overflow-y-auto pr-1">
-                              {availableTimes.map((t) => (
+                              {dateTimes.map((item) => (
                                 <button
-                                  key={t}
+                                  key={item.time}
                                   type="button"
-                                  onClick={() => setFormData({ ...formData, time: t })}
-                                  className={`p-3 rounded-xl border-2 cursor-pointer text-center font-medium transition-all w-full ${
-                                    formData.time === t
-                                      ? "border-primary bg-primary text-white"
-                                      : "border-primary/10 bg-surface-pearl hover:border-primary/50 text-text-charcoal"
+                                  disabled={item.isBooked}
+                                  onClick={() => setFormData({ ...formData, time: item.time })}
+                                  className={`p-3 rounded-xl border-2 text-center font-medium transition-all w-full ${
+                                    item.isBooked
+                                      ? "border-neutral-200 bg-neutral-100 text-neutral-400 cursor-not-allowed opacity-60"
+                                      : formData.time === item.time
+                                      ? "border-primary bg-primary text-white cursor-pointer"
+                                      : "border-primary/10 bg-surface-pearl hover:border-primary/50 text-text-charcoal cursor-pointer"
                                   }`}
                                 >
-                                  {t}
+                                  {item.time} {item.isBooked && <span className="text-[10px] block text-neutral-400">(Booked)</span>}
                                 </button>
                               ))}
                             </div>
