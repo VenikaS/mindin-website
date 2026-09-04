@@ -87,7 +87,7 @@ export default function ContactPage() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-text-navy text-sm">In-person sessions</h4>
+                  <h4 className="font-semibold text-text-navy text-sm">In-Person Sessions</h4>
                   <p className="text-sm text-text-charcoal/70 mt-1">Saraswati Clinic, Sector 46, Noida, Uttar Pradesh, India</p>
                 </div>
               </div>

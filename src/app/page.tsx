@@ -17,7 +17,7 @@ export default function HomePage() {
   const processSteps = [
     { num: 1, title: "Step 1", desc: "Identify if you want to opt for therapy or supervision services" },
     { num: 2, title: "Step 2", desc: "Either fill the enquiry form or reach out on the listed WhatsApp number to book your introductory 10-15 minute call" },
-    { num: 3, title: "Step 3", desc: "Work with me as your therapist/supervisor through online or offline sessions with a process tailored to your needs" },
+    { num: 3, title: "Step 3", desc: "Work with me as your therapist/supervisor through online or offline sessions" },
   ];
 
   return (
@@ -113,7 +113,7 @@ export default function HomePage() {
                 <div className="w-24 h-24 bg-primary text-white rounded-full flex items-center justify-center mx-auto text-3xl font-bold border-4 border-text-navy shadow-lg">
                   {step.num}
                 </div>
-                <p className="text-white/80 text-base leading-relaxed max-w-sm mx-auto">{step.desc}</p>
+                <p className={`${step.num === 3 ? "bg-surface-peach text-text-navy rounded-xl px-4 py-3" : "text-white/80"} text-base leading-relaxed max-w-sm mx-auto`}>{step.desc}</p>
               </div>
             ))}
           </div>
