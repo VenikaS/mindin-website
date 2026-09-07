@@ -178,7 +178,7 @@ export default function ServicesPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  className="bg-surface border border-primary/5 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row md:items-start justify-between gap-6 shadow-sm hover:shadow-soft-blue transition-all duration-300"
+                  className="bg-surface-peach border border-primary/5 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row md:items-start justify-between gap-6 shadow-sm hover:shadow-soft-blue transition-all duration-300"
                 >
                   <div className="flex gap-4 items-start flex-1">
                     <div className="w-12 h-12 rounded-2xl bg-primary-light/50 flex items-center justify-center shrink-0">

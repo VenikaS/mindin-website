@@ -113,7 +113,7 @@ export default function HomePage() {
                 <div className="w-24 h-24 bg-primary text-white rounded-full flex items-center justify-center mx-auto text-3xl font-bold border-4 border-text-navy shadow-lg">
                   {step.num}
                 </div>
-                <p className={`${step.num === 3 ? "bg-surface-peach text-text-navy rounded-xl px-4 py-3" : "text-white/80"} text-base leading-relaxed max-w-sm mx-auto`}>{step.desc}</p>
+                <p className="text-white/80 text-base leading-relaxed max-w-sm mx-auto">{step.desc}</p>
               </div>
             ))}
           </div>

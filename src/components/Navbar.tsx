@@ -46,18 +46,18 @@ export default function Navbar() {
     <>
       <header
         className={cn(
-          "relative z-50 w-full transition-all duration-300",
+          "relative z-50 w-full rounded-b-3xl transition-all duration-300",
           isScrolled
-            ? "bg-neutral-bg/85 backdrop-blur-md shadow-sm border-b border-primary/5 py-3"
-            : "bg-transparent py-5"
+            ? "bg-text-navy/95 backdrop-blur-md shadow-sm border-b border-white/10 py-3"
+            : "bg-text-navy py-5"
         )}
       >
-        <div className="mx-auto max-w-7xl px-6 md:px-8 flex items-center justify-between">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="relative h-12 w-44 flex items-center justify-center bg-transparent">
+            <div className="relative h-10 w-36 sm:h-12 sm:w-44 flex items-center justify-center bg-transparent">
               <img
-                src="/images/logo.png"
+                src="/images/footer.jpg"
                 alt="Mind'in"
                 className="h-full w-full object-contain object-left"
               />
@@ -74,8 +74,8 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     className={cn(
-                      "inline-flex items-center gap-1 text-base font-medium transition-colors hover:text-primary relative py-1 text-text-charcoal",
-                      isActive ? "text-primary" : "text-text-charcoal/80"
+                      "inline-flex items-center gap-1 text-base font-medium transition-colors hover:text-primary-light relative py-1 text-white",
+                      isActive ? "text-primary-light" : "text-white/80"
                     )}
                   >
                     {link.label}
@@ -114,14 +114,15 @@ export default function Navbar() {
           {/* CTA & Mobile Menu Trigger */}
           <div className="flex items-center gap-4">
             <Link href="/book" className="hidden sm:inline-block">
-              <Button variant="primary" size="default">
+              <Button variant="primary" size="default" className="bg-gray-300 text-text-navy hover:bg-gray-400">
                 Book a Session
               </Button>
             </Link>
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 md:hidden text-text-navy hover:text-primary transition-colors focus:outline-none"
+              className="p-2 md:hidden text-white hover:text-primary-light transition-colors focus:outline-none"
+              aria-expanded={isOpen}
               aria-label="Toggle navigation menu"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -137,9 +138,9 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.2 }}
-              className="absolute inset-x-0 top-full z-40 md:hidden bg-neutral-bg border-b border-primary/10 shadow-lg px-6 py-8"
+              className="relative z-40 md:hidden bg-text-navy border-b border-white/10 rounded-b-3xl shadow-lg px-4 sm:px-6 py-6 sm:py-8"
             >
-              <nav className="flex flex-col gap-6">
+              <nav className="flex flex-col gap-5 sm:gap-6">
                 {navLinks.map((link) => (
                   <div key={link.href} className="space-y-3">
                     <Link
@@ -147,7 +148,7 @@ export default function Navbar() {
                       onClick={() => setIsOpen(false)}
                       className={cn(
                         "text-lg font-medium transition-colors hover:text-primary py-1",
-                        pathname === link.href ? "text-primary" : "text-text-charcoal"
+                        pathname === link.href ? "text-primary-light" : "text-white"
                       )}
                     >
                       {link.label}
@@ -163,7 +164,7 @@ export default function Navbar() {
                               target={isExternal ? "_blank" : undefined}
                               rel={isExternal ? "noopener noreferrer" : undefined}
                               onClick={() => setIsOpen(false)}
-                              className="text-sm font-medium text-text-charcoal/70 transition-colors hover:text-primary"
+                              className="text-sm font-medium text-white/70 transition-colors hover:text-primary-light"
                             >
                               {child.label}
                             </Link>
@@ -175,7 +176,7 @@ export default function Navbar() {
                 ))}
                 <div className="pt-4 border-t border-primary/10">
                   <Link href="/book" onClick={() => setIsOpen(false)} className="w-full">
-                    <Button variant="primary" size="lg" className="w-full flex items-center justify-center gap-2">
+                    <Button variant="primary" size="lg" className="w-full flex items-center justify-center gap-2 bg-gray-300 text-text-navy hover:bg-gray-400">
                       Book Session
                     </Button>
                   </Link>

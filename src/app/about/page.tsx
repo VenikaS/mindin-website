@@ -137,7 +137,7 @@ export default function AboutPage() {
               </p>
               <p>
                 Needless to say, this poster earned its&rsquo; spot on my therapy room wall and inspired me to create
-                Mind&rsquo;in. Mind&rsquo;in quite literally means &lsquo;<span className="italic">going inside your mind</span>&rsquo; to explore and be curious yourself
+                Mind&rsquo;in. Mind&rsquo;in quite literally means &lsquo;<span className="italic">going inside your mind </span>&rsquo; to explore and be curious yourself
                 and as a result build awareness about what drives your thinking, emotions and behaviours. The
                 purpose of mind&rsquo;in is to provide a safe space for you to be able to become who you
                 authentically are and move forward to where you want to be in your life.
