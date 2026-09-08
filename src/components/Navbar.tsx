@@ -46,7 +46,7 @@ export default function Navbar() {
     <>
       <header
         className={cn(
-          "relative z-50 w-full rounded-b-3xl transition-all duration-300",
+          "relative z-50 w-full transition-all duration-300",
           isScrolled
             ? "bg-text-navy/95 backdrop-blur-md shadow-sm border-b border-white/10 py-3"
             : "bg-text-navy py-5"
@@ -138,7 +138,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.2 }}
-              className="relative z-40 md:hidden bg-text-navy border-b border-white/10 rounded-b-3xl shadow-lg px-4 sm:px-6 py-6 sm:py-8"
+              className="relative z-40 md:hidden bg-text-navy border-b border-white/10 shadow-lg px-4 sm:px-6 py-6 sm:py-8"
             >
               <nav className="flex flex-col gap-5 sm:gap-6">
                 {navLinks.map((link) => (

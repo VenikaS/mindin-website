@@ -209,7 +209,7 @@ export default function ServicesPage() {
             <p className="text-text-charcoal/60 text-sm mt-1">Support and guidance for early-career therapists</p>
           </div>
 
-          <div className="bg-surface border border-primary/5 rounded-[2.5rem] p-8 md:p-10 space-y-8 shadow-sm">
+          <div className="bg-surface-peach/80 border border-primary/5 rounded-[2.5rem] p-8 md:p-10 space-y-8 shadow-sm">
             <div className="max-w-3xl space-y-4 text-text-charcoal/80 text-sm leading-relaxed">
               <p>
                 Whether you have just completed your masters or are in the early years of your therapy practice, supervision can provide you with the necessary knowledge and practical skills in accordance to where you are in your professional journey. It enables you to improve your skills as a therapist and gain support & guidance for your clinical work. This in turn can help ensure that you as the therapist, are able to provide ethical and quality care to your clients.
@@ -269,11 +269,11 @@ export default function ServicesPage() {
             <p className="text-text-charcoal/60 text-sm mt-1">Using expressive arts tools, interactive modules and workshops delivered for organizations</p>
           </div>
 
-          <div className="bg-surface border border-primary/5 rounded-[2.5rem] p-8 md:p-10 space-y-6 shadow-sm">
+          <div className="bg-surface-peach/80 border border-primary/5 rounded-[2.5rem] p-8 md:p-10 space-y-6 shadow-sm">
             <p className="text-text-charcoal/80 text-sm leading-relaxed">
               Through the medium of expressive arts, workshops and trainings on mental health are aimed at promoting well-being and awareness for all individuals in the workplace, college, school or hospital. Learning practical strategies and building skills for emotional awareness, conflict resolution, managing stress & anxiety and maintaining a work-life balance can help create a positive environment of support and inclusivity. Training sessions are flexible and tailored to meet the specific needs of your organization. These are delivered in-person, online or in a hybrid format.
             </p>
-            <div className="bg-surface-pearl rounded-2xl p-6 border border-primary/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="bg-surface-peach/70 rounded-2xl p-6 border border-primary/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <p className="text-text-charcoal/80 text-sm font-semibold">
                 To get started, please reach out via the enquiry form or through the given email id
               </p>
