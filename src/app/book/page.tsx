@@ -394,7 +394,7 @@ export default function BookAppointmentPage() {
                             className={`p-6 rounded-2xl border-2 cursor-pointer transition-all ${
                               formData.service === item.id
                                 ? "border-primary bg-primary-container/30"
-                                : "border-primary/10 bg-surface-pearl hover:border-primary/50"
+                                : "border-primary/10 bg-surface-peach/50 hover:border-primary/50"
                             }`}
                           >
                             <IconComp className="w-6 h-6 text-primary mb-3" />

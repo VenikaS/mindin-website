@@ -230,7 +230,7 @@ export default function ServicesPage() {
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3 pt-2">
                   <Link href="/contact" className="w-full sm:flex-1 flex">
-                    <Button variant="outline" className="w-full">Enquire</Button>
+                    <Button variant="secondary" className="w-full">Enquire</Button>
                   </Link>
                   <Link href="/book" className="w-full sm:flex-1 flex">
                     <Button variant="primary" className="w-full">Book Session</Button>
@@ -251,7 +251,7 @@ export default function ServicesPage() {
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3 pt-2">
                   <Link href="/contact" className="w-full sm:flex-1 flex">
-                    <Button variant="outline" className="w-full">Enquire</Button>
+                    <Button variant="secondary" className="w-full">Enquire</Button>
                   </Link>
                   <Link href="/book" className="w-full sm:flex-1 flex">
                     <Button variant="primary" className="w-full">Book Session</Button>
@@ -279,7 +279,7 @@ export default function ServicesPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
                 <Link href="/contact" className="w-full sm:w-auto">
-                  <Button variant="outline" className="w-full flex items-center justify-center gap-2">
+                  <Button variant="secondary" className="w-full flex items-center justify-center gap-2">
                     Enquiry Form
                   </Button>
                 </Link>
