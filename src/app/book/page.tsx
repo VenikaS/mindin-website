@@ -425,8 +425,8 @@ export default function BookAppointmentPage() {
                             onClick={() => setFormData({ ...formData, format: item.id })}
                             className={`p-6 rounded-2xl border-2 cursor-pointer flex items-center gap-4 transition-all ${
                               formData.format === item.id
-                                ? "border-primary bg-primary-container/30"
-                                : "border-primary/10 bg-surface-pearl hover:border-primary/50"
+                                ? "border-primary bg-surface-peach"
+                                : "border-primary/10 bg-surface-peach/50 hover:border-primary/50"
                             }`}
                           >
                             <div className="w-10 h-10 rounded-xl bg-primary-light/50 flex items-center justify-center shrink-0">
@@ -537,7 +537,7 @@ export default function BookAppointmentPage() {
                                       ? "border-neutral-200 bg-neutral-100 text-neutral-400 cursor-not-allowed opacity-60"
                                       : formData.time === item.time
                                       ? "border-primary bg-primary text-white cursor-pointer"
-                                      : "border-primary/10 bg-surface-pearl hover:border-primary/50 text-text-charcoal cursor-pointer"
+                                        : "border-primary/10 bg-primary-light/30 hover:bg-primary-light/60 hover:border-primary/50 text-text-charcoal cursor-pointer"
                                   }`}
                                 >
                                   {item.time} {item.isBooked && <span className="text-[10px] block text-neutral-400">(Booked)</span>}
@@ -669,7 +669,7 @@ export default function BookAppointmentPage() {
             {/* Stepper Actions Buttons */}
             <div className="flex items-center justify-between mt-12 border-t border-primary/10 pt-6">
               {step > 1 ? (
-                <Button variant="outline" type="button" onClick={prevStep} className="flex items-center gap-2">
+                <Button variant="secondary" type="button" onClick={prevStep} className="flex items-center gap-2">
                   <ArrowLeft className="w-4 h-4" /> Back
                 </Button>
               ) : (
