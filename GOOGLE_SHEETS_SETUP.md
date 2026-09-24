@@ -16,8 +16,9 @@ This guide explains how to connect your Next.js booking form with a Google Sheet
 2. Delete any default code in the editor and paste the following script:
 
 ```javascript
-const SPREADSHEET_ID = "YOUR_SPREADSHEET_ID_HERE";
+const SPREADSHEET_ID = "10aNMLPKpoPqXdj6cp7C3dV84FEgtCfkaVCa1SMG2q3g";
 const SHEET_NAME = "Sheet1";
+const NOTIFICATION_EMAIL = "psychologist.venikas@gmail.com";
 
 const HEADERS = [
   "Submitted At",
@@ -77,6 +78,24 @@ function doPost(e) {
 
     // Save data
     sheet.appendRow(row);
+
+    // Notify the clinic about the new booking
+    const bookingSummary = "New session booking received.\n\n" +
+      "Name: " + (data.name || "N/A") + "\n" +
+      "Email: " + (data.email || "N/A") + "\n" +
+      "Phone: " + (data.phone || "N/A") + "\n" +
+      "Focus Area: " + (data.service || "N/A") + "\n" +
+      "Format: " + (data.format || "N/A") + "\n" +
+      "Date: " + (data.date || "N/A") + "\n" +
+      "Time: " + (data.time || "N/A") + "\n" +
+      "Goals: " + (data.goals || "N/A");
+
+    MailApp.sendEmail({
+      to: NOTIFICATION_EMAIL,
+      subject: "New Session Booking - " + (data.name || "Unknown Client"),
+      body: bookingSummary,
+      replyTo: data.email || NOTIFICATION_EMAIL
+    });
 
     // Send confirmation email to client
     if (data.email) {

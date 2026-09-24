@@ -306,12 +306,12 @@ export default function BookAppointmentPage() {
 
     isSubmittingRef.current = true;
     setIsSubmitting(true);
+
+    const submittedAt = new Date().toISOString();
     
     const webhookUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_WEBHOOK_URL || "";
     if (webhookUrl) {
       try {
-        const submittedAt = new Date().toISOString();
-
         await fetch(webhookUrl, {
           method: "POST",
           headers: { "Content-Type": "text/plain;charset=utf-8" },
@@ -330,6 +330,34 @@ export default function BookAppointmentPage() {
       } catch (err) {
         console.error("Failed to sync booking data with Google Sheets:", err);
       }
+    }
+
+    try {
+      const crmResponse = await fetch("/api/crm/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          source: "landing_page",
+          notes: [
+            "Booking form submitted",
+            `Submitted At: ${submittedAt}`,
+            `Service: ${formData.service || "N/A"}`,
+            `Format: ${formData.format || "N/A"}`,
+            `Date: ${formData.date || "N/A"}`,
+            `Time: ${formData.time || "N/A"}`,
+            `Goals: ${formData.goals || "N/A"}`,
+          ].join("\n"),
+        }),
+      });
+
+      if (!crmResponse.ok) {
+        console.error("Failed to sync booking data with CRM:", await crmResponse.text());
+      }
+    } catch (err) {
+      console.error("Failed to sync booking data with CRM:", err);
     }
     
     router.push("/thank-you?format=" + formData.format);
