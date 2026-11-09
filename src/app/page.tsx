@@ -1,9 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import * as Dialog from "@radix-ui/react-dialog";
+import { useState } from "react";
+import { ArrowRight, Brain, Heart, Smile, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import { motion } from "framer-motion";
+import { formatRupees, therapyServices } from "@/lib/therapy-pricing";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -14,6 +18,7 @@ function WhatsAppIcon({ className }: { className?: string }) {
 }
 
 export default function HomePage() {
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const processSteps = [
     { num: 1, title: "Step 1", desc: "Identify if you want to opt for therapy or supervision services" },
     { num: 2, title: "Step 2", desc: "Either fill the enquiry form or reach out on the listed WhatsApp number to book your introductory 10-15 minute call" },
@@ -21,7 +26,8 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-neutral-bg">
+    <Dialog.Root open={isServicesOpen} onOpenChange={setIsServicesOpen}>
+      <div className="relative min-h-screen bg-neutral-bg">
       {/* Background Decor Blobs */}
       <div className="blob-container">
         <motion.div
@@ -71,11 +77,11 @@ export default function HomePage() {
                   Book Session
                 </Button>
               </Link>
-              <Link href="/services">
+              <Dialog.Trigger asChild>
                 <Button variant="secondary" size="lg">
                   Explore Services
                 </Button>
-              </Link>
+              </Dialog.Trigger>
             </div>
           </motion.div>
 
@@ -142,6 +148,68 @@ export default function HomePage() {
           <WhatsAppIcon className="h-8 w-8" />
         </span>
       </a>
-    </div>
+      </div>
+
+      <Dialog.Portal>
+        <Dialog.Overlay className="fixed inset-0 z-[60] bg-text-navy/55 backdrop-blur-sm" />
+        <Dialog.Content className="fixed left-1/2 top-1/2 z-[61] max-h-[90vh] w-[calc(100%-2rem)] max-w-4xl -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-[2rem] border border-primary/10 bg-surface-pearl p-6 shadow-2xl md:p-10">
+          <div className="flex items-start justify-between gap-6">
+            <div className="space-y-2">
+              <Dialog.Title className="text-2xl font-display text-text-navy md:text-3xl">
+                Find the right therapy session
+              </Dialog.Title>
+              <Dialog.Description className="max-w-2xl text-sm leading-relaxed text-text-charcoal/75">
+                Explore the session types, duration, and fees. Choose a service to continue to booking.
+              </Dialog.Description>
+            </div>
+            <Dialog.Close asChild>
+              <button
+                type="button"
+                aria-label="Close service options"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-text-charcoal transition-colors hover:bg-primary-light/50 hover:text-text-navy"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </Dialog.Close>
+          </div>
+
+          <div className="mt-8 grid auto-rows-fr items-stretch gap-4 md:grid-cols-3">
+            {therapyServices.map((service) => {
+              const Icon = service.id === "individual" ? Brain : service.id === "couples" ? Heart : Smile;
+
+              return (
+                <article
+                  key={service.id}
+                  className="flex h-full min-h-[400px] flex-col rounded-3xl border border-primary/10 bg-white/80 p-5 shadow-sm"
+                >
+                  <Icon className="mb-4 h-7 w-7 text-primary" aria-hidden="true" />
+                  <h3 className="text-lg font-semibold text-text-navy">{service.title}</h3>
+                  <p className="mt-2 min-h-12 text-sm leading-relaxed text-text-charcoal/75">{service.description}</p>
+                  <p className="mt-4 text-sm font-medium text-text-navy">Duration: {service.duration}</p>
+                  <div className="mt-4 space-y-2 border-t border-primary/10 pt-4 text-sm">
+                    <p className="flex justify-between gap-3">
+                      <span className="text-text-charcoal/75">Online</span>
+                      <span className="font-semibold text-text-navy">{formatRupees(service.onlinePrice)}</span>
+                    </p>
+                    <p className="flex justify-between gap-3">
+                      <span className="text-text-charcoal/75">In-person</span>
+                      <span className="font-semibold text-text-navy">{formatRupees(service.inPersonPrice)}</span>
+                    </p>
+                  </div>
+                  <Dialog.Close asChild>
+                    <Link
+                      href={`/book?service=${service.id}`}
+                      className="mt-auto inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-text-navy px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-primary"
+                    >
+                      Choose service <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                  </Dialog.Close>
+                </article>
+              );
+            })}
+          </div>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   );
 }
