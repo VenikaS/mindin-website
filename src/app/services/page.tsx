@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Brain, Heart, Sparkles, Smile, Shield, Compass, Sprout, Mail } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { formatRupees, therapyServices } from "@/lib/therapy-pricing";
 
 export interface ServiceItem {
   slug: string;
@@ -199,6 +200,42 @@ export default function ServicesPage() {
                 </motion.div>
               );
             })}
+          </div>
+        </section>
+
+        <section className="space-y-8">
+          <div className="border-b border-primary/10 pb-4">
+            <h2 className="text-3xl font-display text-text-navy">Therapy session pricing</h2>
+            <p className="text-text-charcoal/60 text-sm mt-1">
+              Session duration and fees vary by service and format.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {therapyServices.map((service) => (
+              <div
+                key={service.id}
+                className="flex flex-col rounded-3xl border border-primary/10 bg-surface-peach p-6 shadow-sm"
+              >
+                <h3 className="text-lg font-display font-semibold text-text-navy">{service.title}</h3>
+                <p className="mt-2 text-sm text-text-charcoal/75">Duration: {service.duration}</p>
+                <div className="mt-5 space-y-2 border-t border-primary/10 pt-4 text-sm">
+                  <p className="flex justify-between gap-3">
+                    <span className="text-text-charcoal/75">Online</span>
+                    <span className="font-semibold text-text-navy">{formatRupees(service.onlinePrice)}</span>
+                  </p>
+                  <p className="flex justify-between gap-3">
+                    <span className="text-text-charcoal/75">In-person</span>
+                    <span className="font-semibold text-text-navy">{formatRupees(service.inPersonPrice)}</span>
+                  </p>
+                </div>
+                <Link
+                  href={`/book?service=${service.id}`}
+                  className="mt-6 inline-flex min-h-11 items-center justify-center rounded-full bg-text-navy px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-primary"
+                >
+                  Book this service
+                </Link>
+              </div>
+            ))}
           </div>
         </section>
 
